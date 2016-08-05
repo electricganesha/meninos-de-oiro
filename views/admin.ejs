@@ -5,6 +5,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
   <script src="/javascripts/angular.js"></script>
   <head>
     <title><%= title %></title>
@@ -22,19 +23,21 @@
     <div class="page-header text-center" style=" width:100%;">
         <div style=" display: inline-block; width:100%; height:100%;">
           <p style="float:left;"> Bem-vindo(a) <strong><%= user.local.username %></strong>. </p>
+          <div style="position:absolute; top:9vh; left:40vw;">
+            <li style="display:inline-block;">
+          <ul style="display:inline;"><img src="images/icon/file.png" style="width:64px; height:64px; cursor:pointer;" ng-click="show = 'news'"></ul>
+          <ul style="display:inline;"><img src="images/icon/list.png" style="width:64px; height:64px; cursor:pointer;" ng-click="show = 'categories'"></ul>
+          <ul style="display:inline;"><img src="images/icon/coins.png" style="width:64px; height:64px; cursor:pointer;" ng-click="show = 'finance'"></ul>
+          </li>
+          </div>
           <a href="/logout" class="btn btn-default btn-sm" style="float:right;">Terminar Sessão</a></div>
-    </div>
-
-
-
+          </div>
     <div class="row">
         <!-- LOCAL INFORMATION -->
         </div>
 
     </div>
-
-</div>
-<div class="container-fluid" style="margin:15px;">
+<div class="container-fluid" style="margin:15px;" ng-init="show = 'news';" ng-show="show == 'news'">
   <div class="col-sm-6" style="width:95vw; margin:10px;">
   <div class="row" ng-controller="TableCtrl">
     <div class="procedure-details" ng-show="showDetails" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
@@ -46,10 +49,7 @@
           <h2 style="margin-bottom:20px;"><u>Nova Notícia</u></h2>
           <div class="form-group">
               <label>Categoria:</label>
-                <select class="form-control" name="categoriaSelect" ng-model="categoria">
-                  <option>Artigo</option>
-                  <option>Relatório</option>
-                  <option>Evento</option>
+                <select class="form-control" name="categoriaSelect" ng-model="categoria" ng-options="category.name for category in getStructureCategories()">
                 </select>
           </div>
           <div class="form-group">
@@ -101,12 +101,15 @@
   </thead>
   <tbody>
   <tr ng-repeat="newsPost in news | orderBy:'-date'">
-    <td ><div  ng-model="row.category">{{newsPost.category}}</td>
+    <td style="width:125px;" >
+      <select class="form-control" ng-init="optionCategory = newsPost.category" name="categoriaSelect" ng-model="optionCategory" ng-options="category for category in getStructureCategories()" ng-change="changeCategory(optionCategory,newsPost)">
+      </select>
+    </td>
     <td><div contentEditable="true" ng-model="row.title">{{newsPost.title}}</td>
     <td><div contentEditable="true" ng-model="row.link">{{newsPost.link}}</td>
     <td><div contentEditable="true" ng-model="row.body">{{newsPost.body}}</td>
     <td style="border: 1px solid blue;">
-      <div style=" position: relative;  width: 180px; height: 100px; overflow: auto; border:1px solid hotpink;" >
+      <div style=" position: relative;  width: 180px; height: 100px; overflow: hidden; border:1px solid black;" >
       <label for="file-input">
         <img src="{{newsPost.imageLink}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
       </label>
@@ -136,5 +139,41 @@
 </table>
 </div>
 </div>
+</div>
+<div class="container-fluid" style="margin:15px;" ng-show="show == 'categories'" ng-controller="TableCtrl">
+    <table st-table="rowCollection" class="table table-striped">
+	<thead>
+	<tr>
+		<th>Categoria</th>
+		<th>Cor</th>
+		<th>Icone</th>
+    <th>
+      <button type="button" ng-click="showDetails = ! showDetails" class="btn btn-sm btn-success" style="float:left;">
+      <i class="glyphicon glyphicon-plus-sign"></i> Inserir
+      </button>
+    </th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="category in categories">
+		<td>{{category.name}}</td>
+		<td style="background-color:{{category.color}}"></td>
+		<td><img src="{{category.iconPath}}" style="width:64px; height:64px;"></td>
+    <td style="width=50px;">
+      <button style="margin-left:2.5%;"type="button" ng-click="removeItem(row,newsPost)" class="btn btn-sm btn-danger">
+      <i class="glyphicon glyphicon-trash">
+      </i>
+      </button>
+    </td>
+	</tr>
+	</tbody>
+</table>
+  <div style="background-color:hotpink; width:100%; height:100%;"></div>
+</div>
+<div class="container-fluid" style="margin:15px;" ng-show="show == 'finance'">
+  <p> FINANÇAAAAAS </p>
+</div>
+
+</script>
   </body>
 </html>

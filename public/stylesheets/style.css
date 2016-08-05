@@ -251,14 +251,6 @@ body {
   box-shadow: 5px 5px 15px 0px darkgrey;
 }
 
-table {
-    height:5vh; /* this can vary */
-}
-
-table * {
-    /*box-sizing: inherit;
-    -moz-box-sizing: inherit;*/
-}
 
 thead {
     display: table-header-group;
@@ -267,26 +259,8 @@ thead {
     text-align: center;
 }
 
-tbody {
-
-}
-
-thead > tr, tbody > tr, tfoot > tr {
-    /*display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;*/
-}
-
-thead > td {
-    /*display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;*/
-    height:1px;
-
-}
 
 th, tbody td {
-    /*width: 100%; /* this can vary */
     text-overflow: ellipsis;
     border: 0.1px solid black;
     height:1vh;
@@ -299,5 +273,4 @@ tbody tr
     position:absolute
     height:20vh;
     overflow-y:auto;
-
 }

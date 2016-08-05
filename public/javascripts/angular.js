@@ -274,14 +274,52 @@ app.controller('TableCtrl', [
   '$http',
   '$element',
   'news',
-  function($scope,$http,$element,news)
+  'structuralInfo',
+  function($scope,$http,$element,news,structuralInfo)
   {
+
+    console.log("whoa baby");
+
+    //console.log(structuralInfo)
+
+    $scope.structuralInfo = structuralInfo.structuralInfo;
     $scope.collection = [];
     $scope.collection = news.news;
+
+    $scope.categories = $scope.structuralInfo[1].categories;
+
+    console.log($scope.categories);
 
     // reset login status
     $scope.news = news.news;
     $scope.title = "Associação Meninos de Oiro"
+
+    $scope.getStructureCategories = function()
+    {
+      /*var i, totalCategories = +(structuralInfo.structuralInfo[1].categories) || 0, res = [];*/
+      res = [];
+
+     for (var i = 0; i <= structuralInfo.structuralInfo[1].categories.length-1; i++) {
+       var category = structuralInfo.structuralInfo[1].categories[i];
+       //console.log(category.name);
+       //console.log(structuralInfo.structuralInfo[1].categories[i].name);
+       res.push(structuralInfo.structuralInfo[1].categories[i].name);
+     }
+     return res;
+     //return structuralInfo.structuralInfo[1].categories;
+    }
+
+    $scope.changeCategory = function(category,newsPost)
+    {
+
+      console.log(newsPost);
+
+      alteredNewsPost = newsPost;
+
+      alteredNewsPost.category = category;
+
+      news.update(alteredNewsPost);
+    }
 
     $scope.changeImage = function(ele, newsPost)
     {

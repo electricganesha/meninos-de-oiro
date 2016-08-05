@@ -105,17 +105,15 @@
     <td><div contentEditable="true" ng-model="row.title">{{newsPost.title}}</td>
     <td><div contentEditable="true" ng-model="row.link">{{newsPost.link}}</td>
     <td><div contentEditable="true" ng-model="row.body">{{newsPost.body}}</td>
-    <td><div  ng-model="row.imageLink"><div style=" position: relative;
-  width: 180px;
-  height: 100px;
-  overflow: hidden;"><img src="{{newsPost.imageLink}}" style="position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 100%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);"></div></td>
+    <td><div style=" position: relative;  width: 180px; height: 100px; overflow: hidden;">
+      <label for="file-input">
+        <img src="{{newsPost.imageLink}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+      </label>
+      <input id="file-input" type="file" style="display:none;" onchange="angular.element(this).scope().changeImage(this)" name="imageChange">
+      </div>
+      <div contentEditable="true" style="position:relative; color:black; text-align:center; margin-top:10px;" ng-model="row.imageLink"> {{newsPost.imageLink}} </div>
+      </div>
+    </td>
     <td><div contentEditable="true" ng-model="row.text">{{newsPost.text}}</td>
     <td><div ng-model="row.date">{{newsPost.date | date :'dd-M-yyyy H:mm'}}</td>
     <td><div ng-model="row.upvotes">{{newsPost.upvotes}}</td>

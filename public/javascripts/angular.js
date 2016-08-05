@@ -253,6 +253,42 @@ app.controller('TableCtrl', [
     $scope.news = news.news;
     $scope.title = "Associação Meninos de Oiro"
 
+    $scope.changeImage = function(ele, newsPost)
+    {
+      console.log("mudasti");
+
+      console.log($scope.news[0]);
+
+      selectedNewsPost = $scope.news[0];
+
+      var files = ele.files;
+      var l = files.length;
+      var namesArr = [];
+
+      console.log(files);
+      console.log(files[0]);
+
+      var fd = new FormData();
+      //Take the first selected file
+      fd.append("uploadImageFile", files[0]);
+
+      $http.post('/upload', fd, {
+          withCredentials: true,
+          headers: {'Content-Type': undefined },
+          transformRequest: angular.identity
+      })
+      .success(function(data)
+      {
+        console.log("file upload success " + data );
+        selectedNewsPost.imageLink = '/uploads/'+ data;
+        news.update(selectedNewsPost);
+      })
+      .error(function(err){
+        console.log("file upload - acabei com erro - " + err);
+      });
+
+
+    }
 
     $scope.removeItem = function(row, newsPost)
     {
@@ -307,7 +343,7 @@ app.controller('TableCtrl', [
         $scope.rubrica = '';
         $scope.imagem = '';
         $scope.texto = '';
-        $scope.uploadedImagePathWithSuccess = '';
+        $scope.uploadedImagePathWithSuccess = undefined;
         $scope.newNewsForm.$setPristine();
       };
 
@@ -403,7 +439,7 @@ return {
                   alteredNewsPost.body = changedText;
                 break;
                 case(4):
-
+                  alteredNewsPost.imageLink = changedText;
                 break;
                 case(5):
                   alteredNewsPost.text = changedText;

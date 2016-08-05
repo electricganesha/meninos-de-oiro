@@ -9,52 +9,82 @@ app.config([
   function($stateProvider,$urlRouterProvider){
     $stateProvider
     .state('home',
-  {
-    url:'/home',
-    templateUrl: '/home.html',
-    controller: 'MainCtrl',
-    resolve: {
-      postPromise: ['news', function(news){
-        return news.getAll();
-      }],
-      postPromise2: ['structuralInfo', function(structuralInfo){
-        return structuralInfo.getAll();
-      }],
-    }
-  })
-  .state('news', {
-    url: '/news/{id}',
-    templateUrl: '/news.html',
-    controller: 'NewsCtrl',
-    resolve: {
-      postPromise: ['news', function(news){
-        return news.getAll();
-      }],
-      postPromise2: ['structuralInfo', function(structuralInfo){
-        return structuralInfo.getAll();
-      }],
-    }
-  })
-  .state('admin', {
-    url: '/admin',
-    templateUrl: '/admin.html',
-    controller: 'AdminCtrl',
-    resolve: {
-      postPromise: ['news', function(news){
-        return news.getAll();
-      }],
-      postPromise2: ['structuralInfo', function(structuralInfo){
-        return structuralInfo.getAll();
-      }],
-    }
-  })
-  .state('structuralInfo', {
-    url: '/structuralInfo/{id}',
-    templateUrl: '/structuralInfo.html',
-    controller: 'StructureCtrl'
-  });
+    {
+      url:'/home',
+      templateUrl: '/home.html',
+      controller: 'MainCtrl',
+      resolve: {
+        postPromise: ['news', function(news){
+          return news.getAll();
+        }],
+        postPromise2: ['structuralInfo', function(structuralInfo){
+          return structuralInfo.getAll();
+        }],
+      }
+    })
+    .state('about',
+    {
+      url:'/about',
+      templateUrl: '/about.html',
+      controller: 'AboutCtrl',
+    })
+    .state('partners',
+    {
+      url:'/partners',
+      templateUrl: '/partners.html',
+      controller: 'PartnersCtrl',
+    })
+    .state('acknowledgments',
+    {
+      url:'/acknowledgments',
+      templateUrl: '/acknowledgments.html',
+      controller: 'AcknowledgmentsCtrl',
+    })
+    .state('contacts',
+    {
+      url:'/contacts',
+      templateUrl: '/contacts.html',
+      controller: 'ContactsCtrl',
+    })
+    .state('membership',
+    {
+      url:'/membership',
+      templateUrl: '/membership.html',
+      controller: 'MembershipCtrl',
+    })
+    .state('news', {
+      url: '/news/{id}',
+      templateUrl: '/news.html',
+      controller: 'NewsCtrl',
+      resolve: {
+        postPromise: ['news', function(news){
+          return news.getAll();
+        }],
+        postPromise2: ['structuralInfo', function(structuralInfo){
+          return structuralInfo.getAll();
+        }],
+      }
+    })
+    .state('admin', {
+      url: '/admin',
+      templateUrl: '/admin.html',
+      controller: 'AdminCtrl',
+      resolve: {
+        postPromise: ['news', function(news){
+          return news.getAll();
+        }],
+        postPromise2: ['structuralInfo', function(structuralInfo){
+          return structuralInfo.getAll();
+        }],
+      }
+    })
+    .state('structuralInfo', {
+      url: '/structuralInfo/{id}',
+      templateUrl: '/structuralInfo.html',
+      controller: 'StructureCtrl'
+    });
 
-  $urlRouterProvider.otherwise('home');
+    $urlRouterProvider.otherwise('home');
   }]);
 
 app.factory('news', ['$http', function($http)

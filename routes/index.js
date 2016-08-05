@@ -21,6 +21,36 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/about', function(req, res, next) {
+
+  res.render('about', { title: 'Meninos de Oiro' });
+
+});
+
+router.get('/partners', function(req, res, next) {
+
+  res.render('partners', { title: 'Meninos de Oiro' });
+
+});
+
+router.get('/acknowledgments', function(req, res, next) {
+
+  res.render('acknowledgments', { title: 'Meninos de Oiro' });
+
+});
+
+router.get('/contacts', function(req, res, next) {
+
+  res.render('contacts', { title: 'Meninos de Oiro' });
+
+});
+
+router.get('/membership', function(req, res, next) {
+
+  res.render('membership', { title: 'Meninos de Oiro' });
+
+});
+
 /* NEWS routes */
 router.param('newsPost', function(req, res, next, id){
   var query = News.findById(id);

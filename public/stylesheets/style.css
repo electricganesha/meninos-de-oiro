@@ -252,57 +252,52 @@ body {
 }
 
 table {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    height: 80vh; /* this can vary */
+    height:5vh; /* this can vary */
 }
 
 table * {
-    box-sizing: inherit;
-    -moz-box-sizing: inherit;
+    /*box-sizing: inherit;
+    -moz-box-sizing: inherit;*/
 }
 
 thead {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 94.1vw; /* this can vary */
+    display: table-header-group;
+    width: 100%; /* this can vary */
     height:5vh;
-
+    text-align: center;
 }
 
 tbody {
-    overflow-y: scroll;
-    display: inline-block;
+
 }
 
 thead > tr, tbody > tr, tfoot > tr {
-    display: flex;
+    /*display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap;*/
 }
 
-thead, tfoot {
-    flex-shrink: 0;
+thead > td {
+    /*display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;*/
+    height:1px;
+
 }
 
 th, tbody td {
-    width: 95vw; /* this can vary */
-    overflow-x: hidden;
-    /*text-overflow: ellipsis;*/
-    display: block;
+    /*width: 100%; /* this can vary */
+    text-overflow: ellipsis;
     border: 0.1px solid black;
+    height:1vh;
+    overflow-y:auto;
+
+}
+
+tbody tr
+{
+    position:absolute
     height:20vh;
-}
+    overflow-y:auto;
 
-tfoot {
-    display: inline-block;
-}
-
-tfoot td {
-    width: 100%;
-    display: inline-block;
 }

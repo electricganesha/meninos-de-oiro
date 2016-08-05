@@ -81,7 +81,7 @@
           </div>
       </form>
    </div>
-<table st-table="rowCollection" class="table table-striped" style="height:80vh; width:100%;" st-safe-src="collection" st-watch-changes="true">
+<table st-table="rowCollection" class="table table-hover" style="height:70vh; width:100%;" st-safe-src="collection" st-watch-changes="true">
   <thead>
   <tr>
     <th>Categoria</th>
@@ -94,7 +94,7 @@
     <th>Likes</th>
     <th>
       <button type="button" ng-click="showDetails = ! showDetails" class="btn btn-sm btn-success" style="float:left;">
-      <i class="glyphicon glyphicon-plus-sign"></i> Nova Notícia
+      <i class="glyphicon glyphicon-plus-sign"></i> Inserir
       </button>
     </th>
   </tr>
@@ -105,26 +105,34 @@
     <td><div contentEditable="true" ng-model="row.title">{{newsPost.title}}</td>
     <td><div contentEditable="true" ng-model="row.link">{{newsPost.link}}</td>
     <td><div contentEditable="true" ng-model="row.body">{{newsPost.body}}</td>
-    <td><div style=" position: relative;  width: 180px; height: 100px; overflow: hidden;">
+    <td style="border: 1px solid blue;">
+      <div style=" position: relative;  width: 180px; height: 100px; overflow: auto; border:1px solid hotpink;" >
       <label for="file-input">
         <img src="{{newsPost.imageLink}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
       </label>
       <input id="file-input" type="file" style="display:none;" onchange="angular.element(this).scope().changeImage(this)" name="imageChange">
       </div>
-      <div contentEditable="true" style="position:relative; color:black; text-align:center; margin-top:10px;" ng-model="row.imageLink"> {{newsPost.imageLink}} </div>
+      <div contentEditable="true" style=" border:1px solid black;position:relative; width:180px; color:black; text-align:left; margin-top:10px;" ng-model="row.imageLink"> {{newsPost.imageLink}} </div>
       </div>
     </td>
     <td><div contentEditable="true" ng-model="row.text">{{newsPost.text}}</td>
-    <td><div ng-model="row.date">{{newsPost.date | date :'dd-M-yyyy H:mm'}}</td>
-    <td><div ng-model="row.upvotes">{{newsPost.upvotes}}</td>
-    <td>
-<button type="button" ng-click="removeItem(row,newsPost)" class="btn btn-sm btn-danger">
+    <td><div ng-model="row.date" style=" width:80px; font-size:9px;">{{newsPost.date | date :'dd-M-yyyy H:mm'}}</td>
+    <td><div ng-model="row.upvotes" style="font-size:9px;">{{newsPost.upvotes}}</td>
+    <td style="width:50px;">
+<button style="margin-left:25%;"type="button" ng-click="removeItem(row,newsPost)" class="btn btn-sm btn-danger">
 <i class="glyphicon glyphicon-trash">
 </i>
 </button>
 </td>
   </tr>
   </tbody>
+  <tfoot>
+    <tr>
+				<td colspan="5" class="text-center">
+					<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+				</td>
+			</tr>
+  </tfoot>
 </table>
 </div>
 </div>

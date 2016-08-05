@@ -6,10 +6,6 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
   <script src="/javascripts/angular.js"></script>
-  <script src="/javascripts/auxFunctions.js"></script>
-  <script src="/javascripts/editor/parser_rules/advanced.js"></script>
-<!-- Library -->
-<script src="/javascripts/editor/dist/wysihtml5-0.3.0.min.js"></script>
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -105,10 +101,10 @@
   </thead>
   <tbody>
   <tr ng-repeat="newsPost in news | orderBy:'-date'">
-    <td ><div  ng-model="row.category"><p medium-editor bind-options="{'toolbar': {'buttons': ['bold', 'italic', 'underline']}}" data-placeholder="Enter a description">{{newsPost.category}}</p></td>
-    <td><div  ng-model="row.title">{{newsPost.title}}</td>
-    <td><div ng-model="row.link">{{newsPost.link}}</td>
-    <td><div  ng-model="row.body">{{newsPost.body}}</td>
+    <td ><div  ng-model="row.category">{{newsPost.category}}</td>
+    <td><div contentEditable="true" ng-model="row.title">{{newsPost.title}}</td>
+    <td><div contentEditable="true" ng-model="row.link">{{newsPost.link}}</td>
+    <td><div contentEditable="true" ng-model="row.body">{{newsPost.body}}</td>
     <td><div  ng-model="row.imageLink"><div style=" position: relative;
   width: 180px;
   height: 100px;
@@ -120,7 +116,7 @@
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);"></div></td>
-    <td><div ng-model="row.text">{{newsPost.text}}</td>
+    <td><div contentEditable="true" ng-model="row.text">{{newsPost.text}}</td>
     <td><div ng-model="row.date">{{newsPost.date | date :'dd-M-yyyy H:mm'}}</td>
     <td><div ng-model="row.upvotes">{{newsPost.upvotes}}</td>
     <td>

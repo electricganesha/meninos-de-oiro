@@ -1,0 +1,50 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; }
+    </style>
+</head>
+<body style="background-color:#e8e8e8;">
+  <h2 class="form-signin-heading" style="text-align:center; margin-bottom:50px; border-bottom: 1px solid #000; padding-bottom:15px;"> Administração - Meninos de Oiro </h2>
+
+<div class="container" style="width:30vw; margin-top:20vh; background-color:white; border-radius:25px;">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+
+    <h1><span class="fa fa-sign-in"></span> Registo</h1>
+
+    <!-- show any messages that come back with authentication -->
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+    <!-- LOGIN FORM -->
+    <form action="/signup" method="post">
+        <div class="form-group">
+            <label>Nome de Utilizador:</label>
+            <input type="text" class="form-control" name="username">
+        </div>
+        <div class="form-group">
+            <label>Palavra-passe:</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+
+        <button type="submit" class="btn btn-warning btn-lg" style="background-color:#cea44a;">Signup</button>
+    </form>
+
+    <hr>
+
+    <p>Já tem uma conta? <a href="/login">Login</a></p>
+    <p>Ou volte ao <a href="/">inicio</a>.</p>
+
+</div>
+
+</div>
+</body>
+</html>

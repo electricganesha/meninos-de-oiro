@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <script src="/javascripts/auxFunctions.js"></script>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body ng-app="meninos-de-oiro">
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="bottom:45px; left:40px; position:absolute;"><img src="/images/logo-meninos.png" width="111px" height="87px"></img></a>
+    </div>
+    <div class="navbar-header-links">
+      <li><a href="#" style="font-size:18px; font-weight:600; color:#cea44a">DOE AGORA</a></li>
+      <li><a>|</a></li>
+      <li><a href="#">Já Se Tornou Membro?</a></li>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Homepage</a></li>
+        <li><a style="pointer-events: none;">|</a></li>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a style="pointer-events: none;">|</a></li>
+        <li><a href="#">Parceiros</a></li>
+        <li><a style="pointer-events: none;">|</a></li>
+        <li><a href="#">Agradecimentos</a></li>
+        <li><a style="pointer-events: none;">|</a></li>
+        <li><a href="#">Contactos</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+      <ui-view></ui-view>
+ <script type="text/ng-template" id="/home.html">
+  <div class="row" id="topRow">
+    <div class="col-md-6" style="padding:0px; padding-right:10px;">
+      <div id="mainImageContainer" ng-style="{'background-image':'url('+ mainImage +')'}"></div>
+    </div>
+    <div class="col-md-6" style="padding:0px; padding-left:10px;">
+      <div>
+        <div id="homePageMainTextTitle">{{title}} <div id="homePageMainTextDate">{{date | date :'dd-M-yyyy H:mm'}}</div> </div>
+
+      </div>
+      <div id="homePageMainText">{{text}} {{myLikes}}</div>
+
+    </div>
+  </div>
+  <div class="row" id="newsRowContainer">
+        <div class="col-md-4" id="newsRowColMd4" ng-repeat="newsPost in news | orderBy:'-date' | limitTo:-6">
+          <div id="newsRowImages" ng-style="{'background-image':'url('+ newsPost.imageLink +')'}" ng-click="changeMainFocus(newsPost,$event);">
+            <div id="newsRowBoxes" ng-style="newsPost.category === 'Artigo' && {'background-color': '#3572b3'} ||
+                           newsPost.category === 'Evento' && {'background-color': '#eda554'} ||
+                           newsPost.category === 'Relatório' && {'background-color': '#e05585'}">
+                           <div id="newsRowIcons" ng-if="newsPost.category == 'Artigo'">
+                               <img src="images/icon/iconReportGrey.png"></img>
+                           </div>
+                           <div id="newsRowIcons" ng-if="newsPost.category == 'Evento'">
+                               <img src="images/icon/iconEventsGrey.png"></img>
+                           </div>
+                           <div id="newsRowIcons" ng-if="newsPost.category == 'Relatório'">
+                               <img src="images/icon/iconArticleGrey.png"></img>
+                           </div>
+                <div id="newsRowTextTitle">{{newsPost.title}}</div>
+                <div id="newsRowTextDate">{{newsPost.date | date:'dd-M-yyyy H:mm'}}</div>
+                <div id="newsRowTextBody">{{newsPost.body}}</div>
+            </div>
+          </div>
+          <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Artigo'"  ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
+              <img src="images/icon/iconLikeBlue.png"><p> {{newsPost.upvotes}} </p></img>
+          </div>
+          <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Evento'"  ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
+              <img src="images/icon/iconLikeOrange.png"><p> {{newsPost.upvotes}} </p></img>
+          </div>
+          <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Relatório'" ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
+              <img src="images/icon/iconLikePink.png"><p> {{newsPost.upvotes}} </p></img>
+          </div>
+        </div>
+ </div>
+</script>
+  </body>
+</html>

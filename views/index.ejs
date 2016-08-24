@@ -1,90 +1,228 @@
 <!DOCTYPE html>
-<html>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
-  <script src="/javascripts/angular.js"></script>
-  <script src="/javascripts/auxFunctions.js"></script>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body ng-app="meninos-de-oiro">
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/" style="bottom:45px; left:40px; position:absolute;"><img src="/images/logo-meninos.png" width="111px" height="87px"></img></a>
-    </div>
-    <div class="navbar-header-links">
-      <li><a href="#" style="font-size:18px; font-weight:600; color:#cea44a">DOE AGORA</a></li>
-      <li><a>|</a></li>
-      <li><a href="#">Já Se Tornou Membro?</a></li>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">Homepage</a></li>
-        <li><a style="pointer-events: none;">|</a></li>
-        <li><a href="/about">Sobre Nós</a></li>
-        <li><a style="pointer-events: none;">|</a></li>
-        <li><a href="#">Parceiros</a></li>
-        <li><a style="pointer-events: none;">|</a></li>
-        <li><a href="#">Agradecimentos</a></li>
-        <li><a style="pointer-events: none;">|</a></li>
-        <li><a href="#">Contactos</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-      <ui-view></ui-view>
- <script type="text/ng-template" id="/home.html">
-  <div class="row" id="topRow">
-    <div class="col-md-6" style="padding:0px; padding-right:10px;">
-      <div id="mainImageContainer" ng-style="{'background-image':'url('+ mainImage +')'}"></div>
-    </div>
-    <div class="col-md-6" style="padding:0px; padding-left:10px;">
-      <div>
-        <div id="homePageMainTextTitle">{{title}} <div id="homePageMainTextDate">{{date | date :'dd-M-yyyy H:mm'}}</div> </div>
-
+<html ng-app="meninos-de-oiro">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>-->
+<link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+<!-- Include the JS ReCaptcha API -->
+<script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+<script src="https://cdn.rawgit.com/VividCortex/angular-recaptcha/master/release/angular-recaptcha.js"></script>
+<script data-require="angular-animate@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular-animate.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="javascripts/slick.min.js"></script>
+<script src="/javascripts/angular.js"></script>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"><img src="/images/logo-meninos.png"></img></a>
       </div>
-      <div id="homePageMainText">{{text}} {{myLikes}}</div>
-
+      <div class="navbar-header-links">
+        <li><a href="/donatenow" id="donateNowButton">DOE AGORA</a></li>
+        <li><a>|</a></li>
+        <li><a href="/subscription" style="padding-right:0px;">Já Se Tornou Membro?</a></li>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/">Homepage</a></li>
+          <li><a style="pointer-events: none;">|</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false">Sobre Nós</a></li>
+          <li><a style="pointer-events: none;">|</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true" href="/partnerpage">Parceiros</a></li>
+          <li><a style="pointer-events: none;">|</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
+          <li><a style="pointer-events: none;">|</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts" style="padding-right:0px;">Contactos</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    <div id="subMenu">
+      <div id="subMenuAbout" ng-show="showSubMenuAbout">
+        <a href="/mission">Missão</a>
+        <a style="pointer-events: none;">|</a>
+        <a href="/projectspage">Projectos</a>
+      </div>
+      <div id="subMenuPartners" ng-show="showSubMenuPartners">
+        <a href="/subscribe">Inscrição</a>
+        <a style="pointer-events: none;">|</a>
+        <a href="/donatenow" >Doar Agora</a>
+      </div>
     </div>
-  </div>
-  <div class="row" id="newsRowContainer">
-        <div class="col-md-4" id="newsRowColMd4" ng-repeat="newsPost in news | orderBy:'-date' | limitTo:-6">
-          <div id="newsRowImages" ng-style="{'background-image':'url('+ newsPost.imageLink +')'}" ng-click="changeMainFocus(newsPost,$event);">
-            <div id="newsRowBoxes" ng-style="newsPost.category === 'Artigo' && {'background-color': '#3572b3'} ||
-                           newsPost.category === 'Evento' && {'background-color': '#eda554'} ||
-                           newsPost.category === 'Relatório' && {'background-color': '#e05585'}">
-                           <div id="newsRowIcons" ng-if="newsPost.category == 'Artigo'">
-                               <img src="images/icon/iconReportGrey.png"></img>
-                           </div>
-                           <div id="newsRowIcons" ng-if="newsPost.category == 'Evento'">
-                               <img src="images/icon/iconEventsGrey.png"></img>
-                           </div>
-                           <div id="newsRowIcons" ng-if="newsPost.category == 'Relatório'">
-                               <img src="images/icon/iconArticleGrey.png"></img>
-                           </div>
-                <div id="newsRowTextTitle">{{newsPost.title}}</div>
-                <div id="newsRowTextDate">{{newsPost.date | date:'dd-M-yyyy H:mm'}}</div>
-                <div id="newsRowTextBody">{{newsPost.body}}</div>
+  </nav>
+  <ui-view></ui-view>
+  <script type="text/ng-template" id="/home.html">
+    <div class="row" id="topRow">
+      <div class="col-md-6" style="padding:0px;">
+        <div id="mainImageContainer" ng-style="{'background-image':'url('+ mainImage +')'}"></div>
+      </div>
+      <div class="col-md-6" style="padding-right:0px;" >
+        <div>
+          <div id="homePageMainTextTitle">{{title}}<div id="homePageMainTextDate">{{date | date :'dd-M-yyyy H:mm'}}</div></div>
+        </div>
+        <div id="homePageMainText">{{text}}</div>
+        <div id="donateTexts" ng-controller="DonateBoxCtrl">
+          <div id="donateBoxDoarAgora"> <p> Doar Agora </p></div>
+          <div style="background-color:#185472; height:175px; width:300px; float:right; margin-top:10px; margin-right:10px;">
+            <div class="donateBoxButtonDiv">
+              <div class="donateBoxButtonDivInside"><img src="images/icon/paypal-logo.png" width="32" height="32"></img></div><div class="donateBoxButtonDivInsideText" style="text-align:center;"><p> PayPal </p></div>
+            </div>
+            <div class="donateBoxButtonDiv">
+              <div class="donateBoxButtonDivInside"><img src="images/icon/phone-call.png" width="32" height="32"></img></div><div class="donateBoxButtonDivInsideText"><p> Chamada </p></div>
+            </div>
+            <div class="donateBoxButtonDiv">
+              <div class="donateBoxButtonDivInside"><img src="images/icon/bank-transfer-logo.png" width="32" height="32"></img></div><div class="donateBoxButtonDivInsideText"><p> Transferência </p></div>
+            </div>
+            <div class="donateBoxButtonDiv">
+              <div class="donateBoxButtonDivInside"><img src="images/icon/donation.png" width="32" height="32"></img></div><div class="donateBoxButtonDivInsideText"><p> Doação </p></div>
             </div>
           </div>
-          <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Artigo'"  ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
-              <img src="images/icon/iconLikeBlue.png"><p> {{newsPost.upvotes}} </p></img>
+          <div ng-repeat="donateText in donateTexts" style="position:absolute; width:52%; height:80%; margin-top:10px; margin-left:10px; margin-right:10px;">
+            <p ng-show="donateText.id == 'Texto 1' && selectedText == 1" class="donateTexto fadein fadeout">{{donateText.texto}}</p>
+            <p ng-show="donateText.id == 'Texto 2' && selectedText == 2" class="donateTexto fadein fadeout">{{donateText.texto}}</p>
+            <p ng-show="donateText.id == 'Texto 3' && selectedText == 3" class="donateTexto fadein fadeout">{{donateText.texto}}</p>
+            <p ng-show="donateText.id == 'Texto 4' && selectedText == 4" class="donateTexto fadein fadeout">{{donateText.texto}}</p>
           </div>
-          <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Evento'"  ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
-              <img src="images/icon/iconLikeOrange.png"><p> {{newsPost.upvotes}} </p></img>
-          </div>
-          <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Relatório'" ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
-              <img src="images/icon/iconLikePink.png"><p> {{newsPost.upvotes}} </p></img>
+          <div id="dotsDonationBox">
+            <ul>
+              <li><div class="dotsDonationBoxItem" ng-click="selectedText=1" ng-style="selectedText == 1 && {'background-color':'#cea44a'} || {'background-color':'#185472'}"></div></li>
+              <li><div class="dotsDonationBoxItem" ng-click="selectedText=2" ng-style="selectedText == 2 && {'background-color':'#cea44a'} || {'background-color':'#185472'}"></div></li>
+              <li><div class="dotsDonationBoxItem" ng-click="selectedText=3" ng-style="selectedText == 3 && {'background-color':'#cea44a'} || {'background-color':'#185472'}"></div></li>
+              <li><div class="dotsDonationBoxItem" ng-click="selectedText=4" ng-style="selectedText == 4 && {'background-color':'#cea44a'} || {'background-color':'#185472'}"></div></li>
+            </ul>
           </div>
         </div>
- </div>
+      </div>
+    </div>
+    <div class="row" id="newsRowContainer">
+      <div class="col-md-4" id="newsRowColMd4" ng-repeat="newsPost in news | orderBy:'-date' | limitTo:-6" ng-style="$index % 3 == 0 && {'margin-left':'0px'} || {'margin-left':'14px'} ">
+        <div id="newsRowImages" style="background-image:url({{newsPost.imageLink}})" ng-click="changeMainFocus(newsPost,$event);">
+          <div id="newsRowBoxes" ng-style="newsPost.category === 'Evento' && {'background-color': '#eda554'} ||
+          newsPost.category === 'Artigo' && {'background-color': '#3572b3'} ||
+          newsPost.category === 'Relatório' && {'background-color': '#e05585'}">
+          <div id="newsRowIcons" ng-if="newsPost.category == 'Artigo'">
+            <img src="images/icon/iconReportGrey.png"></img>
+          </div>
+          <div id="newsRowIcons" ng-if="newsPost.category == 'Evento'">
+            <img src="images/icon/iconEventsGrey.png"></img>
+          </div>
+          <div id="newsRowIcons" ng-if="newsPost.category == 'Relatório'">
+            <img src="images/icon/iconArticleGrey.png"></img>
+          </div>
+          <div id="newsRowTextTitle">{{newsPost.title}}</div>
+          <div id="newsRowTextDate">{{newsPost.date | date:'dd-M-yyyy H:mm'}}</div>
+          <div id="newsRowTextBody">{{newsPost.body}}</div>
+        </div>
+      </div>
+      <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Artigo'"  ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
+        <img src="images/icon/iconLikeBlue.png"><p> {{newsPost.upvotes}} </p></img>
+      </div>
+      <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Evento'"  ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
+        <img src="images/icon/iconLikeOrange.png"><p> {{newsPost.upvotes}} </p></img>
+      </div>
+      <div id="newsRowLikeIcon" ng-if="newsPost.category == 'Relatório'" ng-click="newsLikeIsDisabled(newsPost._id) || incrementUpvotes(newsPost); disableLike($event,newsPost._id); $event.stopPropagation();">
+        <img src="images/icon/iconLikePink.png"><p> {{newsPost.upvotes}} </p></img>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div id="storyBoxControlDiv" ng-controller="StoryBoxCtrl">
+      <div class="row" id="storyBoxControlRow">
+        <div class="col-md-6" style="padding:0px;">
+          <h1 id="storyBoxControlDivTitle"> As Nossas Histórias </h1>
+          <div ng-repeat="story in stories" ng-init="convertVideoLinksToTrust()">
+            <div class="storiesIndexVideo" ng-if="$index == 0 && selectedStory == 1"><iframe width="600" height="340" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
+            <div class="storiesIndexVideo" ng-if="$index == 1 && selectedStory == 2"><iframe width="600" height="300" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
+            <div class="storiesIndexVideo" ng-if="$index == 2 && selectedStory == 3"><iframe width="600" height="300" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
+            <div class="storiesIndexVideo" ng-if="$index == 3 && selectedStory == 4"><iframe width="600" height="300" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
+          </div>
+        </div>
+        <div id="storiesIndexText" class="col-md-6">
+          <div ng-repeat="story in stories">
+            <div ng-if="$index == 0 && selectedStory == 1" >
+              <h1> {{story.title}}</h1>
+              <p>"{{story.text}}"</p>
+            </div>
+            <div ng-if="$index == 1 && selectedStory == 2" >
+              <h1> {{story.title}}</h1>
+              <p>"{{story.text}}"</p>
+            </div>
+            <div ng-if="$index == 2 && selectedStory == 3">
+              <h1> {{story.title}}</h1>
+              <p>"{{story.text}}"</p>
+            </div>
+            <div ng-if="$index == 3 && selectedStory == 4">
+              <h1> {{story.title}}</h1>
+              <p>"{{story.text}}"</p>
+            </div>
+          </div>
+          <div id="dotStoriesIndex">
+            <ul>
+              <li><div class="dotStoriesIndexDiv" ng-click="selectedStory=1" ng-style="selectedStory == 1 && {'background-color':'#cea44a'} || {'background-color':'lightgrey'}"></div></li>
+              <li><div class="dotStoriesIndexDiv" ng-click="selectedStory=2" ng-style="selectedStory == 2 && {'background-color':'#cea44a'} || {'background-color':'lightgrey'}"></div></li>
+              <li><div class="dotStoriesIndexDiv" ng-click="selectedStory=3" ng-style="selectedStory == 3 && {'background-color':'#cea44a'} || {'background-color':'lightgrey'}"></div></li>
+              <li><div class="dotStoriesIndexDiv" ng-click="selectedStory=4" ng-style="selectedStory == 4 && {'background-color':'#cea44a'} || {'background-color':'lightgrey'}"></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div id="partnerBox" ng-controller="PartnerBoxCtrl">
+          <h1> Parceiros </h1>
+        <div id="slickCarouselPartners">
+          <slick autoplay="true" autoplaySpeed="500" dots="false" arrows="true" infinite="true" speed="300" slides-to-show="4" touch-move="false" slides-to-scroll="1" >
+            <div ng-repeat="partner in partners">
+              <ul>
+                <li>
+                  <img src="{{partner.iconPath}}"></img>
+                </li>
+              </ul>
+            </div>
+          </slick>
+        </div>
+    </div>
+  </div>
+  <div class="container-fluid" style="height:15vh;">
+    <div id="footer">
+      <div class="row" id="footerRow">
+        <div class="col-md-6" id="footerLeft">
+        <br>
+        <br>
+        <p>
+          MENINOS DE OIRO – Associação para a Defesa dos Direitos da Criança de Azeitão e Setúbal
+            <br>
+            Sede: Rua Juventude Azeitonense, Lote 145, 2925-588 Azeitão
+            <br>
+            Telefones: 21.218.0703 / 96 567 1738 / 91 758 7766
+            <br>
+            Email: meninosdeoiro@gmail.com
+            <br>
+            Nº de Identificação fiscal: 506 414 035
+            <br>
+            <br>
+            <br>
+        </p>
+      </div>
+    <div class="col-md-6" id="footerRight">
+      <p>© 2016 Associação Meninos-de-Oiro - Todos os Direitos Reservados
+        <br>
+      Design e Desenvolvimento feito por <a>PUSH</a></p>
+    </div>
+    </div>
+    </div>
+  </div>
 </script>
-  </body>
+</body>
 </html>

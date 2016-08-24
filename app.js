@@ -13,6 +13,11 @@ var session = require('express-session');
 
 require('./models/News');
 require('./models/StructuralInfo');
+require('./models/Categories');
+require('./models/Stories');
+require('./models/Partners');
+require('./models/Team');
+require('./models/Projects');
 mongoose.connect('mongodb://localhost/meninos-de-oiro')
 
 require('./config/passport')(passport);

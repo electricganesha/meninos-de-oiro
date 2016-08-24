@@ -2,10 +2,17 @@
 <html>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+  <!-- Include the JS ReCaptcha API -->
+  <script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+  <script src="https://cdn.rawgit.com/VividCortex/angular-recaptcha/master/release/angular-recaptcha.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
+  <script data-require="angular-animate@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular-animate.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+  <script src="javascripts/slick.min.js"></script>
   <script src="/javascripts/angular.js"></script>
   <head>
     <title><%= title %></title>
@@ -16,19 +23,25 @@
     <script type="text/ng-template" id="/admin.html">
    </script>
     <script type="text/ng-template" id="/home.html">
-      <div class="container">
+      <div class="container" ng-init="displayCat='Notícias'">
 
-        <h2 class="form-signin-heading" style="text-align:center; margin-bottom:50px; border-bottom: 1px solid #000; padding-bottom:15px;"> Administração - Meninos de Oiro </h2>
+        <h2 class="form-signin-heading" style="text-align:center; margin-bottom:10px; border-bottom: 1px solid #000; padding-bottom:15px; "> Administração - Meninos de Oiro </h2>
+        <div style="position:relative; margin-top:10px; width:100%;"><h3 style="  padding-bottom:20px; font-size:18px; text-align:center; border-bottom:1px solid black;">{{displayCat}}</h3></div>
+    <div class="page-header text-center" style=" width:100%; padding-bottom:40px;">
 
-    <div class="page-header text-center" style=" width:100%;">
         <div style=" display: inline-block; width:100%; height:100%;">
           <p style="float:left;"> Bem-vindo(a) <strong><%= user.local.username %></strong>. </p>
-          <div style="position:absolute; top:9vh; left:40vw;">
-            <li style="display:inline-block;">
-          <ul style="display:inline;"><img src="images/icon/file.png" style="width:64px; height:64px; cursor:pointer;" ng-click="show = 'news'"></ul>
-          <ul style="display:inline;"><img src="images/icon/list.png" style="width:64px; height:64px; cursor:pointer;" ng-click="show = 'categories'"></ul>
-          <ul style="display:inline;"><img src="images/icon/coins.png" style="width:64px; height:64px; cursor:pointer;" ng-click="show = 'finance'"></ul>
-          </li>
+          <div style="position:absolute; top:160px; left:650px;">
+            <ul style="display:inline-block;">
+          <li style="display:inline; padding-right:20px;"><img alt="Noticias" src="images/icon/file.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'news'" ng-mouseover="displayCat = 'Notícias'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/list.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'categories'" ng-mouseover="displayCat = 'Categorias'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/browser.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'structure'" ng-mouseover="displayCat = 'Estrutura'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/image.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'stories'" ng-mouseover="displayCat = 'Histórias'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/user.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'partners'" ng-mouseover="displayCat = 'Parceiros'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/team.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'team'" ng-mouseover="displayCat = 'Equipa'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/folder.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'projects'" ng-mouseover="displayCat = 'Projectos'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/coins.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'finance'" ng-mouseover="displayCat = 'Finanças'"></li>
+          </ul>
           </div>
           <a href="/logout" class="btn btn-default btn-sm" style="float:right;">Terminar Sessão</a></div>
           </div>
@@ -49,7 +62,7 @@
           <h2 style="margin-bottom:20px;"><u>Nova Notícia</u></h2>
           <div class="form-group">
               <label>Categoria:</label>
-                <select class="form-control" name="categoriaSelect" ng-model="categoria" ng-options="category.name for category in getStructureCategories()">
+                <select class="form-control" name="categoriaSelect" ng-model="categoria" ng-options="category for category in getStructureCategories()">
                 </select>
           </div>
           <div class="form-group">
@@ -110,10 +123,11 @@
     <td><div contentEditable="true" ng-model="row.body">{{newsPost.body}}</td>
     <td style="border: 1px solid blue;">
       <div style=" position: relative;  width: 180px; height: 100px; overflow: hidden; border:1px solid black;" >
-      <label for="file-input">
         <img src="{{newsPost.imageLink}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
-      </label>
-      <input id="file-input" type="file" style="display:none;" onchange="angular.element(this).scope().changeImage(this)" name="imageChange">
+      <div>
+      </div>
+      </div>
+          <input id="file-input" type="file" style="display:block" data-file="param.file"/>
       </div>
       <div contentEditable="true" style=" border:1px solid black;position:relative; width:180px; color:black; text-align:left; margin-top:10px;" ng-model="row.imageLink"> {{newsPost.imageLink}} </div>
       </div>
@@ -140,36 +154,364 @@
 </div>
 </div>
 </div>
-<div class="container-fluid" style="margin:15px;" ng-show="show == 'categories'" ng-controller="TableCtrl">
-    <table st-table="rowCollection" class="table table-striped">
+<!-- CATEGORIES
+****************************************************
+******************* CATEGORIES ************************
+****************************************************
+-->
+<div class="container-fluid" style="margin:15px;" ng-show="show == 'categories'" ng-controller="CategoryCtrl">
+  <div class="procedure-details" ng-show="showDetailsCategory" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
+    <!-- LOGIN FORM -->
+    <button type="button" ng-click="showDetailsCategory = ! showDetailsCategory" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
+    <i class="glyphicon glyphicon-remove-sign"></i>
+    </button>
+    <form ng-submit="addCategory()" name="newCategoryForm">
+        <h2 style="margin-bottom:20px;"><u>Nova Categoria</u></h2>
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" class="form-control" name="nome" ng-model="nome" placeholder="Por favor introduza o nome da categoria.">
+        </div>
+        <div class="form-group">
+            <label>Cor:</label>
+            <input type="text" class="form-control" name="color" ng-model="color" placeholder="Por favor escolha a cor da categoria.">
+        </div>
+        <div class="form-group" style="display:inline-block;">
+          <label>Ícone:</label>
+          <br>
+          <label for="filesCategory" class="btn btn-sm btn-success" style="margin-left:5px;">Escolha um icone do seu computador</label>&nbsp; ou &nbsp; <input type="text" class="form-control" name="imagemCategory" ng-model="imagemCategory" placeholder="Introduza o link da imagem." style="display:inline-block; width:15vw;">
+          <input id="filesCategory" onchange="angular.element(this).scope().fileNameChangedCategory(this)" type="file" class="form-control" name="uploadImageFileCategory" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
+        </div>
+        <div>
+        <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsCategory = ! showDetailsCategory">
+        <i class="glyphicon glyphicon-ok"></i> &nbsp;  &nbsp; &nbsp;Inserir Categoria
+        </button>
+        </div>
+    </form>
+ </div>
+    <table st-table="rowCollection" class="table table-striped" st-safe-src="collection" st-watch-changes="true">
 	<thead>
 	<tr>
 		<th>Categoria</th>
 		<th>Cor</th>
 		<th>Icone</th>
-    <th>
-      <button type="button" ng-click="showDetails = ! showDetails" class="btn btn-sm btn-success" style="float:left;">
+    <!--<th>
+      <button type="button" ng-click="showDetailsCategory = ! showDetailsCategory" class="btn btn-sm btn-success" style="float:left;">
       <i class="glyphicon glyphicon-plus-sign"></i> Inserir
-      </button>
-    </th>
+    </button>
+    </th>-->
 	</tr>
 	</thead>
 	<tbody>
 	<tr ng-repeat="category in categories">
-		<td>{{category.name}}</td>
-		<td style="background-color:{{category.color}}"></td>
-		<td><img src="{{category.iconPath}}" style="width:64px; height:64px;"></td>
-    <td style="width=50px;">
-      <button style="margin-left:2.5%;"type="button" ng-click="removeItem(row,newsPost)" class="btn btn-sm btn-danger">
+		<td> <div contentEditable="true" ng-model="row.name">{{category.name}}</td>
+		<td> <div contentEditable="true" ng-model="row.color" style="background-color:{{category.color}}; width:100%; height:100%; border:1px solid black;"></div></td>
+		<td> <div contentEditable="true" ng-model="row.image"><img src="{{category.iconPath}}" style="width:64px; height:64px; display:block; margin:auto;"></div></td>
+    <!--<td style="width=50px;">
+      <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeItem(row,category)" class="btn btn-sm btn-danger">
       <i class="glyphicon glyphicon-trash">
       </i>
       </button>
-    </td>
+    </td>-->
 	</tr>
 	</tbody>
 </table>
-  <div style="background-color:hotpink; width:100%; height:100%;"></div>
 </div>
+</div>
+<!-- STRUCTURE
+****************************************************
+******************* STRUCTURE ************************
+****************************************************
+-->
+<div class=
+<div class="container-fluid" style="margin:15px;" ng-show="show == 'structure'" ng-controller="StructureCtrl">
+  <div ng-repeat="item in structuralInfo">
+    <div ng-if="item.textId == 'noticia_principal'">
+    <h3 class="form-signin-heading" style="text-align:center; margin-bottom:50px; border-bottom: 1px solid #000; padding-bottom:15px;"> Cabeçalho </h3>
+    <p>{{item.title}}</p>
+    <p>{{item.text}}</p>
+    </div>
+    <div ng-if="item.textId == 'textos_doacao'">
+      <h3 class="form-signin-heading" style="text-align:center; margin-bottom:50px; border-bottom: 1px solid #000; padding-bottom:15px;"> Doações </h3>
+      <div ng-repeat="text in item.textos">
+        <h4 style="text-decoration:underline;">{{text.id}}</h4>
+        <p>{{text.texto}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- STORIES
+****************************************************
+******************* STORIES ************************
+****************************************************
+-->
+<div class="container-fluid" style="margin:15px;" ng-show="show == 'stories'" ng-controller="StoryCtrl">
+  <div class="procedure-details" ng-show="showDetailsStories" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
+    <!-- LOGIN FORM -->
+    <button type="button" ng-click="showDetailsStories = ! showDetailsStories" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
+    <i class="glyphicon glyphicon-remove-sign"></i>
+    </button>
+    <form ng-submit="addStory()" name="newStoryForm">
+        <h2 style="margin-bottom:20px;"><u>Nova História</u></h2>
+        <div class="form-group">
+            <label>Título:</label>
+            <input type="text" class="form-control" name="tituloStory" ng-model="tituloStory" placeholder="Por favor introduza o titulo da história.">
+        </div>
+        <div class="form-group">
+            <label>Corpo:</label>
+            <textarea class="form-control" rows="5" id="comment" name="corpoStory" ng-model="corpoStory" placeholder="Por favor introduza o corpo da história."></textarea>
+        </div>
+        <div class="form-group">
+            <label>Link Para Vídeo:</label>
+            <input type="text" class="form-control" name="linkStory" ng-model="linkStory" placeholder="Por favor introduza o link do vídeo que quer associar a esta história.">
+        </div>
+        <div>
+        <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsStories = ! showDetailsStories">
+        <i class="glyphicon glyphicon-ok"></i> &nbsp;  &nbsp; &nbsp;Inserir História
+        </button>
+        </div>
+    </form>
+ </div>
+    <table st-table="displayCollectionStories" class="table table-striped" st-safe-src="rowCollectionStories" st-watch-changes="true">
+	<thead>
+	<tr>
+		<th>Título</th>
+		<th>Corpo</th>
+		<th>Link para Vídeo</th>
+    <th>
+      <button type="button" ng-click="showDetailsStories = ! showDetailsStories" class="btn btn-sm btn-success" style="float:left;">
+      <i class="glyphicon glyphicon-plus-sign"></i> Inserir
+    </button>
+    </th>
+	</tr>
+	</thead>
+	<tbody>
+  	<tr ng-repeat="story in stories" ng-init="convertVideoLinksToTrust()">
+  		<td> <div contentEditable="true" ng-model="row.titleStory">{{story.title}}</div></td>
+  		<td> <div contentEditable="true" ng-model="row.bodyStory">{{story.text}}</div></td>
+  		<td> <div contentEditable="true" ng-model="row.linkStory">
+        <iframe width="560" height="315" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe>
+        {{story.videoLink}}
+      </div></td>
+      <td style="width=50px;">
+        <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeStory(row,story)" class="btn btn-sm btn-danger">
+        <i class="glyphicon glyphicon-trash">
+        </i>
+        </button>
+      </td>
+  	</tr>
+  	</tbody>
+  </table>
+</div>
+<!-- PARTNERS
+****************************************************
+******************* PARTNERS ************************
+****************************************************
+-->
+<div class="container-fluid" style="margin:15px;" ng-show="show == 'partners'" ng-controller="PartnerCtrl">
+  <div class="procedure-details" ng-show="showDetailsPartners" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
+    <!-- LOGIN FORM -->
+    <button type="button" ng-click="showDetailsPartners = ! showDetailsPartners" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
+    <i class="glyphicon glyphicon-remove-sign"></i>
+    </button>
+    <form ng-submit="addPartner()" name="newPartnerForm">
+        <h2 style="margin-bottom:20px;"><u>Novo Parceiro</u></h2>
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" class="form-control" name="nomeParceiro" ng-model="nomeParceiro" placeholder="Por favor introduza o nome do Parceiro.">
+        </div>
+        <div class="form-group">
+            <label>Ícone:</label>
+            <input type="text" class="form-control" name="iconeParceiro" ng-model="iconeParceiro" placeholder="Por favor introduza o icone do parceiro.">
+        </div>
+        <div class="form-group">
+            <label>Link:</label>
+            <input type="text" class="form-control" name="linkParceiro" ng-model="linkParceiro" placeholder="Por favor introduza o link da página do parceiro.">
+        </div>
+        <div>
+        <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsPartners = ! showDetailsPartners">
+        <i class="glyphicon glyphicon-ok"></i> &nbsp;  &nbsp; &nbsp;Inserir Parceiro
+        </button>
+        </div>
+    </form>
+ </div>
+    <table st-table="displayCollectionPartners" class="table table-striped" st-safe-src="rowCollectionPartners" st-watch-changes="true">
+	<thead>
+	<tr>
+		<th st-sort="nomePartner">Nome</th>
+		<th st-sort="iconePartner">Ícone</th>
+		<th st-sort="linkPartner">Link</th>
+    <th>
+      <button type="button" ng-click="showDetailsPartners = ! showDetailsPartners" class="btn btn-sm btn-success" style="float:left;">
+      <i class="glyphicon glyphicon-plus-sign"></i> Inserir
+    </button>
+    </th>
+	</tr>
+	</thead>
+	<tbody>
+  	<tr ng-repeat="partner in partners">
+  		<td> <div contentEditable="true" ng-model="row.partnerName">{{partner.name}}</div></td>
+      <td style="border: 1px solid blue;">
+        <div style=" position: relative;  width: 320px; height: 180px; overflow: hidden; border:1px solid black;" >
+          <img src="{{partner.iconPath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; max-width:100%; max-height:100%; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+        <div>
+        </div>
+        </div>
+            <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+        </div>
+        <div contentEditable="true" style=" border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-model="row.partnerIcon"> {{partner.iconPath}} </div>
+        </div>
+      </td>
+  		<td> <div contentEditable="true" ng-model="row.partnerLink">{{partner.link}}</div></div></td>
+      <td style="width=50px;">
+        <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removePartner(row,partner)" class="btn btn-sm btn-danger">
+        <i class="glyphicon glyphicon-trash">
+        </i>
+        </button>
+      </td>
+  	</tr>
+  	</tbody>
+  </table>
+</div>
+  <!-- TEAM
+  ****************************************************
+  ******************   TEAM   ************************
+  ****************************************************
+  -->
+  <div class="container-fluid" style="margin:15px;" ng-show="show == 'team'" ng-controller="TeamCtrl">
+    <div class="procedure-details" ng-show="showDetailsTeam" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
+      <!-- LOGIN FORM -->
+      <button type="button" ng-click="showDetailsTeam = ! showDetailsTeam" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
+      <i class="glyphicon glyphicon-remove-sign"></i>
+      </button>
+      <form ng-submit="addTeamMember()" name="newTeamForm">
+          <h2 style="margin-bottom:20px;"><u>Novo Membro de Equipa</u></h2>
+          <div class="form-group">
+              <label>Nome:</label>
+              <input type="text" class="form-control" name="nomeMembro" ng-model="nomeMembro" placeholder="Por favor introduza o nome do Membro de Equipa.">
+          </div>
+          <div class="form-group">
+              <label>Posição:</label>
+              <input type="text" class="form-control" name="posicaoMembro" ng-model="posicaoMembro" placeholder="Por favor introduza a posição do Membro de Equipa.">
+          </div>
+          <div class="form-group">
+              <label>Link:</label>
+              <input type="text" class="form-control" name="linkMembro" ng-model="linkMembro" placeholder="Por favor introduza o link da imagem do Membro de Equipa.">
+          </div>
+          <div>
+          <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsTeam = ! showDetailsTeam">
+          <i class="glyphicon glyphicon-ok"></i> &nbsp;  &nbsp; &nbsp;Inserir Novo Membro
+          </button>
+          </div>
+      </form>
+   </div>
+      <table st-table="displayCollectionTeam" class="table table-striped" st-safe-src="rowCollectionTeam" st-watch-changes="true">
+  	<thead>
+  	<tr>
+  		<th st-sort="nomePartner">Nome</th>
+  		<th st-sort="iconePartner">Posição</th>
+  		<th st-sort="linkPartner">Foto</th>
+      <th>
+        <button type="button" ng-click="showDetailsTeam = ! showDetailsTeam" class="btn btn-sm btn-success" style="float:left;">
+        <i class="glyphicon glyphicon-plus-sign"></i> Inserir
+      </button>
+      </th>
+  	</tr>
+  	</thead>
+  	<tbody>
+    	<tr ng-repeat="teammember in team">
+    		<td> <div contentEditable="true" ng-model="row.teamName">{{teammember.name}}</div></td>
+        <td> <div contentEditable="true" ng-model="row.teamPosicao">{{teammember.position}}</div></div></td>
+        <td style="border: 1px solid blue;">
+          <div style=" position: relative;  width: 320px; height: 180px; overflow: hidden; border:1px solid black;" >
+            <img src="{{teammember.imagePath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+          <div>
+          </div>
+          </div>
+              <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+          </div>
+          <div contentEditable="true" style=" border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-model="row.imagePath"> {{teammember.imagePath}} </div>
+          </div>
+        </td>
+        <td style="width=50px;">
+          <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeTeamMember(row,teammember)" class="btn btn-sm btn-danger">
+          <i class="glyphicon glyphicon-trash">
+          </i>
+          </button>
+        </td>
+    	</tr>
+    	</tbody>
+    </table>
+  </div>
+  <!-- PROJECTS
+  ****************************************************
+  ******************   PROJECTS   ************************
+  ****************************************************
+  -->
+  <div class="container-fluid" style="margin:15px;" ng-show="show == 'projects'" ng-controller="ProjectCtrl">
+    <div class="procedure-details" ng-show="showDetailsProject" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
+      <!-- LOGIN FORM -->
+      <button type="button" ng-click="showDetailsProject = ! showDetailsProject" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
+      <i class="glyphicon glyphicon-remove-sign"></i>
+      </button>
+      <form ng-submit="addProject()" name="newProjectForm">
+          <h2 style="margin-bottom:20px;"><u>Novo Projecto</u></h2>
+          <div class="form-group">
+              <label>Título:</label>
+              <input type="text" class="form-control" name="nomeProjecto" ng-model="nomeProjecto" placeholder="Por favor introduza o título do Projecto.">
+          </div>
+          <div class="form-group">
+              <label>Descrição:</label>
+              <input type="text" class="form-control" name="descricaoProjecto" ng-model="descricaoProjecto" placeholder="Por favor introduza a descrição do Projecto.">
+          </div>
+          <div class="form-group">
+              <label>Link:</label>
+              <input type="text" class="form-control" name="linkProjecto" ng-model="linkProjecto" placeholder="Por favor introduza o link da imagem do Projecto.">
+          </div>
+          <div>
+          <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsProject = ! showDetailsProject">
+          <i class="glyphicon glyphicon-ok"></i> &nbsp;  &nbsp; &nbsp;Inserir Novo Projecto
+          </button>
+          </div>
+      </form>
+   </div>
+      <table st-table="displayCollectionProject" class="table table-striped" st-safe-src="rowCollectionProject" st-watch-changes="true">
+    <thead>
+    <tr>
+      <th st-sort="nomeProject">Título</th>
+      <th st-sort="descricaoProject">Descrição</th>
+      <th st-sort="linkProject">Imagem</th>
+      <th>
+        <button type="button" ng-click="showDetailsProject = ! showDetailsProject" class="btn btn-sm btn-success" style="float:left;">
+        <i class="glyphicon glyphicon-plus-sign"></i> Inserir
+      </button>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="project in projects">
+        <td> <div contentEditable="true" ng-model="row.nomeProjecto">{{project.title}}</div></td>
+        <td> <div contentEditable="true" ng-model="row.descricaoProjecto">{{project.description}}</div></div></td>
+        <td style="border: 1px solid blue;">
+          <div style=" position: relative;  width: 320px; height: 180px; overflow: hidden; border:1px solid black;" >
+            <img src="{{project.imagePath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+          <div>
+          </div>
+          </div>
+              <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+          </div>
+          <div contentEditable="true" style="border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-model="row.linkProjecto"> {{project.imagePath}} </div>
+          </div>
+        </td>
+        <td style="width=50px;">
+          <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeProject(row,project)" class="btn btn-sm btn-danger">
+          <i class="glyphicon glyphicon-trash">
+          </i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 <div class="container-fluid" style="margin:15px;" ng-show="show == 'finance'">
   <p> FINANÇAAAAAS </p>
 </div>

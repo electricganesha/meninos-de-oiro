@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
+<link rel="stylesheet" href="stylesheets/rzslider.css">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!-- Include the JS ReCaptcha API -->
+<script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+<script src="https://cdn.rawgit.com/VividCortex/angular-recaptcha/master/release/angular-recaptcha.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="javascripts/rzslider.js"></script>
+<script src="/javascripts/slick.min.js"></script>
+<script src="/javascripts/angular.js"></script>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body ng-app="meninos-de-oiro">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"><img src="/images/logo-meninos.png"></img></a>
+      </div>
+      <div class="navbar-header-links">
+        <li><a href="/donatenow" id="donateNowButton">DOE AGORA</a></li>
+        <li><a>|</a></li>
+        <li><a href="/membership" style="padding-right:0px;">Já Se Tornou Membro?</a></li>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-init="showSubMenuPartners = true">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/">Homepage</a></li>
+          <li><a style="pointer-events: none;">|</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false">Sobre Nós</a></li>
+          <li><a style="pointer-events: none;">|</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true">Parceiros</a></li>
+          <li><a style="pointer-events: none;">|</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
+          <li><a style="pointer-events: none;">|</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts" style="padding-right:0px;">Contactos</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    <div id="subMenu">
+      <div id="subMenuAbout" ng-show="showSubMenuAbout">
+        <a href="/mission">Missão</a>
+        <a style="pointer-events: none;">|</a>
+        <a href="/projectspage">Projectos</a>
+        <a style="pointer-events: none;">|</a>
+        <a href="/financePage">Demonstrações Financeiras</a>
+      </div>
+      <div id="subMenuPartners" ng-show="showSubMenuPartners">
+        <a href="/membership">Inscrição</a>
+        <a style="pointer-events: none;">|</a>
+        <a style="color:#cea44a;" href="/donatenow" >Doar Agora</a>
+      </div>
+    </div>
+  </nav>
+  <script>donationMethod="<%=donationMethod%>";</script>
+  <div id="donationDiv" style="background-image:url('images/donate.jpg');" ng-controller="DonationCtrl">
+    <div id="donationPageBoxTitles">
+      <div><h1>DOAR AGORA</h1></div>
+      <div><h2>Apoie os nossos projectos</h2></div>
+      <div id="donationPageBoxButtons">
+        <div class="donationPagedonateBoxButtonDivPage" ng-click="changePage(1)" style="border-bottom:0px;" ng-style="currentPage == 1 && {'background-color':'#cea44a'}">
+          <div class="donationPagedonateBoxButtonDivInsidePage"><img src="images/icon/paypal-logo.png" width="64" height="64"></img></div><div class="donationPagedonateBoxButtonDivInsideText" style="text-align:center;"><p> PayPal </p></div>
+        </div>
+        <div class="donationPagedonateBoxButtonDivPage" ng-click="changePage(2)" style="border-bottom:0px;" ng-style="currentPage == 2 && {'background-color':'#cea44a'}">
+          <div class="donationPagedonateBoxButtonDivInsidePage"><img src="images/icon/phone-call.png" width="64" height="64"></img></div><div class="donationPagedonateBoxButtonDivInsideText"><p> Chamada </p></div>
+        </div>
+        <div class="donationPagedonateBoxButtonDivPage" ng-click="changePage(3)" style="border-bottom:0px;" ng-style="currentPage == 3 && {'background-color':'#cea44a'}">
+          <div class="donationPagedonateBoxButtonDivInsidePage"><img src="images/icon/bank-transfer-logo.png" width="64" height="64"></img></div><div class="donationPagedonateBoxButtonDivInsideText"><p> Transferência </p></div>
+        </div>
+        <div class="donationPagedonateBoxButtonDivPage" ng-click="changePage(4)" ng-style="currentPage == 4 && {'background-color':'#cea44a'}}">
+          <div class="donationPagedonateBoxButtonDivInsidePage"><img src="images/icon/donation.png" width="64" height="64"></img></div><div class="donationPagedonateBoxButtonDivInsideText"><p> Doação </p></div>
+        </div>
+      </div>
+      <div id="donationPageBoxPaypal" ng-if="currentPage == 1">
+        <div id="donationPageBoxPaypalLeft"><p>{{structuralInfo[0].textoPaypal}}</p></div>
+        <div id="donationPageBoxPaypalRight">
+          <div id="donationPageBoxPaypalRightContainer">
+            <div id="donationPageBoxPaypalRightContainerEuro">€</div>
+            <div id="donationPageBoxPaypalRightContainerValue">
+              <input class="donation" type="text" placeholder="{{slider_visible_bar.value}}" value="{{slider_visible_bar.value}}" ng-model="slider_visible_bar.value">
+            </div>
+          </div>
+          <div id="donationPageBoxPaypalRightContainerDonate" style="cursor:pointer;"><p style="padding:0px; font-size:68px; color:lightgrey; text-align:center; height:100%;"><a id="linkDonate" href="https://www.paypal.com/pt/cgi-bin/webscr?cmd=_flow&amount={{slider_visible_bar.value}}&SESSION=qx0LrbO-JAkpjvt2AUWXoE3cFyLgvo-G0xDHhtyabuZ5Bc550K8Vc9KvoIO&dispatch=5885d80a13c0db1f8e263663d3faee8de2b8031b89187c030b37e57608011f58"> Doar Agora </a></p></div>
+        </div>
+        <div>
+        <rzslider rz-slider-model="slider_visible_bar.value" rz-slider-options="slider_visible_bar.options" rz-slider-on-change="$scope.onSliderChange()"></rzslider>
+        </div>
+      </div>
+      <div id="donationPageBoxPhone" ng-if="currentPage == 2">
+        <div id="donationPageBoxPhoneLeft"><p>{{structuralInfo[0].textoChamada}}</p></div>
+      </div>
+      <div id="donationPageBoxTransfer" ng-if="currentPage == 3">
+        <div id="donationPageBoxPhoneLeft"><p>{{structuralInfo[0].textoTransferencia}}</p></div>
+      </div>
+      <div id="donationPageBoxDonation" ng-if="currentPage == 4">
+        <div id="donationPageBoxPhoneLeft"><p>{{structuralInfo[0].textoDoacao}}</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" style="height:15vh;">
+    <div id="footer">
+      <div class="row" id="footerRow">
+        <div class="col-md-6" id="footerLeft">
+        <br>
+        <br>
+        <p>
+          MENINOS DE OIRO – Associação para a Defesa dos Direitos da Criança de Azeitão e Setúbal
+            <br>
+            Sede: Rua Juventude Azeitonense, Lote 145, 2925-588 Azeitão
+            <br>
+            Telefones: 21.218.0703 / 96 567 1738 / 91 758 7766
+            <br>
+            Email: meninosdeoiro@gmail.com
+            <br>
+            Nº de Identificação fiscal: 506 414 035
+            <br>
+            <br>
+            <br>
+        </p>
+      </div>
+    <div class="col-md-6" id="footerRight">
+      <p>© 2016 Associação Meninos-de-Oiro - Todos os Direitos Reservados
+        <br>
+      Design e Desenvolvimento feito por <a>PUSH</a></p>
+    </div>
+    </div>
+    </div>
+  </div>
+
+</body>
+</html>

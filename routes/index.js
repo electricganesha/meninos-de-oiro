@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+mongoose.set('debug',true);
 var passport = require('passport');
 var multer = require('multer');
 
@@ -11,9 +12,12 @@ var Stories = mongoose.model('Stories');
 var Partners = mongoose.model('Partners');
 var Team = mongoose.model('Team');
 var Projects = mongoose.model('Projects');
+var Stats = mongoose.model('Stats');
+var Members = mongoose.model('Members');
 
 var upload = multer({ dest: 'public/uploads/'});
 var fs = require('fs');
+var path    = require("path");
 
 var type = upload.single('recfile');
 
@@ -59,6 +63,24 @@ router.get('/membership', function(req, res, next) {
 router.get('/mission', function(req, res, next) {
 
   res.render('mission', { title: 'Meninos de Oiro' });
+
+});
+
+router.get('/projectspage', function(req, res, next) {
+
+  res.render('projectspage', { title: 'Meninos de Oiro' });
+
+});
+
+router.get('/donatenow', function(req, res, next) {
+
+  res.render('donatenow', { title: 'Meninos de Oiro' , donationMethod: req.query.donationMethod});
+
+});
+
+router.get('/financePage', function(req, res, next) {
+
+  res.sendFile(path.join(__dirname+'/../public/documents/demos.pdf'));
 
 });
 
@@ -454,6 +476,133 @@ router.put('/projects/:project/update', function(req,res){
    });
 });
 
+/* STATS routes */
+router.param('stat', function(req, res, next, id){
+  var query = Stats.findById(id);
+
+  query.exec(function (err, project){
+    if (err) { return next(err); }
+    if (!stat) { return next(new Error('can\'t find Stat')); }
+
+    req.stat = stat;
+    return next();
+  });
+});
+
+router.get('/stats', function(req,res,next){
+  Stats.find(function(err,stats){
+    if(err){ return next(err); }
+    console.log(stats);
+    res.json(stats);
+  });
+});
+
+router.post('/stats', function(req,res,next){
+
+  var stat = new Stats(req.body);
+    console.log("stats");
+    stat.save(function(err,stat){
+    if(err){ return next(err); console.log(err);}
+
+    res.json(stat);
+  });
+});
+
+router.get('/stats/:stat', function(req,res)
+{
+  res.json(req.stat);
+});
+
+router.delete('/stats/:stat', function(req,res)
+{
+  var updateInfo = req.stat;
+
+  Stats.findOneAndRemove({"_id":updateInfo._id}, function(err, doc)
+  {
+    if(err){
+       console.log("Something wrong when updating data! - " + err );
+   }
+  });
+});
+
+router.put('/stats/:stats/update', function(req,res){
+
+  var updateInfo = req.body;
+
+  delete updateInfo.__v;
+
+  Stats.findOneAndUpdate({"_id": updateInfo._id}, updateInfo, function(err, doc){
+    if(err){
+       console.log("Something wrong when updating data! - " + err );
+   }
+    console.log(doc);
+   });
+});
+
+/* MEMBER routes */
+router.param('member', function(req, res, next, id){
+  var query = Members.findById(id);
+
+  query.exec(function (err, project){
+    if (err) { return next(err); }
+    if (!member) { return next(new Error('can\'t find Member')); }
+
+    req.member = member;
+    return next();
+  });
+});
+
+router.get('/members', function(req,res,next){
+  Members.find(function(err,members){
+    if(err){ return next(err); }
+    console.log(members);
+    res.json(members);
+  });
+});
+
+router.post('/members', function(req,res,next){
+
+  var member = new Members(req.body);
+    console.log("members");
+    console.log(member);
+    member.save(function(err,member){
+    if(err){ console.log(err); return next(err); console.log(err);}
+
+    res.json(member);
+  });
+});
+
+router.get('/members/:member', function(req,res)
+{
+  res.json(req.member);
+});
+
+router.delete('/members/:member', function(req,res)
+{
+  var updateInfo = req.member;
+
+  Members.findOneAndRemove({"_id":updateInfo._id}, function(err, doc)
+  {
+    if(err){
+       console.log("Something wrong when updating data! - " + err );
+   }
+  });
+});
+
+router.put('/members/:member/update', function(req,res){
+
+  var updateInfo = req.body;
+
+  delete updateInfo.__v;
+
+  Members.findOneAndUpdate({"_id": updateInfo._id}, updateInfo, function(err, doc){
+    if(err){
+       console.log("Something wrong when updating data! - " + err );
+   }
+    console.log(doc);
+   });
+});
+
 /* STRUCTURE routes */
 router.get('/structuralInfo', function(req,res,next){
   StructuralInfo.find(function(err,structuralInfo){
@@ -462,6 +611,162 @@ router.get('/structuralInfo', function(req,res,next){
     res.json(structuralInfo);
   });
 });
+
+
+router.put('/structuralInfo/:id/update', function(req,res){
+
+  var updateInfo = req.body;
+
+  delete updateInfo.__v;
+
+  switch(req.params.id)
+  {
+    case("1"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"title":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("2"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"text":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("3"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"tituloDoacao1":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("4"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoDoacao1":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("5"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"tituloDoacao2":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("6"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoDoacao2":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("7"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"tituloDoacao3":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("8"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoDoacao3":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("9"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"tituloDoacao4":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("10"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoDoacao4":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("11"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoPaypal":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("12"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoChamada":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("13"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoTransferencia":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("14"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoDoacao":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+
+  }
+
+});
+
+/* OTHER ROUTES */
 
 router.get('/login', function(req, res) {
 

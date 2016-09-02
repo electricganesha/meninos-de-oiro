@@ -1,4 +1,4 @@
-var app = angular.module('meninos-de-oiro', ['ui.router','slick','vcRecaptcha','ngAnimate']);
+var app = angular.module('meninos-de-oiro', ['ui.router','slick','vcRecaptcha','rzModule','ngMaterial']);
 
 app.config([
   '$stateProvider',
@@ -93,6 +93,14 @@ app.config([
           return structuralInfo.getAll();
         }],
       }
+    }).state('donatenow', {
+      url: '/donatenow',
+      controller: 'DonationCtrl',
+      resolve: {
+        postPromise: ['structuralInfo', function(structuralInfo){
+          return structuralInfo.getAll();
+        }]
+      }
     })
     .state('partnerbox', {
       url: '/partnerbox/',
@@ -132,12 +140,23 @@ app.config([
       url:'/membership',
       templateUrl: '/membership.html',
       controller: 'MembershipCtrl',
+      resolve: {
+        postPromise: ['members', function(members){
+          return members.getAll();
+        }],
+      }
     })
     .state('mission',
     {
       url:'/mission',
       templateUrl: '/mission.html',
       controller: 'MissionCtrl',
+    })
+    .state('projectspage',
+    {
+      url:'/projectspage',
+      templateUrl: '/projectspage.html',
+      controller: 'ProjectCtrl',
     });
 
     $urlRouterProvider.otherwise('home');
@@ -219,6 +238,17 @@ app.config([
       return $http.get('/structuralInfo').success(function(data)
       {
         angular.copy(data, o.structuralInfo);
+      });
+    };
+
+    o.update = function(id,text)
+    {
+      return $http.put('/structuralInfo/' + id + '/update/',{text})
+      .success(function(data){
+        console.log("acabei update");
+      })
+      .error(function(data){
+        console.log("acabei com erro");
       });
     };
 
@@ -513,6 +543,126 @@ app.factory('projects', ['$http', function($http)
 
 }]);
 
+/*
+* STATS Factory
+*/
+
+app.factory('stats', ['$http', function($http)
+{
+
+  var o = {
+    stats: []
+  };
+
+  o.create = function(stat)
+  {
+    return $http.post('/stats',stat).success(function(data)
+    {
+      o.stats.push(data);
+    })
+  };
+
+  o.getAll = function()
+  {
+    return $http({
+      url: '/stats',
+      method: 'GET'
+    })
+  }
+
+  o.get = function(id) {
+    return $http.get('/stats/' + id).then(function(res){
+      return res.data;
+    });
+  };
+
+  o.update = function(stat)
+  {
+    return $http.put('/stats/' + stat._id + '/update/',stat,{})
+    .success(function(data){
+      console.log("acabei update");
+    })
+    .error(function(data){
+      console.log("acabei com erro");
+    });
+  };
+
+  o.delete = function(stat)
+  {
+    return $http.delete('/stats/' + stat._id)
+    .success(function(data)
+    {
+      console.log("sucesso");
+    })
+    .error(function(err){
+      console.log("acabei com erro - " + err);
+    });
+  }
+
+  return o;
+
+}]);
+
+/*
+* MEMBERS Factory
+*/
+
+app.factory('members', ['$http', function($http)
+{
+
+  var o = {
+    members: []
+  };
+
+  o.create = function(member)
+  {
+    return $http.post('/members',member).success(function(data)
+    {
+      o.members.push(data);
+    })
+  };
+
+  o.getAll = function()
+  {
+    return $http({
+      url: '/members',
+      method: 'GET'
+    })
+  }
+
+  o.get = function(id) {
+    return $http.get('/members/' + id).then(function(res){
+      return res.data;
+    });
+  };
+
+  o.update = function(member)
+  {
+    return $http.put('/members/' + member._id + '/update/',member,{})
+    .success(function(data){
+      console.log("acabei update");
+    })
+    .error(function(data){
+      console.log("acabei com erro");
+    });
+  };
+
+  o.delete = function(member)
+  {
+    return $http.delete('/members/' + member._id)
+    .success(function(data)
+    {
+      console.log("sucesso");
+    })
+    .error(function(err){
+      console.log("acabei com erro - " + err);
+    });
+  }
+
+  return o;
+
+}]);
+
 app.controller('MainCtrl', [
   '$scope',
   '$http',
@@ -530,10 +680,14 @@ app.controller('MainCtrl', [
     $scope.news = news.news;
     $scope.newsLikes = news.news;
 
-    $scope.title = "Associação Meninos de Oiro"
+    $scope.title = structuralInfo.structuralInfo[0].title;
     $scope.text = structuralInfo.structuralInfo[0].text;
     $scope.mainImage = structuralInfo.structuralInfo[0].imageLink;
     $scope.date = structuralInfo.structuralInfo[0].date;
+
+    $scope.category1 = structuralInfo.structuralInfo[0].categories[0];
+    $scope.category2 = structuralInfo.structuralInfo[0].categories[1];
+    $scope.category3 = structuralInfo.structuralInfo[0].categories[2];
 
     $scope.$watch(function(scope) {
       return scope.paintedHeart
@@ -605,8 +759,10 @@ app.controller('NewsCtrl', [
 app.controller('StructureCtrl', [
   '$scope',
   '$stateParams',
+  '$http',
+  '$element',
   'structuralInfo',
-  function($scope,$stateParams,structuralInfo)
+  function($scope,$stateParams,$http,$element,structuralInfo)
   {
     $scope.structuralInfo = structuralInfo.structuralInfo;
   }
@@ -643,7 +799,9 @@ app.controller('TableCtrl', [
     $scope.rowCollectionPartners = [];
     $scope.rowCollectionPartners = news.news;
 
-    $scope.categories = $scope.structuralInfo[1].categories;
+    console.log($scope.structuralInfo);
+
+    $scope.categories = $scope.structuralInfo[0].categories;
 
     // reset login status
     $scope.news = news.news;
@@ -749,14 +907,17 @@ app.controller('TableCtrl', [
 app.directive('contenteditable', function() {
   return {
     require: 'ngModel',
-    controller: function($scope,$element, news, categories)
+    controller: function($scope,$element, news, categories, structuralInfo, stories)
     {
       //console.log(news);
       $scope.news = news.news;
       $scope.newsBulk = news;
       $scope.categoriesBulk = categories;
+      $scope.storiesBulk = stories;
+      $scope.structuralInfo = structuralInfo;
     },
     link: function(scope, elm, attrs, ctrl, newsPost) {
+
       // view -> model
       elm.bind('blur', function() {
         scope.$apply(function() {
@@ -770,96 +931,242 @@ app.directive('contenteditable', function() {
       };
 
       elm.bind('keydown', function(event) {
-        //console.log("keydown " + event.which);
-        var esc = event.which == 27,
-        el = event.target;
 
-        var enter = event.which == 13;
-
-        if (esc) {
-          console.log("esc");
-          ctrl.$setViewValue(elm.html());
-          el.blur();
-          event.preventDefault();
-        }
-
-        if(enter)
+        if(scope.show == 'structure')
         {
 
-          var selectedCell = elm[0].parentElement.cellIndex;
-          var changedText = elm[0].outerText;
-
-          switch(scope.show)
+          if(elm[0].outerText.length >= attrs.contentlength)
           {
-            case("news"):
-            alteredNewsPost = scope.newsPost;
-
-            switch(selectedCell)
-            {
-              case(0):
-              alteredNewsPost.category = changedText;
-              break;
-              case(1):
-              alteredNewsPost.title = changedText;
-              break;
-              case(2):
-              alteredNewsPost.link = changedText;
-              break;
-              case(3):
-              alteredNewsPost.body = changedText;
-              break;
-              case(4):
-              alteredNewsPost.imageLink = changedText;
-              break;
-              case(5):
-              alteredNewsPost.text = changedText;
-              break;
-              case(6):
-              break;
-              case(7):
-
-              break;
-
+            if(event.keyCode !== 8) {
+              event.preventDefault();
+            }
+          }
+          else
+          {
+            for(var i=0; i<elm[0].parentElement.children.length; i++){
+              if(elm[0].parentElement.children[i].contentEditable=="true")
+              {
+                if(elm[0].parentElement.children[i].id == attrs.id)
+                {
+                  elm[0].parentElement.children[i+1].innerHTML = "<b>"+attrs.$$element[0].firstChild.length+"</b> / <b>"+attrs.contentlength+"</b>";
+                }
+              }
             }
 
-            scope.newsBulk.update(alteredNewsPost);
-            break;
-            case("categories"):
-            alteredCategory = scope.category;
+            ctrl.$setViewValue(elm.html());
 
-            console.log(alteredCategory);
+            var esc = event.which == 27,
+            el = event.target;
 
-            console.log(selectedCell);
+            var enter = event.which == 13;
+            var backspace = event.which == 8;
+            var del = event.which == 46;
 
-            switch(selectedCell)
-            {
-              case(0):
-              alteredCategory.name = changedText;
-              break;
-              case(1):
-              alteredNewsPost.color = changedText;
-              break;
-              case(2):
-              alteredNewsPost.icon = changedText;
-              break;
+            if (esc) {
+              ctrl.$setViewValue(elm.html());
+              el.blur();
+              event.preventDefault();
             }
 
-            console.log(alteredCategory);
+            if(enter)
+            {
 
-            scope.categoriesBulk.update(alteredCategory);
-            break;
+              var selectedCell = elm[0].parentElement.cellIndex;
+              var changedText = elm[0].outerText;
+
+              switch(scope.show)
+              {
+
+                case('structure'):
+
+                console.log(elm[0].id);
+
+                switch(elm[0].id)
+                {
+                  case('cabecalhoTitle'):
+                    scope.structuralInfo.update(1,elm[0].outerText);
+                  break;
+                  case('cabecalhoTexto'):
+                    scope.structuralInfo.update(2,elm[0].outerText);
+                  break;
+                  case('doacoesTitle1'):
+                    scope.structuralInfo.update(3,elm[0].outerText);
+                  break;
+                  case('doacoesText1'):
+                    scope.structuralInfo.update(4,elm[0].outerText);
+                  break;
+                  case('doacoesTitle2'):
+                    scope.structuralInfo.update(5,elm[0].outerText);
+                  break;
+                  case('doacoesText2'):
+                    scope.structuralInfo.update(6,elm[0].outerText);
+                  break;
+                  case('doacoesTitle3'):
+                    scope.structuralInfo.update(7,elm[0].outerText);
+                  break;
+                  case('doacoesText3'):
+                    scope.structuralInfo.update(8,elm[0].outerText);
+                  break;
+                  case('doacoesTitle4'):
+                    scope.structuralInfo.update(9,elm[0].outerText);
+                  break;
+                  case('doacoesText4'):
+                    scope.structuralInfo.update(10,elm[0].outerText);
+                  break;
+                  case('textoPaypal'):
+                    scope.structuralInfo.update(11,elm[0].outerText);
+                  break;
+                  case('textoChamada'):
+                    scope.structuralInfo.update(12,elm[0].outerText);
+                  break;
+                  case('textoTransferencia'):
+                    scope.structuralInfo.update(13,elm[0].outerText);
+                  break;
+                  case('textoDoacao'):
+                    scope.structuralInfo.update(14,elm[0].outerText);
+                  break;
+
+                }
+
+                break;
+              }
+
+              var selectedCell = elm[0].parentElement.cellIndex;
+              var changedText = elm[0].outerText;
+
+              ctrl.$setViewValue(elm.html());
+              el.blur();
+              event.preventDefault();
+            }
           }
 
-          var selectedCell = elm[0].parentElement.cellIndex;
-          var changedText = elm[0].outerText;
-
-
-
-          ctrl.$setViewValue(elm.html());
-          el.blur();
-          event.preventDefault();
         }
+        else{ //if scope is any of the other categories except structure
 
+          if(elm[0].outerText.length >= attrs.contentlength)
+          {
+            if(event.keyCode !== 8) {
+              event.preventDefault();
+            }
+          }
+          else
+          {
+            if(elm[0].parentElement.children.length > 2)
+              elm[0].parentElement.children[1].innerHTML = "<b>"+attrs.$$element[0].firstChild.length+"</b> / <b>"+attrs.contentlength+"</b>";
+
+            ctrl.$setViewValue(elm.html());
+
+            var esc = event.which == 27,
+            el = event.target;
+
+            var enter = event.which == 13;
+            var backspace = event.which == 8;
+            var del = event.which == 46;
+
+            if (esc) {
+              ctrl.$setViewValue(elm.html());
+              el.blur();
+              event.preventDefault();
+            }
+
+            if(enter)
+            {
+
+              var selectedCell = elm[0].parentElement.cellIndex;
+              var changedText = elm[0].outerText;
+
+              switch(scope.show)
+              {
+                case("news"):
+                alteredNewsPost = scope.newsPost;
+
+                switch(selectedCell)
+                {
+                  case(0):
+                  alteredNewsPost.category = changedText;
+                  break;
+                  case(1):
+                  alteredNewsPost.title = changedText;
+                  break;
+                  case(2):
+                  alteredNewsPost.link = changedText;
+                  break;
+                  case(3):
+                  alteredNewsPost.body = changedText;
+                  break;
+                  case(4):
+                  alteredNewsPost.imageLink = changedText;
+                  break;
+                  case(5):
+                  alteredNewsPost.text = changedText;
+                  break;
+                  case(6):
+                  break;
+                  case(7):
+
+                  break;
+
+                }
+
+                console.log(alteredNewsPost);
+
+                scope.newsBulk.update(alteredNewsPost);
+                break;
+                case("categories"):
+                alteredCategory = scope.category;
+
+                switch(selectedCell)
+                {
+                  case(0):
+                  alteredCategory.name = changedText;
+                  break;
+                  case(1):
+                  alteredNewsPost.color = changedText;
+                  break;
+                  case(2):
+                  alteredNewsPost.icon = changedText;
+                  break;
+                }
+
+                scope.categoriesBulk.update(alteredCategory);
+                break;
+
+                case('stories'):
+
+                console.log("estorias");
+                console.log(selectedCell);
+                alteredStory = scope.story;
+
+                switch(selectedCell)
+                {
+                  case(0):
+                    alteredStory.title = changedText;
+                  break;
+                  case(1):
+                    alteredStory.text = changedText;
+                  break;
+                  case(2):
+                    alteredStory.videoLink = changedText;
+                    var iframe = document.getElementById('storiesVideoIFrame');
+                    iframe.src = changedText;
+                  break;
+                }
+
+                scope.storiesBulk.update(alteredStory);
+
+
+                break;
+              }
+
+              var selectedCell = elm[0].parentElement.cellIndex;
+              var changedText = elm[0].outerText;
+
+              ctrl.$setViewValue(elm.html());
+              el.blur();
+              event.preventDefault();
+            }
+          }
+        }
       });
 
     }
@@ -923,7 +1230,9 @@ app.controller('CategoryCtrl', [
     $scope.collection = [];
     $scope.collection = categories.categories;
 
-    $scope.categories = structuralInfo.structuralInfo[1].categories;
+    $scope.categories = structuralInfo.structuralInfo[0].categories;
+
+    console.log(structuralInfo.structuralInfo);
 
     // reset login status
     //$scope.categories = categories.categories;
@@ -1188,119 +1497,451 @@ app.controller('CategoryCtrl', [
             };
           }]);
 
-        app.controller('DonateBoxCtrl', [
-          '$scope',
-          '$http',
-          '$element',
-          'structuralInfo',
-          function($scope,$http,$element,structuralInfo)
-          {
-            console.log(structuralInfo);
-            $scope.donateTexts = structuralInfo.structuralInfo[2].textos;
-
-            $scope.selectedText = 1;
-          }]);
-
-          app.controller('StoryBoxCtrl', [
+          app.controller('DonateBoxCtrl', [
             '$scope',
             '$http',
             '$element',
+            '$window',
             'structuralInfo',
-            function($scope,$http,$element,structuralInfo)
+            function($scope,$http,$element,$window,structuralInfo)
             {
-              console.log(structuralInfo);
-              $scope.donateTexts = structuralInfo.structuralInfo[2].textos;
 
-              $scope.selectedStory = 1;
+
+              $scope.structuralInfo = [];
+              structuralInfo.getAll().success(function(data){
+                $scope.structuralInfo=data;
+                $scope.donateTitle1 = $scope.structuralInfo[1].titulo1;
+                $scope.donateText1 = $scope.structuralInfo[1].texto1;
+                $scope.donateTitle2 = $scope.structuralInfo[1].titulo2;
+                $scope.donateText2 = $scope.structuralInfo[1].texto2;
+                $scope.donateTitle3 = $scope.structuralInfo[1].titulo3;
+                $scope.donateText3 = $scope.structuralInfo[1].texto3;
+                $scope.donateTitle4 = $scope.structuralInfo[1].titulo4;
+                $scope.donateText4 = $scope.structuralInfo[1].texto4;
+
+                console.log($scope.donateTitle1);
+                console.log($scope.donateTitle2);
+                console.log($scope.donateTitle3);
+                console.log($scope.donateTitle4);
+                console.log($scope.donateText1);
+                console.log($scope.donateText2);
+                console.log($scope.donateText3);
+                console.log($scope.donateText4);
+
+              });
+
+
+
+
+
+              $scope.changePage = function (id) {
+
+                switch(id)
+                {
+                  case(1):
+                  $window.location.href = '/donatenow?donationMethod=paypal';
+                  break;
+                  case(2):
+                  $window.location.href = '/donatenow?donationMethod=call';
+                  break;
+                  case(3):
+                  $window.location.href = '/donatenow?donationMethod=transfer';
+                  break;
+                  case(4):
+                  $window.location.href = '/donatenow?donationMethod=donation';
+                  break;
+                }
+
+
+              };
+
+
+              $scope.donateTexts = structuralInfo.structuralInfo[0].textos;
+
+              $scope.selectedText = 1;
+
             }]);
 
-            app.controller('PartnerBoxCtrl', [
+            app.controller('StoryBoxCtrl', [
               '$scope',
               '$http',
               '$element',
-              'partners',
-              function($scope,$http,$element,partners)
+              'structuralInfo',
+              function($scope,$http,$element,structuralInfo)
               {
-                $scope.partners = [];
-                partners.getAll().success(function(data){
-                  $scope.partners=data;
-                  $scope.rowCollectionPartners=data;
-                });
+                console.log(structuralInfo);
+                $scope.donateTexts = structuralInfo.structuralInfo[0].textos;
+
+                $scope.selectedStory = 1;
               }]);
 
-              app.controller('ContactsCtrl', [
+              app.controller('PartnerBoxCtrl', [
                 '$scope',
                 '$http',
                 '$element',
-                'vcRecaptchaService',
-                function($scope,$http,$element,vcRecaptchaService)
+                'partners',
+                function($scope,$http,$element,partners)
                 {
-                console.log("this is your app's controller");
-                $scope.response = null;
-                $scope.widgetId = null;
-                $scope.model = {
-                    key: '6Ld-6icTAAAAAHvJiPgtX6mZVE2CQIfnc5sbCmzd'
-                };
+                  $scope.partners = [];
+                  partners.getAll().success(function(data){
+                    $scope.partners=data;
+                    $scope.rowCollectionPartners=data;
+                  });
+                }]);
 
-                $scope.setResponse = function (response) {
-                    console.info('Response available');
-                    $scope.response = response;
-                };
-                $scope.setWidgetId = function (widgetId) {
-                    console.info('Created widget ID: %s', widgetId);
-                    $scope.widgetId = widgetId;
-                };
-                $scope.cbExpiration = function() {
-                    console.info('Captcha expired. Resetting response object');
-                    vcRecaptcha.reload($scope.widgetId);
+                app.controller('ContactsCtrl', [
+                  '$scope',
+                  '$http',
+                  '$element',
+                  'vcRecaptchaService',
+                  function($scope,$http,$element,vcRecaptchaService)
+                  {
+                    console.log("this is your app's controller");
                     $scope.response = null;
-                 };
-                $scope.submitContactForm = function () {
-                    var valid;
-                    /**
-                     * SERVER SIDE VALIDATION
-                     *
-                     * You need to implement your server side validation here.
-                     * Send the reCaptcha response to the server and use some of the server side APIs to validate it
-                     * See https://developers.google.com/recaptcha/docs/verify
-                     */
+                    $scope.widgetId = null;
+                    $scope.model = {
+                      key: '6Ld-6icTAAAAAHvJiPgtX6mZVE2CQIfnc5sbCmzd'
+                    };
 
-                     if($scope.response != null)
+                    $scope.setResponse = function (response) {
+                      console.info('Response available');
+                      $scope.response = response;
+                    };
+                    $scope.setWidgetId = function (widgetId) {
+                      console.info('Created widget ID: %s', widgetId);
+                      $scope.widgetId = widgetId;
+                    };
+                    $scope.cbExpiration = function() {
+                      console.info('Captcha expired. Resetting response object');
+                      vcRecaptcha.reload($scope.widgetId);
+                      $scope.response = null;
+                    };
+                    $scope.submitContactForm = function () {
+                      var valid;
+                      /**
+                      * SERVER SIDE VALIDATION
+                      *
+                      * You need to implement your server side validation here.
+                      * Send the reCaptcha response to the server and use some of the server side APIs to validate it
+                      * See https://developers.google.com/recaptcha/docs/verify
+                      */
+
+                      if($scope.response != null)
                       valid=true;
 
-                    console.log('sending the captcha response to the server', $scope.response);
-                    if (valid) {
+                      console.log('sending the captcha response to the server', $scope.response);
+                      if (valid) {
 
-                      if(!$scope.nomeContacto || $scope.nomeContacto === '') { return; }
-                      if(!$scope.emailContacto || $scope.emailContacto === '') { return; }
-                      if(!$scope.textoContacto || $scope.textoContacto === '') { return; }
+                        if(!$scope.nomeContacto || $scope.nomeContacto === '') { return; }
+                        if(!$scope.emailContacto || $scope.emailContacto === '') { return; }
+                        if(!$scope.textoContacto || $scope.textoContacto === '') { return; }
 
-                      console.log({ nome: $scope.nomeContacto, email: $scope.emailContacto, texto: $scope.textoContacto });
+                        console.log({ nome: $scope.nomeContacto, email: $scope.emailContacto, texto: $scope.textoContacto });
 
-                      $http({
-                       method: 'POST',
-                       url: 'http://localhost/phpmailer/testemail.php',
-                       data: 'nome='+$scope.nomeContacto+'&email='+$scope.emailContacto+'&texto='+$scope.textoContacto,
-                       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                     }).success(function(data)
-                       {
-                         console.log(data);
-                       }).error(function(data){
-                         console.log("Erro, Email Não Enviado!");
-                       });
+                        $http({
+                          method: 'POST',
+                          url: 'http://localhost/phpmailer/testemail.php',
+                          data: 'nome='+$scope.nomeContacto+'&email='+$scope.emailContacto+'&texto='+$scope.textoContacto,
+                          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        }).success(function(data)
+                        {
+                          console.log(data);
+                        }).error(function(data){
+                          console.log("Erro, Email Não Enviado!");
+                        });
 
-                      $scope.nomeContacto = '';
-                      $scope.emailContacto = '';
-                      $scope.textoContacto = '';
-                      currentDate = '';
-                      $scope.newContactForm.$setPristine();
+                        $scope.nomeContacto = '';
+                        $scope.emailContacto = '';
+                        $scope.textoContacto = '';
+                        currentDate = '';
+                        $scope.newContactForm.$setPristine();
 
-                    } else {
+                      } else {
                         console.log('Failed validation');
                         // In case of a failed validation you need to reload the captcha
                         // because each response can be checked just once
                         vcRecaptchaService.reload($scope.widgetId);
+                      }
+                    };
+                  }
+                ]);
+
+
+                app.controller('StatsCtrl', [
+                  '$scope',
+                  '$http',
+                  '$element',
+                  'stats',
+                  function($scope,$http,$element,stats)
+                  {
+                    $scope.stats = stats.stats;
+
+                    $scope.stats = [];
+                    stats.getAll().success(function(data){
+                      $scope.stats=data;
+                      $scope.rowCollectionStats=data;
+                    });
+
+                    $scope.removeStat = function(row, stat)
+                    {
+                      var index = $scope.rowCollectionStats.indexOf(stat);
+                      if (index !== -1) {
+                        stats.delete(stat);
+                        $scope.rowCollectionStats.splice(index, 1);
+                      }
                     }
-                };
-              }
-              ]);
+
+                    $scope.addStat = function()
+                    {
+                      var currentDate = Date.now();
+
+                      if(!$scope.descricaoStat || $scope.descricaoStat === '') { return; }
+                      stats.create({
+                        description: $scope.descricaoStat,
+                        number: $scope.numeroStat,
+                        imagePath: $scope.linkStat,
+                        date: currentDate,
+                      }).success(function(data)
+                      {
+                        $scope.rowCollectionStats.push(data);
+                      });
+                      $scope.descricaoStat = '';
+                      $scope.numeroStat = '';
+                      $scope.linkStat = '';
+                      currentDate = '';
+                      $scope.newStatsForm.$setPristine();
+                    };
+                  }]);
+
+
+                  app.controller('DonationCtrl', [
+                    '$scope',
+                    '$http',
+                    '$element',
+                    'structuralInfo',
+                    function($scope,$http,$element,structuralInfo)
+                    {
+
+                      $scope.currentPage = 1;
+                      $scope.currentValue = 250;
+
+                      structuralInfo.getAll().success(function(data){
+                        $scope.structuralInfo=data;
+                      });
+
+
+                      $scope.donationMethod = window.donationMethod;
+
+                      switch($scope.donationMethod)
+                      {
+                        case('paypal'):
+                        $scope.currentPage = 1;
+                        break;
+                        case('call'):
+                        $scope.currentPage = 2;
+                        break;
+                        case('transfer'):
+                        $scope.currentPage = 3;
+                        break;
+                        case('donation'):
+                        $scope.currentPage = 4;
+                        break;
+                      }
+
+                      //Slider with selection bar
+                      $scope.slider_visible_bar = {
+                        value:250,
+                        minValue:1,
+                        maxValue:3000,
+                        options: {
+                          floor: 0,
+                          ceil: 3000,
+                          showSelectionBar: true,
+                          step: 1,
+                          precision: 0,
+                          hideLimitLabels: true,
+                          hidePointerLabels:true,
+                          disabled: false,
+                          draggableRange: true,
+                        }
+                      };
+
+                      $scope.changePage = function(id)
+                      {
+                        $scope.currentPage = id;
+                      }
+
+                    }]);
+                    app.controller('MembershipCtrl', [
+                      '$scope',
+                      '$http',
+                      '$element',
+                      'vcRecaptchaService',
+                      'members',
+
+                      function($scope,$http,$element,vcRecaptchaService,members)
+                      {
+
+                        $scope.members = [];
+                        members.getAll().success(function(data){
+                          $scope.members=data;
+                        });
+
+                        console.log("this is your app's controller");
+                        $scope.response = null;
+                        $scope.widgetId = null;
+                        $scope.model = {
+                          key: '6Ld-6icTAAAAAHvJiPgtX6mZVE2CQIfnc5sbCmzd'
+                        };
+
+                        $scope.setResponse = function (response) {
+                          console.info('Response available');
+                          $scope.response = response;
+                        };
+                        $scope.setWidgetId = function (widgetId) {
+                          console.info('Created widget ID: %s', widgetId);
+                          $scope.widgetId = widgetId;
+                        };
+                        $scope.cbExpiration = function() {
+                          console.info('Captcha expired. Resetting response object');
+                          vcRecaptcha.reload($scope.widgetId);
+                          $scope.response = null;
+                        };
+                        $scope.submitMemberForm = function () {
+                          var valid;
+                          /**
+                          * SERVER SIDE VALIDATION
+                          *
+                          * You need to implement your server side validation here.
+                          * Send the reCaptcha response to the server and use some of the server side APIs to validate it
+                          * See https://developers.google.com/recaptcha/docs/verify
+                          */
+
+                          if($scope.response != null)
+                          valid=true;
+
+                          console.log('sending the captcha response to the server', $scope.response);
+                          if (valid) {
+
+                            if(!$scope.nomeMembro || $scope.nomeMembro === '') { return; }
+                            if(!$scope.emailMembro || $scope.emailMembro === '') { return; }
+                            if(!$scope.telefoneMembro || $scope.telefoneMembro === '') { return; }
+
+                            members.create({
+                              name: $scope.nomeMembro,
+                              email: $scope.emailMembro,
+                              telephone: $scope.telefoneMembro,
+                              address: $scope.moradaMembro+", "+$scope.postalcode1+"-"+$scope.postalcode2,
+                              birthDate: $scope.dataNascimentoMembro,
+                              subscribedToNewsLetter: $scope.checkboxNewsletter
+                            });
+                            $scope.nomeMembro = '';
+                            $scope.emailMembro = '';
+                            $scope.telefoneMembro = '';
+                            $scope.moradaMembro = '';
+                            $scope.postalcode1 = '';
+                            $scope.postalcode2 = '';
+                            $scope.dataNascimentoMembro = '';
+                            $scope.checkboxNewsletter = '';
+                            $scope.newMemberForm.$setPristine();
+
+
+                          } else {
+                            console.log('Failed validation');
+                            // In case of a failed validation you need to reload the captcha
+                            // because each response can be checked just once
+                            vcRecaptchaService.reload($scope.widgetId);
+                          }
+                        };
+
+                        $scope.myDate = new Date();
+
+                        $scope.minDate = new Date(
+                          $scope.myDate.getFullYear(),
+                          $scope.myDate.getMonth() - 2,
+                          $scope.myDate.getDate());
+
+                          $scope.maxDate = new Date(
+                            $scope.myDate.getFullYear(),
+                            $scope.myDate.getMonth() + 2,
+                            $scope.myDate.getDate());
+
+                            $scope.onlyWeekendsPredicate = function(date) {
+                              var day = date.getDay();
+                              return day === 0 || day === 6;
+                            };
+
+                          }
+                        ]);
+
+                        app.controller('MembersCtrl', [
+                          '$scope',
+                          '$http',
+                          '$element',
+                          'members',
+                          function($scope,$http,$element,members)
+                          {
+                            $scope.members = members.members;
+
+                            $scope.members = [];
+                            members.getAll().success(function(data){
+                              $scope.members=data;
+                              $scope.rowCollectionMembers=data;
+                            });
+
+                            $scope.removeMember = function(row, member)
+                            {
+                              var index = $scope.rowCollectionMembers.indexOf(member);
+                              if (index !== -1) {
+                                members.delete(member);
+                                $scope.rowCollectionMembers.splice(index, 1);
+                              }
+                            }
+
+                            $scope.addMember = function()
+                            {
+                              if(!$scope.nomeMembro || $scope.nomeMembro === '') { return; }
+                              if(!$scope.emailMembro || $scope.emailMembro === '') { return; }
+                              if(!$scope.telefoneMembro || $scope.telefoneMembro === '') { return; }
+
+                              members.create({
+                                name: $scope.nomeMembro,
+                                email: $scope.emailMembro,
+                                telephone: $scope.telefoneMembro,
+                                address: $scope.moradaMembro+", "+$scope.postalcode1+"-"+$scope.postalcode2,
+                                birthDate: $scope.dataNascimentoMembro,
+                                subscribedToNewsLetter: $scope.checkboxNewsletter
+                              });
+                              $scope.nomeMembro = '';
+                              $scope.emailMembro = '';
+                              $scope.telefoneMembro = '';
+                              $scope.moradaMembro = '';
+                              $scope.postalcode1 = '';
+                              $scope.postalcode2 = '';
+                              $scope.dataNascimentoMembro = '';
+                              $scope.checkboxNewsletter = '';
+                              $scope.newMemberForm.$setPristine();
+                            };
+                          }]);
+
+
+                          app.filter('boolText',boolText);
+
+                          function boolText() {
+                            return function (boolValue) {
+                              if (boolValue === true)
+                              return "Sim";
+                              else
+                              return "Não";
+                            }
+                          }
+
+                          app.filter('wordCounter', function () {
+                            return function (value) {
+                              if (value && typeof value === 'string') {
+                                return value.trim().split(/\s+/).length;
+                              } else {
+                                return 0;
+                              }
+                            };
+                          })

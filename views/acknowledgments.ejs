@@ -4,14 +4,24 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
 <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
 <!-- Include the JS ReCaptcha API -->
 <script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
 <script src="https://cdn.rawgit.com/VividCortex/angular-recaptcha/master/release/angular-recaptcha.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-<script data-require="angular-animate@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular-animate.js"></script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="javascripts/rzslider.js"></script>
 <script src="/javascripts/slick.min.js"></script>
 <script src="/javascripts/angular.js"></script>
 <head>
@@ -23,54 +33,56 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="/" style="bottom:45px; left:40px; position:absolute;"><img src="/images/logo-meninos.png" width="111px" height="87px"></img></a>
+        <a class="navbar-brand" href="/"><img src="/images/logo-meninos.png"></img></a>
       </div>
       <div class="navbar-header-links">
-        <li><a href="#" style="font-size:18px; font-weight:600; color:#cea44a">DOE AGORA</a></li>
+        <li><a href="/donatenow" id="donateNowButton">DOE AGORA</a></li>
         <li><a>|</a></li>
-        <li><a href="#">Já Se Tornou Membro?</a></li>
+        <li><a href="/membership" style="padding-right:0px;">Já Se Tornou Membro?</a></li>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/">Homepage</a></li>
           <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false" style="cursor:pointer;">Sobre Nós</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false">Sobre Nós</a></li>
           <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true" href="#">Parceiros</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true">Parceiros</a></li>
           <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
+          <li><a style="color:#cea44a;" ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
           <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts">Contactos</a></li>
+          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts" style="padding-right:0px;">Contactos</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-    <div style="height:40px; margin-top:100px; background-color:#185472; box-shadow: 0px 2px 5px 0px darkgrey;">
-      <div ng-show="showSubMenuAbout" style="margin-left:1195px; padding-top:10px; font-weight:600;">
-        <a href="/mission" style="color:lightgrey;">Missão</a>
-        <a style="pointer-events: none; color:lightgrey;">|</a>
-        <a href="/projectspage" style="color:lightgrey;">Projectos</a>
+    <div id="subMenu">
+      <div id="subMenuAbout" ng-show="showSubMenuAbout">
+        <a href="/mission">Missão</a>
+        <a style="pointer-events: none;">|</a>
+        <a href="/projectspage">Projectos</a>
+        <a style="pointer-events: none;">|</a>
+        <a href="/financePage">Demonstrações Financeiras</a>
       </div>
-      <div ng-show="showSubMenuPartners" style="margin-left:1330px; padding-top:10px; font-weight:600;">
-        <a href="/subscribe" style="color:lightgrey;">Inscrição</a>
-        <a style="pointer-events: none; color:lightgrey;">|</a>
-        <a href="/donatenow" style="color:lightgrey;">Doar Agora</a>
+      <div id="subMenuPartners" ng-show="showSubMenuPartners">
+        <a href="/membership">Inscrição</a>
+        <a style="pointer-events: none;">|</a>
+        <a href="/donatenow" >Doar Agora</a>
       </div>
     </div>
   </nav>
   <div class="row" ng-controller="StoryCtrl" style=" width:100%; margin-left:0px;">
     <table class="table" style="margin-bottom:0px;">
-      <tr style="height:215px; " ng-repeat="story in stories" ng-init="convertVideoLinksToTrust()" ng-class-even="'evenStory'">
-      <td width="30%;" style="border:none;"><iframe style="padding-left:220px; padding-top:6px;" width="600" height="215" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></td>
+      <tr style="height:215px;" ng-repeat="story in stories" ng-init="convertVideoLinksToTrust()" ng-class-even="'evenStory'">
+      <td width="30%;" style="border:none;"><iframe style="padding-left:225px; padding-top:6px;" width="600" height="215" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></td>
       <td width="70%;" style="border:none;">
-        <div style="color:#185472; width:1070px; text-align:justify; padding-left:20px; margin-top:6px;">
+        <div style="color:#185472; width:1070px; text-align:justify; padding-left:20px; padding-right:22px; margin-top:6px;">
         <h1 style="margin-top:0px;">{{story.title}}</h1> <p>"<b>{{story.text}}</b>"</p></td>
         </div>
       </tr>
     </table>
   </div>
-  <div class="row" ng-controller="PartnerCtrl" style="width:100%; background-color:#185472;">
-    <div style="margin-left:220px;">
+  <div class="row" ng-controller="PartnerCtrl" style="margin-left:0px; width:100vw; background-color:#185472;">
+    <div style="margin-left:232px;">
       <h1 style="color:#e8e8e8; margin-top:50px; margin-bottom:20px;"> Os Nossos Parceiros </h1>
       <p style="color:#e8e8e8; margin-top:20px; width:1490px; text-align:justify; margin-bottom:50px;">O nosso sincero obrigado também a todas as outras empresas que nos apoiaram ao longo destes anos, a todos os nossos voluntários, colaboradores e amigos, e aos congressistas e artistas que participaram nas nossas Conferências.</p>
 

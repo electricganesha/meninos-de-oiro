@@ -13,6 +13,7 @@
 body {
   background-color:var(--greyColor);
   width:100%;
+  height:auto;
   font-family: 'MyriadPro', sans-serif;
   overflow-x:hidden;
 }
@@ -165,12 +166,11 @@ body {
 {
   width:60px;
   height:60px;
-  float:right;
   -webkit-user-select: none;
   pointer-events:all;
   position:absolute;
-  bottom:30vh;
-  right:0.5vw;
+  bottom:295px;
+  right:-5px;
   z-index:2;
 }
 
@@ -274,6 +274,10 @@ body {
   box-shadow: 5px 5px 15px 0px darkgrey;
 }
 
+table
+{
+  table-layout:fixed;
+}
 
 thead {
     display: table-header-group;
@@ -599,6 +603,7 @@ input[type="file"] {
 {
   color:lightgrey;
   text-decoration:none;
+  padding:15px;
 }
 
 #subMenu a:hover
@@ -608,14 +613,14 @@ input[type="file"] {
 
 #subMenuAbout
 {
-  margin-left:1195px;
+  margin-left:1218px;
   padding-top:10px;
   font-weight:600;
 }
 
 #subMenuPartners
 {
-  margin-left:1330px;
+  margin-left:1322px;
   padding-top:10px;
   font-weight:600;
 }
@@ -647,6 +652,12 @@ input[type="file"] {
   padding:5px;
 }
 
+.donateBoxButtonDiv:hover
+{
+  cursor:pointer;
+  background-color:var(--goldenColor);
+}
+
 .donateBoxButtonDivInside img
 {
   border:1.5px solid lightgrey;
@@ -655,6 +666,36 @@ input[type="file"] {
 }
 
 .donateBoxButtonDivInsideText
+{
+  margin-top:13px;
+  color:lightgrey;
+  font-size:14px;
+  text-align:center;
+}
+
+.donateBoxButtonDivPage
+{
+  width:100%;
+  height:25%;
+  border:1px solid lightgrey;
+}
+
+.donateBoxButtonDivInsidePage
+{
+  float:left;
+  padding:6px;
+
+}
+
+.donateBoxButtonDivInsidePage img
+{
+  margin-top:4px;
+  border:1.5px solid lightgrey;
+  border-radius:5px;
+  padding:4px;
+}
+
+.donateBoxButtonDivInsideTextPage
 {
   margin-top:8px;
   color:lightgrey;
@@ -706,8 +747,6 @@ input[type="file"] {
 {
   width:calc(var(--globalwidth)*2);
   margin:auto;
-  border:1px solid hotpink;
-  padding-left:20px;
 }
 
 #missionText h1
@@ -728,6 +767,7 @@ input[type="file"] {
 {
   width:100%;
   margin:230px;
+  margin-bottom:80px;
   background-color:#185472;
   height:60vh;
   margin-top:60px;
@@ -737,14 +777,14 @@ input[type="file"] {
 {
   font-weight:600;
   color:#cea44a;
-  padding-top:10px;
+  padding-top:25px;
   padding-left:20px;
 }
 
 #teamContainer
 {
-  border:1px solid white;
   width:calc(var(--globalwidth)*2);
+  height:auto;
 }
 
 #teamContainer ul
@@ -758,10 +798,9 @@ input[type="file"] {
   float:left;
 }
 
-.teamMember
+.teamMemberPhoto
 {
-  margin-right:10px;
-  margin-top:20px;
+  margin-top:10px;
   width:332px;
   height:220px;
   background-color:white;
@@ -773,4 +812,385 @@ input[type="file"] {
 .teamMemberTag
 {
   padding-top:5px; border:1px solid lightgrey; border-bottom:none; border-top-right-radius:15px; border-top-left-radius:15px; position:absolute; margin-right:30px; margin-top:-20px; width:332px; height:20px; background-color:#185472;
+}
+
+#projectsPageDiv
+{
+  margin:auto;
+  width:calc(var(--globalwidth)*2);
+  height:auto;
+}
+
+#projectContainer
+{
+  width:31.8%;
+  float:left;
+}
+
+#projectImages
+{
+
+  width:100%;
+  display:block;
+  color:black;
+  height:350px;
+  background-size:cover;
+  background-position:50% 0%;
+  position:relative;
+  box-shadow: 5px 5px 15px 0px darkgrey;
+  /* background image is inline because of dynamic content */
+}
+
+#projectBox
+{
+  background-color:#185472;
+  position:absolute;
+  bottom:0px;
+  height:110px;
+  width:100%;
+}
+
+#projectTitle
+{
+  color:lightgrey;
+  font-size:16px;
+  font-weight:600;
+  padding-left:20px;
+  padding-top:10px;
+}
+
+#projectDescription
+{
+  color:lightgrey;
+  font-size:14px;
+  font-weight:600;
+  padding-left:20px;
+  padding-top:10px;
+}
+
+#statsDiv
+{
+  width:100%;
+  margin-top:33px;
+  background-color:#185472;
+  height:40vh;
+}
+
+#statsDivImagesContainer
+{
+
+  width:calc(var(--globalwidth)*2);
+  height:auto;
+  text-align:center;
+  padding-left:calc(var(--globalwidth)/2);
+}
+
+#statsDivImage
+{
+  float:left;
+  display:block;
+  margin-top:120px;
+  margin-left:calc(var(--globalwidth)/10);
+}
+
+#statsDivImage img
+{
+  width:80px;
+  margin:auto;
+  max-height:100%;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+#statsDivImage h1
+{
+  margin-top:20px;
+  color:var(--greyColor);
+  font-size:64px;
+  font-weight:600;
+  margin-bottom:0px;
+  line-height: 0.7;
+}
+
+#statsDivImage p
+{
+  color:var(--greyColor);
+  font-size:22px;
+  font-weight:100;
+}
+
+#donationDiv
+{
+  height:110vh;
+  background-size:cover;
+  -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+  -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+  box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+}
+
+#donationPageBoxTitles
+{
+  width:calc(var(--globalwidth)*2);
+  margin:auto;
+  color:white;
+  text-align:center;
+  padding-top:140px;
+}
+
+#donationPageBoxTitles h1
+{
+  font-size:128px;
+  font-weight:600;
+  text-shadow: 2px 2px 10px grey;
+}
+
+#donationPageBoxTitles h2
+{
+  font-size:64px;
+  font-weight:600;
+  text-shadow: 2px 2px 10px grey;
+}
+
+#donationPageBoxButtons
+{
+  background-color:#185472;
+  height:350px;
+  width:420px;
+  float:left;
+  margin-top:160px;
+  margin-right:10px;
+}
+
+#donationPageBoxPaypal
+{
+  background-color:var(--greyColor);
+  height:350px;
+  width:920px;
+  float:right;
+  margin-top:160px;
+}
+
+#donationPageBoxPaypalLeft
+{
+  float:left;
+  height:70%;
+  width:50%;
+}
+
+#donationPageBoxPaypalRight
+{
+  float:right;
+  height:70%;
+  width:50%;
+  padding-top:20px;
+}
+
+#donationPageBoxPaypalRightContainer
+{
+  border:2px solid #185472;
+  width:80%;
+  height:40%;margin:auto;
+  margin-bottom:20px;
+}
+
+#donationPageBoxPaypalRightContainerEuro
+{
+  padding:0px;
+  padding-left:10px;
+  font-size:69px;
+  color:#185472;
+  text-align:left;
+  height:100%;
+  width:30%;
+  float:left;
+}
+
+#donationPageBoxPaypalRightContainerValue
+{
+  padding:0px;
+  width:60%;
+  float:right;
+  height:100%;
+  text-align:right;
+  padding-right:10px;
+  padding-bottom:20px;
+  font-size:69px;
+  color:#185472;
+}
+
+#donationPageBoxPaypalRightContainerDonate
+{
+  background-color:#185472;
+  width:80%;
+  height:40%;
+  margin:auto;
+}
+
+#donationPageBoxPaypalRightContainerDonate:hover
+{
+  background-color:var(--goldenColor);
+}
+
+#donationPageBoxPaypal p
+{
+  padding:20px;
+  font-size:14px;
+  font-weight:600;
+  color:grey;
+  text-align:justify;
+}
+
+.donationPagedonateBoxButtonDivPage
+{
+  width:100%;
+  height:25%;
+  border:1px solid lightgrey;
+}
+
+.donationPagedonateBoxButtonDivPage:hover
+{
+  cursor:pointer;
+  background-color:var(--goldenColor);
+}
+
+.donationPagedonateBoxButtonDivInsidePage
+{
+  float:left;
+  padding:6px;
+}
+
+.donationPagedonateBoxButtonDivInsidePage img
+{
+  margin-top:4px;
+  border:1.5px solid lightgrey;
+  border-radius:5px;
+  padding:4px;
+}
+
+.donationPagedonateBoxButtonDivInsideTextPage
+{
+  margin-top:8px;
+  color:lightgrey;
+  font-size:20px;
+  text-align:center;
+}
+
+.donationPagedonateBoxButtonDivInsideText
+{
+  margin-top:13px;
+  color:lightgrey;
+  font-size:42px;
+  text-align:center;
+}
+
+#linkDonate
+{
+  text-decoration:none;
+  color:lightgrey;
+}
+
+input.donation {
+  width:100%;
+  height:100%;
+  background-color:#dedede;
+  border: none;
+  border-color: transparent;
+  text-align:right;
+}
+
+input.donation:focus {
+  outline: none;
+}
+
+#donationPageBoxPhone
+{
+  background-color:var(--greyColor);
+  height:350px;
+  width:920px;
+  float:right;
+  margin-top:160px;
+}
+
+#donationPageBoxPhoneLeft
+{
+    float:left;
+    height:70%;
+    width:100%;
+}
+
+#donationPageBoxPhone p
+{
+  padding:20px;
+  font-size:14px;
+  font-weight:600;
+  color:grey;
+  text-align:justify;
+}
+
+#donationPageBoxTransfer
+{
+  background-color:var(--greyColor);
+  height:350px;
+  width:920px;
+  float:right;
+  margin-top:160px;
+}
+
+#donationPageBoxTransferLeft
+{
+    float:left;
+    height:70%;
+    width:100%;
+}
+
+#donationPageBoxTransfer p
+{
+  padding:20px;
+  font-size:14px;
+  font-weight:600;
+  color:grey;
+  text-align:justify;
+}
+
+#donationPageBoxDonation
+{
+  background-color:var(--greyColor);
+  height:350px;
+  width:920px;
+  float:right;
+  margin-top:160px;
+}
+
+#donationPageBoxDonationLeft
+{
+    float:left;
+    height:70%;
+    width:100%;
+}
+
+#donationPageBoxDonation p
+{
+  padding:20px;
+  font-size:14px;
+  font-weight:600;
+  color:grey;
+  text-align:justify;
+}
+
+.memberForm
+{
+  padding-top:20px;
+  padding-left:10px;
+  resize: none;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.memberFormInput
+{
+  margin-bottom:2px;
+  padding-left:20px;
+  color:white;
+  background-color:#185472;
+  border:1px solid lightgrey;
 }

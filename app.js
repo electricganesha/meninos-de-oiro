@@ -18,6 +18,8 @@ require('./models/Stories');
 require('./models/Partners');
 require('./models/Team');
 require('./models/Projects');
+require('./models/Stats');
+require('./models/Members');
 mongoose.connect('mongodb://localhost/meninos-de-oiro')
 
 require('./config/passport')(passport);

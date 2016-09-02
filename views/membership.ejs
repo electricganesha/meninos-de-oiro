@@ -1,43 +1,140 @@
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
-  <script src="/javascripts/angular.js"></script>
-  <script src="/javascripts/auxFunctions.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!-- Include the JS ReCaptcha API -->
+<script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+<script src="https://cdn.rawgit.com/VividCortex/angular-recaptcha/master/release/angular-recaptcha.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="javascripts/rzslider.js"></script>
+<script src="/javascripts/slick.min.js"></script>
+<script src="/javascripts/angular.js"></script>
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body ng-app="meninos-de-oiro">
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/" style="bottom:45px; left:40px; position:absolute;"><img src="/images/logo-meninos.png" width="111px" height="87px"></img></a>
+    <nav class="navbar navbar-default" style="border:1px solid black;">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/"><img src="/images/logo-meninos.png"></img></a>
+        </div>
+        <div class="navbar-header-links">
+          <li><a href="/donatenow" id="donateNowButton">DOE AGORA</a></li>
+          <li><a>|</a></li>
+          <li><a href="/membership" style="padding-right:0px;">Já Se Tornou Membro?</a></li>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-init="showSubMenuPartners = true" >
+          <ul class="nav navbar-nav navbar-right" >
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/">Homepage</a></li>
+            <li><a style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false">Sobre Nós</a></li>
+            <li><a style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true">Parceiros</a></li>
+            <li><a style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
+            <li><a style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts" style="padding-right:0px;">Contactos</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+      <div id="subMenu">
+        <div id="subMenuAbout" ng-show="showSubMenuAbout">
+          <a href="/mission">Missão</a>
+          <a style="pointer-events: none;">|</a>
+          <a href="/projectspage">Projectos</a>
+          <a style="pointer-events: none;">|</a>
+          <a href="/financePage">Demonstrações Financeiras</a>
+        </div>
+        <div id="subMenuPartners" ng-show="showSubMenuPartners">
+          <a style="color:#cea44a;" href="/membership">Inscrição</a>
+          <a style="pointer-events: none;">|</a>
+          <a href="/donatenow" >Doar Agora</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid" style="width:1440px;" ng-controller="MembershipCtrl">
+      <h2 style="text-align:justify;">
+        Gostaria de fazer parte da nossa associação? Preencha esta ficha de inscrição, e entraremos em contacto consigo o mais rapidamente possível.
+      </h2>
+      <div class="row" style="border-bottom:1px solid #185472; width:100%; margin-left:0px; padding-bottom:40px;">
+      <form style="margin-top:80px;" ng-submit="submitMemberForm()" name="newMemberForm">
+        <div class="col-md-6" style="height:100%; width:50%; margin-top:22px;">
+        <input class="memberFormInput" type="text" name="Nome" ng-model="nomeMembro" placeholder="Nome Completo *" style="width:300px; height:50px;">
+        <br>
+        <input class="memberFormInput" type="email" name="Email" ng-model="emailMembro" placeholder="E-Mail *" style="width:300px; height:50px;">
+        <br>
+        <input class="memberFormInput" type="text" name="Telefone" ng-model="telefoneMembro" placeholder="Telefone *" style="width:300px; height:50px;">
+        <br>
+        <input class="memberFormInput" type="text" name="Morada" ng-model="moradaMembro" placeholder="Morada" style="width:300px; height:50px;">&nbsp;&nbsp;<input class="memberFormInput" type="text" name="CodigoPostal1" ng-model="postalcode1" placeholder="Código-Postal" style="width:200px; height:50px;"><b>&nbsp;-&nbsp;</b><input class="memberFormInput" type="text" name="CodigoPostal2" ng-model="postalcode2" placeholder="XXX" style="width:100px; height:50px;">
+        <br>
+        </div>
+        <div class="col-md-6" style="height:232px; width:50%;">
+          <div flex-gt-xs="" style="position:absolute; bottom:50px;">
+            <h4>Data de Nascimento</h4>
+            <md-datepicker ng-model="dataNascimentoMembro" md-placeholder="Data Nasc."></md-datepicker>
+          </div>
+          <div style="position:absolute; bottom:0px;">
+          <label for="newsLetterCheckbox">Deseja receber informação e notícias da associação Meninos de Oiro?</label>
+        <input type="checkbox" id="newsLetterCheckbox" ng-model="checkboxNewsletter" style="float:right; padding:0px; margin:0px;">
+        </div>
+      </div>
     </div>
-    <div class="navbar-header-links">
-      <li><a href="#" style="font-size:18px; font-weight:600; color:#cea44a">DOE AGORA</a></li>
-      <li><a>|</a></li>
-      <li><a href="/membership">Já Se Tornou Membro?</a></li>
+      <div class="row" style=" margin-top:30px;">
+        <div style="padding-top:20px; float:right;" >
+          <div>
+          <div vc-recaptcha class="g-recaptcha" theme="light" key="model.key" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()" style="float:left; margin-top:-13px; width:300px; transform:scale(0.68);"></div>
+          <button id="buttonSubmitContact" type="submit" value="Submit" style="float:right; margin-right:13px; width:395px; height:50px; font-weight:600;"> Submeter </button>
+        </div>
+        </div>
+      </form>
+      </div>
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">Homepage</a></li>
-        <li><a style="pointer-events: none;">|</a></li>
-        <li><a href="/about">Sobre Nós</a></li>
-        <li><a style="pointer-events: none;">|</a></li>
-        <li><a href="/partners">Parceiros</a></li>
-        <li><a style="pointer-events: none;">|</a></li>
-        <li><a href="/acknowledgments">Agradecimentos</a></li>
-        <li><a style="pointer-events: none;">|</a></li>
-        <li><a href="/contacts">Contactos</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    <div class="container-fluid" style="height:15vh; margin-top:65px;">
+      <div id="footer">
+        <div class="row" id="footerRow">
+          <div class="col-md-6" id="footerLeft">
+          <br>
+          <br>
+          <p>
+            MENINOS DE OIRO – Associação para a Defesa dos Direitos da Criança de Azeitão e Setúbal
+              <br>
+              Sede: Rua Juventude Azeitonense, Lote 145, 2925-588 Azeitão
+              <br>
+              Telefones: 21.218.0703 / 96 567 1738 / 91 758 7766
+              <br>
+              Email: meninosdeoiro@gmail.com
+              <br>
+              Nº de Identificação fiscal: 506 414 035
+              <br>
+              <br>
+              <br>
+          </p>
+        </div>
+      <div class="col-md-6" id="footerRight">
+        <p>© 2016 Associação Meninos-de-Oiro - Todos os Direitos Reservados
+          <br>
+        Design e Desenvolvimento feito por <a>PUSH</a></p>
+      </div>
+      </div>
+      </div>
+    </div>
   </body>
 </html>

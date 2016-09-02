@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
-  <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
-  <!-- Include the JS ReCaptcha API -->
-  <script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
-  <script src="https://cdn.rawgit.com/VividCortex/angular-recaptcha/master/release/angular-recaptcha.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
-  <script data-require="angular-animate@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular-animate.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
-  <script src="javascripts/slick.min.js"></script>
-  <script src="/javascripts/angular.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<!-- Include the JS ReCaptcha API -->
+<script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
+<script src="https://cdn.rawgit.com/VividCortex/angular-recaptcha/master/release/angular-recaptcha.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="javascripts/rzslider.js"></script>
+<script src="/javascripts/slick.min.js"></script>
+<script src="/javascripts/angular.js"></script>
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -31,7 +41,7 @@
 
         <div style=" display: inline-block; width:100%; height:100%;">
           <p style="float:left;"> Bem-vindo(a) <strong><%= user.local.username %></strong>. </p>
-          <div style="position:absolute; top:160px; left:650px;">
+          <div style="position:absolute; top:160px; left:570px;">
             <ul style="display:inline-block;">
           <li style="display:inline; padding-right:20px;"><img alt="Noticias" src="images/icon/file.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'news'" ng-mouseover="displayCat = 'Notícias'"></li>
           <li style="display:inline; padding-right:20px;"><img src="images/icon/list.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'categories'" ng-mouseover="displayCat = 'Categorias'"></li>
@@ -40,7 +50,9 @@
           <li style="display:inline; padding-right:20px;"><img src="images/icon/user.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'partners'" ng-mouseover="displayCat = 'Parceiros'"></li>
           <li style="display:inline; padding-right:20px;"><img src="images/icon/team.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'team'" ng-mouseover="displayCat = 'Equipa'"></li>
           <li style="display:inline; padding-right:20px;"><img src="images/icon/folder.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'projects'" ng-mouseover="displayCat = 'Projectos'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/stats.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'stats'" ng-mouseover="displayCat = 'Estatísticas'"></li>
           <li style="display:inline; padding-right:20px;"><img src="images/icon/coins.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'finance'" ng-mouseover="displayCat = 'Finanças'"></li>
+          <li style="display:inline; padding-right:20px;"><img src="images/icon/members.png" style="width:54px; height:54px; cursor:pointer;" ng-click="show = 'members'" ng-mouseover="displayCat = 'Membros'"></li>
           </ul>
           </div>
           <a href="/logout" class="btn btn-default btn-sm" style="float:right;">Terminar Sessão</a></div>
@@ -51,7 +63,7 @@
 
     </div>
 <div class="container-fluid" style="margin:15px;" ng-init="show = 'news';" ng-show="show == 'news'">
-  <div class="col-sm-6" style="width:95vw; margin:10px;">
+  <div class="col-sm-6" style="width:90vw; margin-left:3.5vw;">
   <div class="row" ng-controller="TableCtrl">
     <div class="procedure-details" ng-show="showDetails" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
       <!-- LOGIN FORM -->
@@ -67,7 +79,7 @@
           </div>
           <div class="form-group">
               <label>Título:</label>
-              <input type="text" class="form-control" name="titulo" ng-model="titulo" placeholder="Por favor introduza o título da notícia.">
+              <input type="text" maxlength="60" class="form-control" name="titulo" ng-model="titulo" placeholder="Por favor introduza o título da notícia.">
           </div>
           <div class="form-group">
               <label>URL / Link:</label>
@@ -75,7 +87,7 @@
           </div>
           <div class="form-group">
               <label>Rubrica:</label>
-              <input type="text" class="form-control" name="rubrica" ng-model="rubrica" placeholder="Por favor introduza a rubrica notícia.">
+              <input type="text" maxlength="100" class="form-control" name="rubrica" ng-model="rubrica" placeholder="Por favor introduza a rubrica notícia.">
           </div>
           <div class="form-group" style="display:inline-block;">
             <label>Imagem:</label>
@@ -85,7 +97,7 @@
           </div>
           <div class="form-group">
               <label>Texto:</label>
-              <input type="text" class="form-control" name="texto" ng-model="texto" placeholder="Por favor introduza o texto de corpo da notícia.">
+              <input type="text" maxlength="1000" class="form-control" name="texto" ng-model="texto" placeholder="Por favor introduza o texto de corpo da notícia.">
           </div>
           <div>
           <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetails = ! showDetails">
@@ -97,16 +109,16 @@
 <table st-table="rowCollection" class="table table-hover" style="height:70vh; width:100%;" st-safe-src="collection" st-watch-changes="true">
   <thead>
   <tr>
-    <th>Categoria</th>
-    <th>Titulo</th>
-    <th>Link</th>
-    <th>Titulo Extendido</th>
-    <th>Imagem</th>
-    <th>Texto</th>
-    <th>Data</th>
-    <th>Likes</th>
-    <th>
-      <button type="button" ng-click="showDetails = ! showDetails" class="btn btn-sm btn-success" style="float:left;">
+    <th width="125px;" style="border-bottom:1px solid;">Categoria</th>
+    <th style="border-bottom:1px solid;">Titulo</th>
+    <th style="border-bottom:1px solid;">Link</th>
+    <th style="border-bottom:1px solid;">Titulo Extendido</th>
+    <th width="195px;" style="border-bottom:1px solid;">Imagem</th>
+    <th width="600px;" style="border-bottom:1px solid;">Texto</th>
+    <th width="90px;" style="border-bottom:1px solid;">Data</th>
+    <th width="60px;" style="border-bottom:1px solid;">Likes</th>
+    <th width="80px;" style="border-bottom:1px solid;">
+      <button type="button" ng-click="showDetails = ! showDetails" class="btn btn-sm btn-success" style="float:left; margin-left:-5px;">
       <i class="glyphicon glyphicon-plus-sign"></i> Inserir
       </button>
     </th>
@@ -118,10 +130,10 @@
       <select class="form-control" ng-init="optionCategory = newsPost.category" name="categoriaSelect" ng-model="optionCategory" ng-options="category for category in getStructureCategories()" ng-change="changeCategory(optionCategory,newsPost)">
       </select>
     </td>
-    <td><div contentEditable="true" ng-model="row.title">{{newsPost.title}}</td>
-    <td><div contentEditable="true" ng-model="row.link">{{newsPost.link}}</td>
-    <td><div contentEditable="true" ng-model="row.body">{{newsPost.body}}</td>
-    <td style="border: 1px solid blue;">
+    <td><div contentEditable="true" ng-model="row.title" contentLength="50">{{newsPost.title}}</div><p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="newsPostTitle.originalLength = 50"><b>{{newsPost.title.length}}</b> / <b>{{newsPostTitle.originalLength}}</b></p></td>
+    <td><div contentEditable="true" ng-model="row.link">{{newsPost.link}}</div></td>
+    <td><div contentEditable="true" ng-model="row.body" contentLength="100">{{newsPost.body}}</div><p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="newsPostBody.originalLength = 100"><b>{{newsPost.body.length}}</b> / <b>{{newsPostBody.originalLength}}</b></p></td>
+    <td>
       <div style=" position: relative;  width: 180px; height: 100px; overflow: hidden; border:1px solid black;" >
         <img src="{{newsPost.imageLink}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
       <div>
@@ -132,7 +144,7 @@
       <div contentEditable="true" style=" border:1px solid black;position:relative; width:180px; color:black; text-align:left; margin-top:10px;" ng-model="row.imageLink"> {{newsPost.imageLink}} </div>
       </div>
     </td>
-    <td><div contentEditable="true" ng-model="row.text">{{newsPost.text}}</td>
+    <td><div contentEditable="true" ng-model="row.text" contentLength="1000">{{newsPost.text}}</div><p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="newsPostText.originalLength = 1000"><b>{{newsPost.text.length}}</b> / <b>{{newsPostText.originalLength}}</b></p></td>
     <td><div ng-model="row.date" style=" width:80px; font-size:9px;">{{newsPost.date | date :'dd-M-yyyy H:mm'}}</td>
     <td><div ng-model="row.upvotes" style="font-size:9px;">{{newsPost.upvotes}}</td>
     <td style="width:50px;">
@@ -159,7 +171,7 @@
 ******************* CATEGORIES ************************
 ****************************************************
 -->
-<div class="container-fluid" style="margin:15px;" ng-show="show == 'categories'" ng-controller="CategoryCtrl">
+<div class="container-fluid" style="width:60vw; margin-left:20vw;" ng-show="show == 'categories'" ng-controller="CategoryCtrl">
   <div class="procedure-details" ng-show="showDetailsCategory" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
     <!-- LOGIN FORM -->
     <button type="button" ng-click="showDetailsCategory = ! showDetailsCategory" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
@@ -194,6 +206,7 @@
 		<th>Categoria</th>
 		<th>Cor</th>
 		<th>Icone</th>
+    <th>Icone Like</th>
     <!--<th>
       <button type="button" ng-click="showDetailsCategory = ! showDetailsCategory" class="btn btn-sm btn-success" style="float:left;">
       <i class="glyphicon glyphicon-plus-sign"></i> Inserir
@@ -203,9 +216,10 @@
 	</thead>
 	<tbody>
 	<tr ng-repeat="category in categories">
-		<td> <div contentEditable="true" ng-model="row.name">{{category.name}}</td>
-		<td> <div contentEditable="true" ng-model="row.color" style="background-color:{{category.color}}; width:100%; height:100%; border:1px solid black;"></div></td>
-		<td> <div contentEditable="true" ng-model="row.image"><img src="{{category.iconPath}}" style="width:64px; height:64px; display:block; margin:auto;"></div></td>
+		<td> <div ng-model="row.name">{{category.name}}</td>
+		<td> <div ng-model="row.color" style="background-color:{{category.color}}; width:100%; height:100%; border:1px solid black;"></div></td>
+		<td> <div ng-model="row.image"><img src="{{category.icon}}" style="width:64px; height:64px; display:block; margin:auto;"></div></td>
+    <td> <div ng-model="row.image"><img src="{{category.likeIcon}}" style="width:64px; height:64px; display:block; margin:auto;"></div></td>
     <!--<td style="width=50px;">
       <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeItem(row,category)" class="btn btn-sm btn-danger">
       <i class="glyphicon glyphicon-trash">
@@ -222,29 +236,58 @@
 ******************* STRUCTURE ************************
 ****************************************************
 -->
-<div class=
-<div class="container-fluid" style="margin:15px;" ng-show="show == 'structure'" ng-controller="StructureCtrl">
+<div class="container-fluid" style="width:80vw; margin-left:8vw;" ng-show="show == 'structure'" ng-controller="StructureCtrl" ng-init="alert=false; success=false;">
   <div ng-repeat="item in structuralInfo">
     <div ng-if="item.textId == 'noticia_principal'">
     <h3 class="form-signin-heading" style="text-align:center; margin-bottom:50px; border-bottom: 1px solid #000; padding-bottom:15px;"> Cabeçalho </h3>
-    <p>{{item.title}}</p>
-    <p>{{item.text}}</p>
+    <p id="cabecalhoTitle" contenteditable="true" ng-model="cabecalhoTitle" contentLength="50">{{item.title}} </p>
+    <p style="border-top:1px solid black; width:75px;" ng-init="cabecalhoTitle.originalLength = 50"><b>{{item.title.length}}</b> / <b>{{cabecalhoTitle.originalLength}}</b></p>
+    <p id="cabecalhoTexto" contenteditable="true" ng-model="cabecalhoTexto" contentLength="1000">{{item.text}}</p>
+    <p style="border-top:1px solid black; width:75px;"ng-init="cabecalhoTexto.originalLength = 1000"><b>{{item.text.length}}</b> / <b>{{cabecalhoTexto.originalLength}}</b></p>
     </div>
-    <div ng-if="item.textId == 'textos_doacao'">
+    <div ng-if="item.textId == 'noticia_principal'">
       <h3 class="form-signin-heading" style="text-align:center; margin-bottom:50px; border-bottom: 1px solid #000; padding-bottom:15px;"> Doações </h3>
-      <div ng-repeat="text in item.textos">
-        <h4 style="text-decoration:underline;">{{text.id}}</h4>
-        <p>{{text.texto}}</p>
-      </div>
+        <p id="doacoesTitle1" contenteditable="true" ng-model="doacoesTitle1" contentLength="40">{{item.tituloDoacao1}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoTitle1.originalLength = 40"><b>{{item.tituloDoacao1.length}}</b> / <b>{{doacaoTitle1.originalLength}}</b></p>
+        <p id="doacoesText1" contenteditable="true" ng-model="doacoesText1" contentLength="1000">{{item.textoDoacao1}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoText1.originalLength = 1000"><b>{{item.textoDoacao1.length}}</b> / <b>{{doacaoText1.originalLength}}</b></p>
+        <p id="doacoesTitle2" contenteditable="true" ng-model="doacoesTitle2" contentLength="40">{{item.tituloDoacao2}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoTitle2.originalLength = 40"><b>{{item.tituloDoacao2.length}}</b> / <b>{{doacaoTitle2.originalLength}}</b></p>
+        <p id="doacoesText2" contenteditable="true" ng-model="doacoesText2" contentLength="1000">{{item.textoDoacao2}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoText2.originalLength = 1000"><b>{{item.textoDoacao2.length}}</b> / <b>{{doacaoText2.originalLength}}</b></p>
+        <p id="doacoesTitle3" contenteditable="true" ng-model="doacoesTitle3" contentLength="40">{{item.tituloDoacao3}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoTitle3.originalLength = 40"><b>{{item.tituloDoacao3.length}}</b> / <b>{{doacaoTitle3.originalLength}}</b></p>
+        <p id="doacoesText3" contenteditable="true" ng-model="doacoesText3" contentLength="1000">{{item.textoDoacao3}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoText3.originalLength = 1000"><b>{{item.textoDoacao3.length}}</b> / <b>{{doacaoText3.originalLength}}</b></p>
+        <p id="doacoesTitle4" contenteditable="true" ng-model="doacoesTitle4" contentLength="40">{{item.tituloDoacao4}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoTitle4.originalLength = 40"><b>{{item.tituloDoacao4.length}}</b> / <b>{{doacaoTitle4.originalLength}}</b></p>
+        <p id="doacoesText4" contenteditable="true" ng-model="doacoesText4" contentLength="1000">{{item.textoDoacao4}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoText4.originalLength = 1000"><b>{{item.textoDoacao4.length}}</b> / <b>{{doacaoText4.originalLength}}</b></p>
+    </div>
+    <div ng-if="item.textId == 'noticia_principal'" style="margin-bottom:100px;">
+      <h3 class="form-signin-heading" style="text-align:center; margin-bottom:100px; border-bottom: 1px solid #000; padding-bottom:15px; "> Métodos de Doação </h3>
+        <h4> Texto PayPal</h4>
+        <p id="textoPaypal" contenteditable="true" ng-model="doacoesTitle" contentLength="1000">{{item.textoPaypal}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoTextoPaypal.originalLength = 1000"><b>{{item.textoPaypal.length}}</b> / <b>{{doacaoTextoPaypal.originalLength}}</b></p>
+        <h4> Texto Chamada</h4>
+        <p id="textoChamada" contenteditable="true" ng-model="doacoesText" contentLength="1000">{{item.textoChamada}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoTextoChamada.originalLength = 1000"><b>{{item.textoChamada.length}}</b> / <b>{{doacaoTextoChamada.originalLength}}</b></p>
+        <h4> Texto Transferência</h4>
+        <p id="textoTransferencia" contenteditable="true" ng-model="doacoesText" contentLength="1000">{{item.textoTransferencia}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoTextoTransferencia.originalLength = 1000"><b>{{item.textoTransferencia.length}}</b> / <b>{{doacaoTextoTransferencia.originalLength}}</b></p>
+        <h4> Texto Doação</h4>
+        <p id="textoDoacao" contenteditable="true" ng-model="doacoesText" contentLength="1000">{{item.textoDoacao}}</p>
+        <p style="border-top:1px solid black; width:75px;" ng-init="doacaoTextoDoacao.originalLength = 1000"><b>{{item.textoDoacao.length}}</b> / <b>{{doacaoTextoDoacao.originalLength}}</b></p>
     </div>
   </div>
 </div>
+
 <!-- STORIES
 ****************************************************
 ******************* STORIES ************************
 ****************************************************
 -->
-<div class="container-fluid" style="margin:15px;" ng-show="show == 'stories'" ng-controller="StoryCtrl">
+<div class="container-fluid" style="width:90vw; margin-left:5vw;" ng-show="show == 'stories'" ng-controller="StoryCtrl">
   <div class="procedure-details" ng-show="showDetailsStories" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
     <!-- LOGIN FORM -->
     <button type="button" ng-click="showDetailsStories = ! showDetailsStories" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
@@ -274,11 +317,11 @@
     <table st-table="displayCollectionStories" class="table table-striped" st-safe-src="rowCollectionStories" st-watch-changes="true">
 	<thead>
 	<tr>
-		<th>Título</th>
+		<th style="width:200px;">Título</th>
 		<th>Corpo</th>
 		<th>Link para Vídeo</th>
-    <th>
-      <button type="button" ng-click="showDetailsStories = ! showDetailsStories" class="btn btn-sm btn-success" style="float:left;">
+    <th style="width:80px;">
+      <button type="button" ng-click="showDetailsStories = ! showDetailsStories" class="btn btn-sm btn-success" style="float:left; margin-left:-5px;">
       <i class="glyphicon glyphicon-plus-sign"></i> Inserir
     </button>
     </th>
@@ -286,14 +329,17 @@
 	</thead>
 	<tbody>
   	<tr ng-repeat="story in stories" ng-init="convertVideoLinksToTrust()">
-  		<td> <div contentEditable="true" ng-model="row.titleStory">{{story.title}}</div></td>
-  		<td> <div contentEditable="true" ng-model="row.bodyStory">{{story.text}}</div></td>
+      <td><div contentEditable="true" ng-model="row.titleStory" contentLength="40">{{story.title}}</div>
+      <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="storyTitle.originalLength = 40"><b>{{story.title.length}}</b> / <b>{{storyTitle.originalLength}}</b></p></td>
+      <td><div contentEditable="true" ng-model="row.textStory" contentLength="600">{{story.text}}</div>
+      <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="storyText.originalLength = 600"><b>{{story.text.length}}</b> / <b>{{storyText.originalLength}}</b></p></td>
   		<td> <div contentEditable="true" ng-model="row.linkStory">
-        <iframe width="560" height="315" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe>
-        {{story.videoLink}}
+        <iframe id="storiesVideoIFrame" width="560" height="315" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe>
+        <p style="border-top:1px solid black; color:red;">{{story.videoLink}}</p>
+        <p style="border-top:1px solid black; width:75px; margin-top:20px; display:none;" ng-init="videoLink.originalLength = 600"><b>{{story.videoLink.length}}</b> / <b>{{videoLink.originalLength}}</b></p></td>
       </div></td>
       <td style="width=50px;">
-        <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeStory(row,story)" class="btn btn-sm btn-danger">
+        <button style="margin-left:10px; margin-top:2.5%;"type="button" ng-click="removeStory(row,story)" class="btn btn-sm btn-danger">
         <i class="glyphicon glyphicon-trash">
         </i>
         </button>
@@ -307,7 +353,7 @@
 ******************* PARTNERS ************************
 ****************************************************
 -->
-<div class="container-fluid" style="margin:15px;" ng-show="show == 'partners'" ng-controller="PartnerCtrl">
+<div class="container-fluid" style="width:90vw; margin-left:5vw;" ng-show="show == 'partners'" ng-controller="PartnerCtrl">
   <div class="procedure-details" ng-show="showDetailsPartners" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
     <!-- LOGIN FORM -->
     <button type="button" ng-click="showDetailsPartners = ! showDetailsPartners" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
@@ -377,7 +423,7 @@
   ******************   TEAM   ************************
   ****************************************************
   -->
-  <div class="container-fluid" style="margin:15px;" ng-show="show == 'team'" ng-controller="TeamCtrl">
+  <div class="container-fluid" style="width:90vw; margin-left:5vw;" ng-show="show == 'team'" ng-controller="TeamCtrl">
     <div class="procedure-details" ng-show="showDetailsTeam" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
       <!-- LOGIN FORM -->
       <button type="button" ng-click="showDetailsTeam = ! showDetailsTeam" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
@@ -447,7 +493,7 @@
   ******************   PROJECTS   ************************
   ****************************************************
   -->
-  <div class="container-fluid" style="margin:15px;" ng-show="show == 'projects'" ng-controller="ProjectCtrl">
+  <div class="container-fluid" style="width:90vw; margin-left:5vw;" ng-show="show == 'projects'" ng-controller="ProjectCtrl">
     <div class="procedure-details" ng-show="showDetailsProject" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
       <!-- LOGIN FORM -->
       <button type="button" ng-click="showDetailsProject = ! showDetailsProject" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
@@ -512,8 +558,158 @@
       </tbody>
     </table>
   </div>
+  <!-- STATS
+  ****************************************************
+  ******************   STATS   ************************
+  ****************************************************
+  -->
+  <div class="container-fluid" style="width:90vw; margin-left:5vw;" ng-show="show == 'stats'" ng-controller="StatsCtrl">
+    <div class="procedure-details" ng-show="showDetailsStats" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
+      <!-- LOGIN FORM -->
+      <button type="button" ng-click="showDetailsStats = ! showDetailsStats" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
+      <i class="glyphicon glyphicon-remove-sign"></i>
+      </button>
+      <form ng-submit="addStat()" name="newStatsForm">
+          <h2 style="margin-bottom:20px;"><u>Nova Estatística</u></h2>
+          <div class="form-group">
+              <label>Descrição:</label>
+              <input type="text" class="form-control" name="descricaoStat" ng-model="descricaoStat" placeholder="Por favor introduza a descrição da Estatística.">
+          </div>
+          <div class="form-group">
+              <label>Número:</label>
+              <input type="text" class="form-control" name="numeroStat" ng-model="numeroStat" placeholder="Por favor introduza o número da Estatística.">
+          </div>
+          <div class="form-group">
+              <label>Link:</label>
+              <input type="text" class="form-control" name="linkStat" ng-model="linkStat" placeholder="Por favor introduza o link da imagem do Estatística.">
+          </div>
+          <div>
+          <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsStats = ! showDetailsStats">
+          <i class="glyphicon glyphicon-ok"></i> &nbsp;  &nbsp; &nbsp;Inserir Nova Estatística
+          </button>
+          </div>
+      </form>
+   </div>
+      <table st-table="displayCollectionProject" class="table table-striped" st-safe-src="rowCollectionStats" st-watch-changes="true">
+    <thead>
+    <tr>
+      <th st-sort="descricaoStat">Descrição</th>
+      <th st-sort="numeroStat">Número</th>
+      <th st-sort="linkStat">Imagem</th>
+      <th>
+        <button type="button" ng-click="showDetailsStats = ! showDetailsStats" class="btn btn-sm btn-success" style="float:left;">
+        <i class="glyphicon glyphicon-plus-sign"></i> Inserir
+      </button>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="stat in stats">
+        <td> <div contentEditable="true" ng-model="row.descricaoStat">{{stat.description}}</div></td>
+        <td> <div contentEditable="true" ng-model="row.numeroStat">{{stat.number}}</div></div></td>
+        <td style="border: 1px solid blue;">
+          <div style=" position: relative;  width: 320px; height: 180px; overflow: hidden; border:1px solid black;" >
+            <img src="{{stat.imagePath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+          <div>
+          </div>
+          </div>
+              <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+          </div>
+          <div contentEditable="true" style="border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-model="row.linkStat"> {{stat.imagePath}} </div>
+          </div>
+        </td>
+        <td style="width=50px;">
+          <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeStat(row,stat)" class="btn btn-sm btn-danger">
+          <i class="glyphicon glyphicon-trash">
+          </i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 <div class="container-fluid" style="margin:15px;" ng-show="show == 'finance'">
   <p> FINANÇAAAAAS </p>
+</div>
+<!-- MEMBERS
+****************************************************
+******************   MEMBERS   ************************
+****************************************************
+-->
+<div class="container-fluid" style="width:90vw; margin-left:5vw;" ng-show="show == 'members'" ng-controller="MembersCtrl">
+  <div class="procedure-details" ng-show="showDetailsMembers" style="position:absolute; left:22.5vw; background-color:white; width:50vw; padding:40px; border-radius:25px; z-index:2;">
+    <!-- LOGIN FORM -->
+    <button type="button" ng-click="showDetailsMembers = ! showDetailsMembers" class="btn btn-xs btn-danger" style="float:right; border-radius:25px;">
+    <i class="glyphicon glyphicon-remove-sign"></i>
+    </button>
+    <form ng-submit="addMember()" name="newMemberForm">
+        <h2 style="margin-bottom:20px;"><u>Novo Membro</u></h2>
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" class="form-control" name="descricaoStat" ng-model="nomeMembro" placeholder="Por favor introduza o nome do Membro.">
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="text" class="form-control" name="numeroStat" ng-model="emailMembro" placeholder="Por favor introduza o e-mail do Membro.">
+        </div>
+        <div class="form-group">
+            <label>Telefone:</label>
+            <input type="text" class="form-control" name="linkStat" ng-model="telefoneMembro" placeholder="Por favor introduza o telefone do Membro.">
+        </div>
+        <div class="form-group">
+            <label>Morada:</label>
+            <br>
+            <input type="text" class="form-control" name="linkStat" ng-model="moradaMembro" placeholder="Por favor introduza a morada do Membro." style="width:574px; float:left;"> &nbsp;&nbsp;<input class="form-control" type="text" name="CodigoPostal1" ng-model="postalcode1" placeholder="Código-Postal" style="width:200px; float:left;"><input class="form-control" type="text" name="CodigoPostal2" ng-model="postalcode2" placeholder="XXX" style="width:100px; float:left;">
+        </div>
+        <div class="form-group">
+            <br>
+            <label>Data de Nascimento:</label>
+            <md-datepicker ng-model="dataNascimentoMembro" md-placeholder="Data Nasc."></md-datepicker>
+        </div>
+        <div class="form-group">
+            <label>Subscreveu:</label>
+            <input type="checkbox" id="newsLetterCheckbox" ng-model="checkboxNewsletter">
+        </div>
+        <div>
+        <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsStats = ! showDetailsStats">
+        <i class="glyphicon glyphicon-ok"></i> &nbsp;  &nbsp; &nbsp;Inserir Novo Membro
+        </button>
+        </div>
+    </form>
+ </div>
+    <table st-table="displayCollectionProject" class="table table-striped" st-safe-src="rowCollectionMembers" st-watch-changes="true">
+  <thead>
+  <tr>
+    <th st-sort="descricaoStat">Nome</th>
+    <th st-sort="numeroStat">E-Mail</th>
+    <th st-sort="numeroStat">Telefone</th>
+    <th st-sort="linkStat">Morada</th>
+    <th st-sort="linkStat">Data de Nascimento</th>
+    <th st-sort="linkStat">Subscreveu a Newsletter?</th>
+    <th>
+      <button type="button" ng-click="showDetailsMembers = ! showDetailsMembers" class="btn btn-sm btn-success" style="float:left;">
+      <i class="glyphicon glyphicon-plus-sign"></i> Inserir
+    </button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="member in members">
+      <td> <div contentEditable="true" ng-model="row.descricaoStat">{{member.name}}</div></td>
+      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.email}}</div></div></td>
+      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.telephone}}</div></div></td>
+      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.address}}</div></div></td>
+      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.birthDate | date :'dd-M-yyyy'}}</div></div></td>
+      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.subscribedToNewsLetter | boolText}}</div></div></td>
+      <td style="width=50px;">
+        <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeMember(row,member)" class="btn btn-sm btn-danger">
+        <i class="glyphicon glyphicon-trash">
+        </i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 </script>

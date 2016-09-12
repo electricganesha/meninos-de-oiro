@@ -20,77 +20,99 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="javascripts/rzslider.js"></script>
-<script src="/javascripts/slick.min.js"></script>
 <script src="/javascripts/angular.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="/javascripts/slick.min.js"></script>
 <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/responsive.css' />
 </head>
 <body>
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div id="navbarContainer" class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="/"><img src="/images/logo-meninos.png"></img></a>
       </div>
-      <div class="navbar-header-links">
-        <li><a href="/donatenow" id="donateNowButton">DOE AGORA</a></li>
-        <li><a>|</a></li>
-        <li><a href="/membership" style="padding-right:0px;">Já Se Tornou Membro?</a></li>
+      <div id="navBarHeaderContainer">
+        <div class="navbar-header-links">
+          <li><a href="/donatenow" id="donateNowButton" style="padding-right:0px;">DOE AGORA</a></li>
+          <li><a>|</a></li>
+          <li><a href="/membership" style="padding-right:0px;">Já Se Tornou Membro?</a></li>
+        </div>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="mainNavBar">
+        <div id="navBarBelowContainer">
         <ul class="nav navbar-nav navbar-right">
-          <li><a style="color:#cea44a;" ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/">Homepage</a></li>
-          <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false">Sobre Nós</a></li>
-          <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true">Parceiros</a></li>
-          <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
-          <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts" style="padding-right:0px;">Contactos</a></li>
+            <li><a style="color:#cea44a;" ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/">Homepage</a></li>
+            <li><a id="navbarSeparator" style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false">Sobre Nós</a></li>
+              <li><a href="/mission" id="mobileSubMenu">Missão</a></li>
+              <li><a href="/projectspage" id="mobileSubMenu">Projectos</a></li>
+              <li><a href="/financePage" id="mobileSubMenu">Demonstrações Financeiras</a></li>
+            <li><a id="navbarSeparator" style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true">Parceiros</a></li>
+              <li><a href="/membership" id="mobileSubMenu">Inscrição</a></li>
+              <li><a href="/donatenow" id="mobileSubMenu">Doar Agora</a></li>
+            <li><a id="navbarSeparator" style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
+            <li><a id="navbarSeparator" style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts" style="padding-right:0px;">Contactos</a></li>
         </ul>
+      </div>
       </div><!-- /.navbar-collapse -->
+
     </div><!-- /.container-fluid -->
     <div id="subMenu">
       <div id="subMenuAbout" ng-show="showSubMenuAbout">
-        <a href="/mission">Missão</a>
-        <a style="pointer-events: none;">|</a>
-        <a href="/projectspage">Projectos</a>
-        <a style="pointer-events: none;">|</a>
-        <a href="/financePage">Demonstrações Financeiras</a>
+        <div id="subMenuAboutContainer">
+          <a href="/mission">Missão</a>
+          <a style="pointer-events: none;">|</a>
+          <a href="/projectspage">Projectos</a>
+          <a style="pointer-events: none;">|</a>
+          <a style="padding-right:0px;" href="/financePage">Demonstrações Financeiras</a>
+        </div>
       </div>
       <div id="subMenuPartners" ng-show="showSubMenuPartners">
-        <a href="/membership">Inscrição</a>
-        <a style="pointer-events: none;">|</a>
-        <a href="/donatenow" >Doar Agora</a>
+        <div id="subMenuPartnersContainer">
+          <a href="/membership">Inscrição</a>
+          <a style="pointer-events: none;">|</a>
+          <a style="padding-right:0px;" href="/donatenow" >Doar Agora</a>
+        </div>
       </div>
     </div>
   </nav>
   <ui-view></ui-view>
   <script type="text/ng-template" id="/home.html">
     <div class="row" id="topRow">
-      <div class="col-md-6" style="padding:0px;">
+      <div class="col-md-6" style="padding:0px; height:100%;">
         <div id="mainImageContainer" ng-style="{'background-image':'url('+ mainImage +')'}"></div>
       </div>
-      <div class="col-md-6" style="padding-right:0px;" >
+      <div class="col-md-6" id="topRowSecondColumn">
         <div>
           <div id="homePageMainTextTitle">{{title}}<div id="homePageMainTextDate">{{date | date :'dd-M-yyyy H:mm'}}</div></div>
         </div>
         <div id="homePageMainText">{{text}}</div>
         <div id="donateTexts" ng-controller="DonateBoxCtrl">
           <div  id="donateBoxDoarAgora" >
-            <p ng-show="selectedText == 1" class="fadein fadeout">{{donateTitle1}}</p>
-            <p ng-show="selectedText == 2" class="fadein fadeout">{{donateTitle2}}</p>
-            <p ng-show="selectedText == 3" class="fadein fadeout">{{donateTitle3}}</p>
-            <p ng-show="selectedText == 4" class="fadein fadeout">{{donateTitle4}}</p>
+            <p ng-show="selectedText == 1">{{structuralInfo[0].tituloDoacao1}}</p>
+            <p ng-show="selectedText == 2">{{structuralInfo[0].tituloDoacao2}}</p>
+            <p ng-show="selectedText == 3">{{structuralInfo[0].tituloDoacao3}}</p>
+            <p ng-show="selectedText == 4">{{structuralInfo[0].tituloDoacao4}}</p>
           </div>
-          <div style="background-color:#185472; height:175px; width:300px; float:right; margin-top:10px; margin-right:10px;">
+          <div id="donateBoxButtonsContainer">
             <div class="donateBoxButtonDiv" ng-click="changePage(1)">
-              <div class="donateBoxButtonDivInside"><img src="images/icon/paypal-logo.png" width="32" height="32"></img></div><div class="donateBoxButtonDivInsideText" style="text-align:center;"><p> PayPal </p></div>
+              <div class="donateBoxButtonDivInside"><img src="images/icon/paypal-logo.png" width="32" height="32"></img></div><div class="donateBoxButtonDivInsideText"><p> PayPal </p></div>
             </div>
             <div class="donateBoxButtonDiv" ng-click="changePage(2)">
               <div class="donateBoxButtonDivInside"><img src="images/icon/phone-call.png" width="32" height="32"></img></div><div class="donateBoxButtonDivInsideText"><p> Chamada </p></div>
@@ -102,11 +124,11 @@
               <div class="donateBoxButtonDivInside"><img src="images/icon/donation.png" width="32" height="32"></img></div><div class="donateBoxButtonDivInsideText"><p> Doação </p></div>
             </div>
           </div>
-          <div style="position:absolute; width:52%; height:80%; margin-top:10px; margin-left:10px; margin-right:10px;">
-            <p ng-show="selectedText == 1" class="donateTexto fadein fadeout">{{donateText1}}</p>
-            <p ng-show="selectedText == 2" class="donateTexto fadein fadeout">{{donateText2}}</p>
-            <p ng-show="selectedText == 3" class="donateTexto fadein fadeout">{{donateText3}}</p>
-            <p ng-show="selectedText == 4" class="donateTexto fadein fadeout">{{donateText4}}</p>
+          <div id="donateBoxTextoDoacao">
+            <p ng-show="selectedText == 1" class="donateTexto">{{structuralInfo[0].textoDoacao1}}</p>
+            <p ng-show="selectedText == 2" class="donateTexto">{{structuralInfo[0].textoDoacao2}}</p>
+            <p ng-show="selectedText == 3" class="donateTexto">{{structuralInfo[0].textoDoacao3}}</p>
+            <p ng-show="selectedText == 4" class="donateTexto">{{structuralInfo[0].textoDoacao4}}</p>
           </div>
           <div id="dotsDonationBox">
             <ul>
@@ -120,7 +142,7 @@
       </div>
     </div>
     <div class="row" id="newsRowContainer">
-      <div class="col-md-4" id="newsRowColMd4" ng-repeat="newsPost in news | orderBy:'-date' | limitTo:-6" ng-style="$index % 3 == 0 && {'margin-left':'0px'} || {'margin-left':'14px'} ">
+      <div class="col-md-4 col-sm-4 col-xs-4" id="newsRowColMd4" ng-repeat="newsPost in news | orderBy:'-date' | limitTo:-6" ng-style="$index % 3 == 0 && {'margin-left':'0px'} || {'margin-left':'14px'} ">
         <div id="newsRowImages" style="background-image:url({{newsPost.imageLink}})" ng-click="changeMainFocus(newsPost,$event);">
           <div id="newsRowBoxes" ng-style="newsPost.category === category1.name && {'background-color': category1.color} ||
           newsPost.category === category2.name && {'background-color': category2.color} ||
@@ -157,27 +179,27 @@
         <div class="col-md-6" style="padding:0px;">
           <h1 id="storyBoxControlDivTitle"> As Nossas Histórias </h1>
           <div ng-repeat="story in stories" ng-init="convertVideoLinksToTrust()">
-            <div class="storiesIndexVideo fadein fadeout" ng-show="$index == 0 && selectedStory == 1"><iframe width="600" height="340" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
-            <div class="storiesIndexVideo fadein fadeout" ng-show="$index == 1 && selectedStory == 2"><iframe width="600" height="300" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
-            <div class="storiesIndexVideo fadein fadeout" ng-show="$index == 2 && selectedStory == 3"><iframe width="600" height="300" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
-            <div class="storiesIndexVideo fadein fadeout" ng-show="$index == 3 && selectedStory == 4"><iframe width="600" height="300" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
+            <div class="storiesIndexVideo" ng-show="$index == 0 && selectedStory == 1"><iframe class="iFrameStoriesFP" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
+            <div class="storiesIndexVideo" ng-show="$index == 1 && selectedStory == 2"><iframe class="iFrameStoriesFP" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
+            <div class="storiesIndexVideo" ng-show="$index == 2 && selectedStory == 3"><iframe class="iFrameStoriesFP" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
+            <div class="storiesIndexVideo" ng-show="$index == 3 && selectedStory == 4"><iframe class="iFrameStoriesFP" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></div>
           </div>
         </div>
         <div id="storiesIndexText" class="col-md-6">
           <div ng-repeat="story in stories">
-            <div class="fadein fadeout" ng-show="$index == 0 && selectedStory == 1" >
+            <div ng-show="$index == 0 && selectedStory == 1" >
               <h1> {{story.title}}</h1>
               <p>"{{story.text}}"</p>
             </div>
-            <div class="fadein fadeout" ng-show="$index == 1 && selectedStory == 2" >
+            <div ng-show="$index == 1 && selectedStory == 2" >
               <h1> {{story.title}}</h1>
               <p>"{{story.text}}"</p>
             </div>
-            <div class="fadein fadeout" ng-show="$index == 2 && selectedStory == 3">
+            <div ng-show="$index == 2 && selectedStory == 3">
               <h1> {{story.title}}</h1>
               <p>"{{story.text}}"</p>
             </div>
-            <div class="fadein fadeout" ng-show="$index == 3 && selectedStory == 4">
+            <div ng-show="$index == 3 && selectedStory == 4">
               <h1> {{story.title}}</h1>
               <p>"{{story.text}}"</p>
             </div>
@@ -198,7 +220,7 @@
     <div id="partnerBox" ng-controller="PartnerBoxCtrl">
           <h1> Parceiros </h1>
         <div id="slickCarouselPartners">
-          <slick autoplay="true" autoplaySpeed="500" dots="false" arrows="true" infinite="true" speed="300" slides-to-show="4" touch-move="false" slides-to-scroll="1" >
+          <slick autoplay="true" autoplaySpeed="500" dots="false" variable-width="true" arrows="true" infinite="true" speed="300" slides-to-show="4" touch-move="false" slides-to-scroll="1" >
             <div ng-repeat="partner in partners">
               <ul>
                 <li>

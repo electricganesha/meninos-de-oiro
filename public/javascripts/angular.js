@@ -11,6 +11,9 @@ app.config([
       templateUrl: '/home.html',
       controller: 'MainCtrl',
       resolve: {
+        structurePromise: ['structuralInfo', function(structuralInfo){
+          return structuralInfo.getAll();
+        }],
         storiesPromise: ['stories', function(stories){
           return stories.getAll();
         }],
@@ -19,9 +22,6 @@ app.config([
         }],
         newsPromise: ['news', function(news){
           return news.getAll();
-        }],
-        structurePromise: ['structuralInfo', function(structuralInfo){
-          return structuralInfo.getAll();
         }],
       }
     })
@@ -42,7 +42,6 @@ app.config([
       controller: 'StoryCtrl',
       resolve: {
         postPromise: ['stories', function(stories){
-          console.log("before cenas");
           return stories.getAll();
         }],
       }
@@ -53,6 +52,15 @@ app.config([
       resolve: {
         postPromise: ['categories', function(categories){
           return categories.getAll();
+        }],
+      }
+    })
+    .state('donatebox', {
+      url: '/donatebox/',
+      controller: 'DonateBoxCtrl',
+      resolve: {
+        postPromise: ['structuralInfo', function(structuralInfo){
+          return structuralInfo.getAll();
         }],
       }
     })
@@ -85,15 +93,7 @@ app.config([
       templateUrl: '/structuralInfo.html',
       controller: 'StructureCtrl'
     })
-    .state('donatebox', {
-      url: '/donatebox/',
-      controller: 'DonateBoxCtrl',
-      resolve: {
-        postPromise: ['structuralInfo', function(structuralInfo){
-          return structuralInfo.getAll();
-        }],
-      }
-    }).state('donatenow', {
+    .state('donatenow', {
       url: '/donatenow',
       controller: 'DonationCtrl',
       resolve: {
@@ -235,11 +235,11 @@ app.config([
 
     o.getAll = function()
     {
-      return $http.get('/structuralInfo').success(function(data)
-      {
-        angular.copy(data, o.structuralInfo);
-      });
-    };
+      return $http({
+        url: '/structuralInfo',
+        method: 'GET'
+      })
+    }
 
     o.update = function(id,text)
     {
@@ -274,7 +274,6 @@ app.config([
     {
       return $http.get('/categories').success(function(data)
       {
-        console.log(o.categories);
         angular.copy(data, o.categories);
       });
     };
@@ -680,14 +679,20 @@ app.controller('MainCtrl', [
     $scope.news = news.news;
     $scope.newsLikes = news.news;
 
-    $scope.title = structuralInfo.structuralInfo[0].title;
-    $scope.text = structuralInfo.structuralInfo[0].text;
-    $scope.mainImage = structuralInfo.structuralInfo[0].imageLink;
-    $scope.date = structuralInfo.structuralInfo[0].date;
 
-    $scope.category1 = structuralInfo.structuralInfo[0].categories[0];
-    $scope.category2 = structuralInfo.structuralInfo[0].categories[1];
-    $scope.category3 = structuralInfo.structuralInfo[0].categories[2];
+    $scope.structuralInfo = [];
+    structuralInfo.getAll().success(function(data){
+      $scope.structuralInfo=data;
+
+      $scope.title = data[0].title;
+      $scope.text = data[0].text;
+      $scope.mainImage = data[0].imageLink;
+      $scope.date = data[0].date;
+
+      $scope.category1 = data[0].categories[0];
+      $scope.category2 = data[0].categories[1];
+      $scope.category3 = data[0].categories[2];
+    });
 
     $scope.$watch(function(scope) {
       return scope.paintedHeart
@@ -764,7 +769,10 @@ app.controller('StructureCtrl', [
   'structuralInfo',
   function($scope,$stateParams,$http,$element,structuralInfo)
   {
-    $scope.structuralInfo = structuralInfo.structuralInfo;
+    $scope.structuralInfo = [];
+    structuralInfo.getAll().success(function(data){
+      $scope.structuralInfo=data;
+    });
   }
 ]);
 
@@ -795,13 +803,15 @@ app.controller('TableCtrl', [
   function($scope,$http,$element,categories,news,structuralInfo)
   {
 
-    $scope.structuralInfo = structuralInfo.structuralInfo;
+
+    $scope.structuralInfo = [];
+    structuralInfo.getAll().success(function(data){
+      $scope.structuralInfo=data;
+      $scope.categories = data[0].categories;
+    });
+
     $scope.rowCollectionPartners = [];
     $scope.rowCollectionPartners = news.news;
-
-    console.log($scope.structuralInfo);
-
-    $scope.categories = $scope.structuralInfo[0].categories;
 
     // reset login status
     $scope.news = news.news;
@@ -843,9 +853,9 @@ app.controller('TableCtrl', [
 
       var imagem = '';
 
-      if($scope.uploadedImagePathWithSuccess != undefined)
+      if($scope.$parent.uploadedImagePathWithSuccess != undefined)
       {
-        imagem = '/uploads/'+$scope.uploadedImagePathWithSuccess;
+        imagem = '/uploads/'+$scope.$parent.uploadedImagePathWithSuccess;
       }
       else
       {
@@ -872,7 +882,7 @@ app.controller('TableCtrl', [
       $scope.rubrica = '';
       $scope.imagem = '';
       $scope.texto = '';
-      $scope.uploadedImagePathWithSuccess = undefined;
+      $scope.$parent.uploadedImagePathWithSuccess = undefined;
       $scope.newNewsForm.$setPristine();
     };
 
@@ -880,6 +890,12 @@ app.controller('TableCtrl', [
       var files = ele.files;
       var l = files.length;
       var namesArr = [];
+
+      console.log($scope.$parent.financeFileNow);
+
+      console.log($scope);
+      console.log(ele);
+      console.log(ele.id);
 
       var fd = new FormData();
       //Take the first selected file
@@ -893,7 +909,7 @@ app.controller('TableCtrl', [
       .success(function(data)
       {
         console.log("file upload success " + data );
-        $scope.uploadedImagePathWithSuccess = data;
+        $scope.$parent.uploadedImagePathWithSuccess = data;
       })
       .error(function(err){
         console.log("file upload - acabei com erro - " + err);
@@ -907,13 +923,17 @@ app.controller('TableCtrl', [
 app.directive('contenteditable', function() {
   return {
     require: 'ngModel',
-    controller: function($scope,$element, news, categories, structuralInfo, stories)
+    controller: function($scope,$element, news, categories, structuralInfo, stories, partners, team, projects, stats)
     {
       //console.log(news);
       $scope.news = news.news;
       $scope.newsBulk = news;
       $scope.categoriesBulk = categories;
       $scope.storiesBulk = stories;
+      $scope.partnersBulk = partners;
+      $scope.teamsBulk = team;
+      $scope.projectsBulk = projects;
+      $scope.statsBulk = stats;
       $scope.structuralInfo = structuralInfo;
     },
     link: function(scope, elm, attrs, ctrl, newsPost) {
@@ -932,7 +952,9 @@ app.directive('contenteditable', function() {
 
       elm.bind('keydown', function(event) {
 
-        if(scope.show == 'structure')
+        console.log(scope.show);
+
+        if(scope.show == 'structure' || scope.show == 'finance')
         {
 
           if(elm[0].outerText.length >= attrs.contentlength)
@@ -976,10 +998,11 @@ app.directive('contenteditable', function() {
 
               switch(scope.show)
               {
+                case('finance'):
+                  scope.structuralInfo.update(15,elm[0].outerText);
+                break;
 
                 case('structure'):
-
-                console.log(elm[0].id);
 
                 switch(elm[0].id)
                 {
@@ -1042,6 +1065,8 @@ app.directive('contenteditable', function() {
 
         }
         else{ //if scope is any of the other categories except structure
+
+          console.log(elm[0].contentlength);
 
           if(elm[0].outerText.length >= attrs.contentlength)
           {
@@ -1108,8 +1133,6 @@ app.directive('contenteditable', function() {
 
                 }
 
-                console.log(alteredNewsPost);
-
                 scope.newsBulk.update(alteredNewsPost);
                 break;
                 case("categories"):
@@ -1133,8 +1156,6 @@ app.directive('contenteditable', function() {
 
                 case('stories'):
 
-                console.log("estorias");
-                console.log(selectedCell);
                 alteredStory = scope.story;
 
                 switch(selectedCell)
@@ -1156,6 +1177,93 @@ app.directive('contenteditable', function() {
 
 
                 break;
+                case('partners'):
+
+                alteredPartner = scope.partner;
+
+                switch(selectedCell)
+                {
+                  case(0):
+                    alteredPartner.name = changedText;
+                  break;
+                  case(1):
+                    alteredPartner.iconPath = changedText;
+                  break;
+                  case(2):
+                    alteredPartner.link = changedText;
+                  break;
+                }
+
+                scope.partnersBulk.update(alteredPartner);
+
+
+                break;
+                case('team'):
+
+                alteredTeamMember = scope.teammember;
+
+                switch(selectedCell)
+                {
+                  case(0):
+                    alteredTeamMember.name = changedText;
+                  break;
+                  case(1):
+                    alteredTeamMember.position = changedText;
+                  break;
+                  case(2):
+                    alteredTeamMember.imagePath = changedText;
+                  break;
+                }
+
+                scope.teamsBulk.update(alteredTeamMember);
+
+
+                break;
+
+                case('projects'):
+
+                alteredProject = scope.project;
+
+                switch(selectedCell)
+                {
+                  case(0):
+                    alteredProject.title = changedText;
+                  break;
+                  case(1):
+                    alteredProject.description = changedText;
+                  break;
+                  case(2):
+                    alteredProject.imagePath = changedText;
+                  break;
+                }
+
+                scope.projectsBulk.update(alteredProject);
+
+
+                break;
+
+                case('stats'):
+
+                alteredStat = scope.stat;
+
+                switch(selectedCell)
+                {
+                  case(0):
+                    alteredStat.description = changedText;
+                  break;
+                  case(1):
+                    alteredStat.number = changedText;
+                  break;
+                  case(2):
+                    alteredStat.imagePath = changedText;
+                  break;
+                }
+
+                scope.statsBulk.update(alteredStat);
+
+
+                break;
+
               }
 
               var selectedCell = elm[0].parentElement.cellIndex;
@@ -1178,16 +1286,20 @@ app.directive('file', ['$http', function($http){
     scope: {
       file: '='
     },
-    controller: function($scope,$element, news)
+    controller: function($scope,$element, news, partners, team, projects, stats)
     {
       //console.log(news);
       $scope.news = news.news;
       $scope.newsBulk = news;
+      $scope.partnersBulk = partners;
+      $scope.teamsBulk = team;
+      $scope.projectsBulk = projects;
+      $scope.statsBulk = stats;
     },
     link: function(scope, el, attrs){
       el.bind('change', function(event){
 
-        selectedNewsPost = scope.$parent.newsPost;
+        console.log(attrs.ngModel);
 
         var files = event.target.files;
         var l = files.length;
@@ -1205,8 +1317,33 @@ app.directive('file', ['$http', function($http){
         .success(function(data)
         {
           console.log("file upload success " + data );
-          selectedNewsPost.imageLink = '/uploads/'+ data;
-          scope.newsBulk.update(selectedNewsPost);
+
+          switch(attrs.ngModel)
+          {
+            case("newsImage"):
+              scope.$parent.newsPost.imageLink = '/uploads/'+ data;
+              scope.newsBulk.update(scope.$parent.newsPost);
+            break;
+            case("partnerImage"):
+              scope.$parent.partner.iconPath = '/uploads/'+ data;
+              scope.partnersBulk.update(scope.$parent.partner);
+            break;
+            case("teamImage"):
+              scope.$parent.teammember.imagePath = '/uploads/'+ data;
+              scope.teamsBulk.update(scope.$parent.teammember);
+            break;
+            case("projectImage"):
+              scope.$parent.project.imagePath = '/uploads/'+ data;
+              scope.projectsBulk.update(scope.$parent.project);
+            break;
+            case("statsImage"):
+              scope.$parent.stat.imagePath = '/uploads/'+ data;
+              scope.statsBulk.update(scope.$parent.stat);
+            break;
+          }
+
+
+
         })
         .error(function(err){
           console.log("file upload - acabei com erro - " + err);
@@ -1226,13 +1363,15 @@ app.controller('CategoryCtrl', [
   'news',
   function($scope,$http,$element,categories,structuralInfo,news)
   {
-    $scope.structuralInfo = structuralInfo.structuralInfo;
+
+    $scope.structuralInfo = [];
+    structuralInfo.getAll().success(function(data){
+      $scope.structuralInfo=data;
+      $scope.categories = data[0].categories;
+    });
+
     $scope.collection = [];
     $scope.collection = categories.categories;
-
-    $scope.categories = structuralInfo.structuralInfo[0].categories;
-
-    console.log(structuralInfo.structuralInfo);
 
     // reset login status
     //$scope.categories = categories.categories;
@@ -1253,9 +1392,9 @@ app.controller('CategoryCtrl', [
 
       var imagem = '';
 
-      if($scope.uploadedImagePathWithSuccess != undefined)
+      if($scope.$parent.uploadedImagePathWithSuccess != undefined)
       {
-        imagem = '/uploads/'+$scope.uploadedImagePathWithSuccess;
+        imagem = '/uploads/'+$scope.$parent.uploadedImagePathWithSuccess;
       }
       else
       {
@@ -1271,35 +1410,9 @@ app.controller('CategoryCtrl', [
       $scope.nome = '';
       $scope.color = '';
       $scope.imagemCategory = '';
-      $scope.uploadedImagePathWithSuccess = undefined;
+      $scope.$parent.uploadedImagePathWithSuccess = undefined;
       $scope.newCategoryForm.$setPristine();
     };
-
-    $scope.fileNameChangedCategory = function (ele) {
-      var files = ele.files;
-      var l = files.length;
-      var namesArr = [];
-
-      var fd = new FormData();
-      //Take the first selected file
-      fd.append("uploadImageFile", files[0]);
-
-      $http.post('/upload', fd, {
-        withCredentials: true,
-        headers: {'Content-Type': undefined },
-        transformRequest: angular.identity
-      })
-      .success(function(data)
-      {
-        console.log("file upload success " + data );
-        $scope.uploadedImagePathWithSuccess = data;
-        console.log($scope.uploadedImagePathWithSuccess);
-      })
-      .error(function(err){
-        console.log("file upload - acabei com erro - " + err);
-      });
-
-    }
 
   }]);
 
@@ -1330,9 +1443,7 @@ app.controller('CategoryCtrl', [
       {
         for(var i=0; i<$scope.stories.length; i++)
         {
-
           $scope.stories[i].trustedVideoLink = $sce.trustAsResourceUrl($scope.stories[i].videoLink);
-          console.log($scope.stories[i].trustedVideoLink);
         }
       }
 
@@ -1340,21 +1451,28 @@ app.controller('CategoryCtrl', [
       {
         var currentDate = Date.now();
 
-        if(!$scope.tituloStory || $scope.tituloStory === '') { return; }
-        stories.create({
-          title: $scope.tituloStory,
-          text: $scope.corpoStory,
-          videoLink: $scope.linkStory,
-          date: currentDate,
-        }).success(function(data)
+        if(stories.length <= 4)
         {
-          $scope.rowCollectionStories.push(data);
-        });
-        $scope.tituloStory = '';
-        $scope.corpoStory = '';
-        $scope.linkStory = '';
-        currentDate = '';
-        $scope.newStoryForm.$setPristine();
+          if(!$scope.tituloStory || $scope.tituloStory === '') { return; }
+          stories.create({
+            title: $scope.tituloStory,
+            text: $scope.corpoStory,
+            videoLink: $scope.linkStory,
+            date: currentDate,
+          }).success(function(data)
+          {
+            $scope.rowCollectionStories.push(data);
+          });
+          $scope.tituloStory = '';
+          $scope.corpoStory = '';
+          $scope.linkStory = '';
+          currentDate = '';
+          $scope.newStoryForm.$setPristine();
+        }
+        else
+        {
+          alert("Número Máximo de Histórias Inseridas!");
+        }
       };
 
     }]);
@@ -1367,6 +1485,14 @@ app.controller('CategoryCtrl', [
       function($scope,$http,$element,partners)
       {
         $scope.partners = partners.partners;
+
+        if(window.matchMedia( "(max-width: 378px)" ))
+        {
+
+        }
+        else {
+
+        }
 
         $scope.partners = [];
         partners.getAll().success(function(data){
@@ -1387,10 +1513,21 @@ app.controller('CategoryCtrl', [
         {
           var currentDate = Date.now();
 
+          var imagem = '';
+
+          if($scope.$parent.uploadedImagePathWithSuccess != undefined)
+          {
+            imagem = '/uploads/'+$scope.$parent.uploadedImagePathWithSuccess;
+          }
+          else
+          {
+            imagem = $scope.imagem;
+          }
+
           if(!$scope.nomeParceiro || $scope.nomeParceiro === '') { return; }
           partners.create({
             name: $scope.nomeParceiro,
-            iconPath: $scope.iconeParceiro,
+            iconPath: imagem,
             link: $scope.linkParceiro,
             date: currentDate,
           }).success(function(data)
@@ -1401,8 +1538,10 @@ app.controller('CategoryCtrl', [
           $scope.iconeParceiro = '';
           $scope.linkParceiro = '';
           currentDate = '';
+          $scope.$parent.uploadedImagePathWithSuccess = undefined;
           $scope.newPartnerForm.$setPristine();
         };
+
       }]);
 
       app.controller('TeamCtrl', [
@@ -1431,23 +1570,42 @@ app.controller('CategoryCtrl', [
 
           $scope.addTeamMember = function()
           {
-            var currentDate = Date.now();
 
-            if(!$scope.nomeMembro || $scope.nomeMembro === '') { return; }
-            team.create({
-              name: $scope.nomeMembro,
-              position: $scope.posicaoMembro,
-              imagePath: $scope.linkMembro,
-              date: currentDate,
-            }).success(function(data)
+            if(team.length <=8)
             {
-              $scope.rowCollectionTeam.push(data);
-            });
-            $scope.nomeMembro = '';
-            $scope.posicaoMembro = '';
-            $scope.linkMembro = '';
-            currentDate = '';
-            $scope.newTeamForm.$setPristine();
+              var currentDate = Date.now();
+              var imagem = '';
+
+              if($scope.$parent.uploadedImagePathWithSuccess != undefined)
+              {
+                imagem = '/uploads/'+$scope.$parent.uploadedImagePathWithSuccess;
+              }
+              else
+              {
+                imagem = $scope.imagem;
+              }
+
+              if(!$scope.nomeMembro || $scope.nomeMembro === '') { return; }
+              team.create({
+                name: $scope.nomeMembro,
+                position: $scope.posicaoMembro,
+                imagePath: imagem,
+                date: currentDate,
+              }).success(function(data)
+              {
+                $scope.rowCollectionTeam.push(data);
+              });
+              $scope.nomeMembro = '';
+              $scope.posicaoMembro = '';
+              $scope.linkMembro = '';
+              currentDate = '';
+              $scope.$parent.uploadedImagePathWithSuccess = undefined;
+              $scope.newTeamForm.$setPristine();
+            }
+            else
+            {
+              alert("Número Máximo de Membros Inseridos!");
+            }
           };
         }]);
 
@@ -1477,23 +1635,43 @@ app.controller('CategoryCtrl', [
 
             $scope.addProject = function()
             {
-              var currentDate = Date.now();
 
-              if(!$scope.nomeProjecto || $scope.nomeProjecto === '') { return; }
-              projects.create({
-                title: $scope.nomeProjecto,
-                description: $scope.descricaoProjecto,
-                imagePath: $scope.linkProjecto,
-                date: currentDate,
-              }).success(function(data)
+              if(projects.length <= 3)
               {
-                $scope.rowCollectionProject.push(data);
-              });
-              $scope.nomeProjecto = '';
-              $scope.descricaoProjecto = '';
-              $scope.linkProjecto = '';
-              currentDate = '';
-              $scope.newProjectForm.$setPristine();
+                var currentDate = Date.now();
+
+                var imagem = '';
+
+                if($scope.$parent.uploadedImagePathWithSuccess != undefined)
+                {
+                  imagem = '/uploads/'+$scope.$parent.uploadedImagePathWithSuccess;
+                }
+                else
+                {
+                  imagem = $scope.imagem;
+                }
+
+                if(!$scope.nomeProjecto || $scope.nomeProjecto === '') { return; }
+                projects.create({
+                  title: $scope.nomeProjecto,
+                  description: $scope.descricaoProjecto,
+                  imagePath: imagem,
+                  date: currentDate,
+                }).success(function(data)
+                {
+                  $scope.rowCollectionProject.push(data);
+                });
+                $scope.nomeProjecto = '';
+                $scope.descricaoProjecto = '';
+                $scope.linkProjecto = '';
+                currentDate = '';
+                $scope.$parent.uploadedImagePathWithSuccess = undefined;
+                $scope.newProjectForm.$setPristine();
+              }
+              else
+              {
+                alert("Número Máximo de Projectos Inserido!");
+              }
             };
           }]);
 
@@ -1510,29 +1688,8 @@ app.controller('CategoryCtrl', [
               $scope.structuralInfo = [];
               structuralInfo.getAll().success(function(data){
                 $scope.structuralInfo=data;
-                $scope.donateTitle1 = $scope.structuralInfo[1].titulo1;
-                $scope.donateText1 = $scope.structuralInfo[1].texto1;
-                $scope.donateTitle2 = $scope.structuralInfo[1].titulo2;
-                $scope.donateText2 = $scope.structuralInfo[1].texto2;
-                $scope.donateTitle3 = $scope.structuralInfo[1].titulo3;
-                $scope.donateText3 = $scope.structuralInfo[1].texto3;
-                $scope.donateTitle4 = $scope.structuralInfo[1].titulo4;
-                $scope.donateText4 = $scope.structuralInfo[1].texto4;
-
-                console.log($scope.donateTitle1);
-                console.log($scope.donateTitle2);
-                console.log($scope.donateTitle3);
-                console.log($scope.donateTitle4);
-                console.log($scope.donateText1);
-                console.log($scope.donateText2);
-                console.log($scope.donateText3);
-                console.log($scope.donateText4);
-
+                $scope.donateTexts = data[0].textos;
               });
-
-
-
-
 
               $scope.changePage = function (id) {
 
@@ -1555,9 +1712,6 @@ app.controller('CategoryCtrl', [
 
               };
 
-
-              $scope.donateTexts = structuralInfo.structuralInfo[0].textos;
-
               $scope.selectedText = 1;
 
             }]);
@@ -1569,8 +1723,14 @@ app.controller('CategoryCtrl', [
               'structuralInfo',
               function($scope,$http,$element,structuralInfo)
               {
-                console.log(structuralInfo);
-                $scope.donateTexts = structuralInfo.structuralInfo[0].textos;
+
+                $scope.structuralInfo = [];
+                structuralInfo.getAll().success(function(data){
+                  $scope.structuralInfo=data;
+                  $scope.donateTexts = data[0].textos;
+                });
+
+
 
                 $scope.selectedStory = 1;
               }]);
@@ -1693,23 +1853,43 @@ app.controller('CategoryCtrl', [
 
                     $scope.addStat = function()
                     {
-                      var currentDate = Date.now();
-
-                      if(!$scope.descricaoStat || $scope.descricaoStat === '') { return; }
-                      stats.create({
-                        description: $scope.descricaoStat,
-                        number: $scope.numeroStat,
-                        imagePath: $scope.linkStat,
-                        date: currentDate,
-                      }).success(function(data)
+                      if(stats.length <= 4)
                       {
-                        $scope.rowCollectionStats.push(data);
-                      });
-                      $scope.descricaoStat = '';
-                      $scope.numeroStat = '';
-                      $scope.linkStat = '';
-                      currentDate = '';
-                      $scope.newStatsForm.$setPristine();
+                        var currentDate = Date.now();
+
+                        var imagem = '';
+
+                        if($scope.$parent.uploadedImagePathWithSuccess != undefined)
+                        {
+                          imagem = '/uploads/'+$scope.$parent.uploadedImagePathWithSuccess;
+                        }
+                        else
+                        {
+                          imagem = $scope.imagem;
+                        }
+
+                        if(!$scope.descricaoStat || $scope.descricaoStat === '') { return; }
+                        stats.create({
+                          description: $scope.descricaoStat,
+                          number: $scope.numeroStat,
+                          imagePath: imagem,
+                          date: currentDate,
+                        }).success(function(data)
+                        {
+                          $scope.rowCollectionStats.push(data);
+                        });
+                        $scope.descricaoStat = '';
+                        $scope.numeroStat = '';
+                        $scope.linkStat = '';
+                        currentDate = '';
+                        $scope.$parent.uploadedImagePathWithSuccess = undefined;
+                        $scope.newStatsForm.$setPristine();
+                      }
+                      else {
+                      {
+                        alert("Número Máximo de Estatísticas Inserido");
+                      }
+                      }
                     };
                   }]);
 
@@ -1873,6 +2053,54 @@ app.controller('CategoryCtrl', [
 
                           }
                         ]);
+
+
+                        app.controller('FinanceCtrl', [
+                          '$scope',
+                          '$http',
+                          '$element',
+                          'structuralInfo',
+                          function($scope,$http,$element,structuralInfo)
+                          {
+
+                            $scope.structuralInfo = [];
+                            structuralInfo.getAll().success(function(data){
+                              $scope.structuralInfo=data;
+                              $scope.documentLink = data[0].financeLink;
+                            });
+
+                            $scope.fileNameChangedFinance = function (ele) {
+                              var files = ele.files;
+                              var l = files.length;
+                              var namesArr = [];
+
+                              console.log($scope);
+                              console.log(ele);
+                              console.log(ele.id);
+
+                              var fd = new FormData();
+                              //Take the first selected file
+                              fd.append("uploadImageFile", files[0]);
+
+                              $http.post('/upload', fd, {
+                                withCredentials: true,
+                                headers: {'Content-Type': undefined },
+                                transformRequest: angular.identity
+                              })
+                              .success(function(data)
+                              {
+                                console.log("file upload success " + data );
+                                $scope.$parent.financeFile = data;
+                                $scope.documentLink = "uploads/"+data;
+                                $scope.structuralInfo.update(15,"uploads/"+data);
+                              })
+                              .error(function(err){
+                                console.log("file upload - acabei com erro - " + err);
+                              });
+
+                            }
+
+                          }]);
 
                         app.controller('MembersCtrl', [
                           '$scope',

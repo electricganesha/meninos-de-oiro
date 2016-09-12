@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="meninos-de-oiro">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
@@ -20,80 +20,130 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="javascripts/rzslider.js"></script>
-<script src="/javascripts/slick.min.js"></script>
 <script src="/javascripts/angular.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+<script src="/javascripts/slick.min.js"></script>
 <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/responsive.css' />
 </head>
-<body ng-app="meninos-de-oiro">
+<body>
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div id="navbarContainer" class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="/"><img src="/images/logo-meninos.png"></img></a>
       </div>
-      <div class="navbar-header-links">
-        <li><a href="/donatenow" id="donateNowButton">DOE AGORA</a></li>
-        <li><a>|</a></li>
-        <li><a href="/membership" style="padding-right:0px;">Já Se Tornou Membro?</a></li>
+      <div id="navBarHeaderContainer">
+        <div class="navbar-header-links">
+          <li><a href="/donatenow" id="donateNowButton" style="padding-right:0px;">DOE AGORA</a></li>
+          <li><a>|</a></li>
+          <li><a href="/membership" style="padding-right:0px;">Já Se Tornou Membro?</a></li>
+        </div>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="mainNavBar">
+        <div id="navBarBelowContainer">
         <ul class="nav navbar-nav navbar-right">
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/">Homepage</a></li>
-          <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false">Sobre Nós</a></li>
-          <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true">Parceiros</a></li>
-          <li><a style="pointer-events: none;">|</a></li>
-          <li><a style="color:#cea44a;" ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
-          <li><a style="pointer-events: none;">|</a></li>
-          <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts" style="padding-right:0px;">Contactos</a></li>
+            <li><a style="color:#cea44a;" ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/">Homepage</a></li>
+            <li><a id="navbarSeparator" style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = true ; showSubMenuPartners = false">Sobre Nós</a></li>
+              <li><a href="/mission" id="mobileSubMenu">Missão</a></li>
+              <li><a href="/projectspage" id="mobileSubMenu">Projectos</a></li>
+              <li><a href="/financePage" id="mobileSubMenu">Demonstrações Financeiras</a></li>
+            <li><a id="navbarSeparator" style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = true">Parceiros</a></li>
+              <li><a href="/membership" id="mobileSubMenu">Inscrição</a></li>
+              <li><a href="/donatenow" id="mobileSubMenu">Doar Agora</a></li>
+            <li><a id="navbarSeparator" style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/acknowledgments">Agradecimentos</a></li>
+            <li><a id="navbarSeparator" style="pointer-events: none;">|</a></li>
+            <li><a ng-mouseover="showSubMenuAbout = false ; showSubMenuPartners = false" href="/contacts" style="padding-right:0px;">Contactos</a></li>
         </ul>
+      </div>
       </div><!-- /.navbar-collapse -->
+
     </div><!-- /.container-fluid -->
     <div id="subMenu">
       <div id="subMenuAbout" ng-show="showSubMenuAbout">
-        <a href="/mission">Missão</a>
-        <a style="pointer-events: none;">|</a>
-        <a href="/projectspage">Projectos</a>
-        <a style="pointer-events: none;">|</a>
-        <a href="/financePage">Demonstrações Financeiras</a>
+        <div id="subMenuAboutContainer">
+          <a href="/mission">Missão</a>
+          <a style="pointer-events: none;">|</a>
+          <a href="/projectspage">Projectos</a>
+          <a style="pointer-events: none;">|</a>
+          <a style="padding-right:0px;" href="/financePage">Demonstrações Financeiras</a>
+        </div>
       </div>
       <div id="subMenuPartners" ng-show="showSubMenuPartners">
-        <a href="/membership">Inscrição</a>
-        <a style="pointer-events: none;">|</a>
-        <a href="/donatenow" >Doar Agora</a>
+        <div id="subMenuPartnersContainer">
+          <a href="/membership">Inscrição</a>
+          <a style="pointer-events: none;">|</a>
+          <a style="padding-right:0px;" href="/donatenow" >Doar Agora</a>
+        </div>
       </div>
     </div>
   </nav>
-  <div class="row" ng-controller="StoryCtrl" style=" width:100%; margin-left:0px;">
-    <table class="table" style="margin-bottom:0px;">
-      <tr style="height:215px;" ng-repeat="story in stories" ng-init="convertVideoLinksToTrust()" ng-class-even="'evenStory'">
-      <td width="30%;" style="border:none;"><iframe style="padding-left:225px; padding-top:6px;" width="600" height="215" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></td>
-      <td width="70%;" style="border:none;">
-        <div style="color:#185472; width:1070px; text-align:justify; padding-left:20px; padding-right:22px; margin-top:6px;">
+  <div class="row" id="storiesRow" ng-controller="StoryCtrl">
+    <table style="margin-bottom:0px; border:none;">
+      <tr style="height:215px; border:none;" ng-repeat="story in stories" ng-init="convertVideoLinksToTrust()" ng-class-even="'evenStory'">
+      <td width="40%;" style="overflow-x:hidden; border:none;"><iframe id="iFrameAcknowledgments" src="{{story.trustedVideoLink}}" frameborder="0" allowfullscreen></iframe></td>
+      <td width="60%;" style="overflow-x:hidden; border:none;">
+        <div id="acknowledgementsStoriesText" style="overflow-y:hidden;">
         <h1 style="margin-top:0px;">{{story.title}}</h1> <p>"<b>{{story.text}}</b>"</p></td>
         </div>
       </tr>
     </table>
   </div>
-  <div class="row" ng-controller="PartnerCtrl" style="margin-left:0px; width:100vw; background-color:#185472;">
-    <div style="margin-left:232px;">
-      <h1 style="color:#e8e8e8; margin-top:50px; margin-bottom:20px;"> Os Nossos Parceiros </h1>
-      <p style="color:#e8e8e8; margin-top:20px; width:1490px; text-align:justify; margin-bottom:50px;">O nosso sincero obrigado também a todas as outras empresas que nos apoiaram ao longo destes anos, a todos os nossos voluntários, colaboradores e amigos, e aos congressistas e artistas que participaram nas nossas Conferências.</p>
-
+  <div class="row" id="partnersRow" ng-controller="PartnerCtrl" style="margin-top:40px;">
+    <div id="partnersContainer">
+      <h1> Os Nossos Parceiros </h1>
+      <p>O nosso sincero obrigado também a todas as outras empresas que nos apoiaram ao longo destes anos, a todos os nossos voluntários, colaboradores e amigos, e aos congressistas e artistas que participaram nas nossas Conferências.</p>
       <div class="row">
         <div ng-repeat="partner in partners">
           <div class="clearfix" ng-if="$index % 4 == 0"></div>
-          <div class="col-md-4" style=" width:300px; margin:40px; text-align:center;">
-            <img src="{{partner.iconPath}}" style=" max-width:250px; max-height:95px; filter: grayscale(100%); -webkit-filter: grayscale(100%);">
+          <div id="partnersContainerImgCont" class="col-md-4">
+            <img src="{{partner.iconPath}}">
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="container-fluid" style="height:15vh; margin-top:20px;">
+    <div id="footer">
+      <div class="row" id="footerRow">
+        <div class="col-md-6" id="footerLeft">
+        <br>
+        <br>
+        <p>
+          MENINOS DE OIRO – Associação para a Defesa dos Direitos da Criança de Azeitão e Setúbal
+            <br>
+            Sede: Rua Juventude Azeitonense, Lote 145, 2925-588 Azeitão
+            <br>
+            Telefones: 21.218.0703 / 96 567 1738 / 91 758 7766
+            <br>
+            Email: meninosdeoiro@gmail.com
+            <br>
+            Nº de Identificação fiscal: 506 414 035
+            <br>
+            <br>
+            <br>
+        </p>
+      </div>
+    <div class="col-md-6" id="footerRight">
+      <p>© 2016 Associação Meninos-de-Oiro - Todos os Direitos Reservados
+        <br>
+      Design e Desenvolvimento feito por <a>PUSH</a></p>
+    </div>
+    </div>
     </div>
   </div>
   </body>

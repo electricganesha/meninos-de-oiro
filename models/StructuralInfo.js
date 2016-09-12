@@ -18,7 +18,8 @@ var StructuralInfoSchema = new mongoose.Schema(
     textoPaypal: String,
     textoChamada: String,
     textoTransferencia: String,
-    textoDoacao: String
+    textoDoacao: String,
+    financeLink: String
   });
 
   mongoose.model('StructuralInfo', StructuralInfoSchema);

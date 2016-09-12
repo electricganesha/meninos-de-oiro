@@ -80,7 +80,18 @@ router.get('/donatenow', function(req, res, next) {
 
 router.get('/financePage', function(req, res, next) {
 
-  res.sendFile(path.join(__dirname+'/../public/documents/demos.pdf'));
+  StructuralInfo.findOne({"textId":"noticia_principal"}, function(err, doc){
+    if(err){
+       console.log("Something wrong when updating data! - " + err );
+   }
+   else{
+     console.log("Sucesso!");
+     console.log(doc.financeLink);
+     res.sendFile(path.join(__dirname+'/../public/'+doc.financeLink));
+    }
+   });
+
+
 
 });
 
@@ -753,6 +764,16 @@ router.put('/structuralInfo/:id/update', function(req,res){
     break;
     case("14"):
       StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"textoDoacao":updateInfo.text}}, function(err, doc){
+        if(err){
+           console.log("Something wrong when updating data! - " + err );
+       }
+       else{
+         console.log("Sucesso!");
+        }
+       });
+    break;
+    case("15"):
+      StructuralInfo.findOneAndUpdate({"textId":"noticia_principal"}, {$set: {"financeLink":updateInfo.text}}, function(err, doc){
         if(err){
            console.log("Something wrong when updating data! - " + err );
        }

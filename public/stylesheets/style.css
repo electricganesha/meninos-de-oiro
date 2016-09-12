@@ -18,6 +18,9 @@ body {
   overflow-x:hidden;
 }
 
+/*
+ * NAVIGATION BARS
+ */
 .navbar
 {
   height:100px;
@@ -25,23 +28,54 @@ body {
   margin:auto;
   background-color:white;
   margin-bottom:70px;
-  box-shadow: 0px 2px 5px 0px darkgrey;
-  font-size:14px;
+  box-shadow: 0px 2px 5px 0px darkgrey;te
+  font-size:small;
+}
+
+#mobileSubMenu
+{
+  display:none;
+}
+
+#navbarContainer
+{
+  width:calc(var(--globalwidth)*2);
+  height:100%;
+}
+
+.navbar-collapse
+{
+  padding:0px;
 }
 
 .navbar-right
 {
+  width:auto;
+  padding:0px;
+  margin:0px;
+  float:right;
+  margin-top:52px;
+}
+
+.navbar-brand
+{
   position:absolute;
-  bottom:0px;
-  right:245px;
-  clear: left;
 }
 
 .navbar-brand img
 {
-  margin-left:180px;
-  position:absolute;
-  top:5px;
+  width:auto;
+  height:9vh;
+  margin:0px;
+  margin-left:0px;
+  margin-top:-1vh;
+}
+
+#navBarBelowContainer
+{
+ height:100%;
+ width:calc(var(--globalwidth)*2);
+ position:absolute;
 }
 
 .navbar-default .navbar-nav li a {
@@ -57,9 +91,9 @@ body {
 .navbar-header-links
 {
   position:absolute;
-  right:230px;
   top:15px;
-  clear:left;
+  width:calc(var(--globalwidth)*2);
+  z-index:2;
 }
 
 .navbar-header-links li
@@ -72,6 +106,8 @@ body {
   color: darkgrey;
   font-weight:bold;
   padding:10px;
+  float:right;
+  cursor:pointer;
 }
 
 .navbar-header-links li a:hover {
@@ -79,6 +115,266 @@ body {
     font-weight:bold;
     text-decoration:none;
 }
+
+#subMenu
+{
+  width:100%;
+  height:40px;
+  background-color:#185472;
+  box-shadow: 0px 2px 5px 0px darkgrey;
+}
+
+#subMenu a
+{
+  color:lightgrey;
+  text-decoration:none;
+  padding:13.5px;
+}
+
+#subMenu a:hover
+{
+  color:var(--goldenColor);
+}
+
+#subMenuAbout
+{
+  width:calc(var(--globalwidth)*2);
+  margin:auto;
+  padding-top:10px;
+  font-weight:600;
+}
+
+#subMenuAboutContainer
+{
+  float:right;
+  margin-right:55px;
+}
+
+#subMenuPartners
+{
+  width:calc(var(--globalwidth)*2);
+  margin:auto;
+  padding-top:10px;
+  font-weight:600;
+}
+
+#subMenuPartnersContainer
+{
+  float:right;
+  margin-right:150px;
+}
+
+/*
+ * MAIN PAGE TOP ROW
+ */
+
+ #topRow
+ {
+   width:calc(var(--globalwidth)*2);
+   margin:auto;
+ }
+
+ #topRowSecondColumn
+ {
+   padding-left:10px;
+   padding-right:0px;
+ }
+
+ #mainImageContainer
+ {
+   width:100%;
+   height:452px;
+   background-size:cover;
+   background-position:50% 50%;
+   box-shadow: 5px 5px 15px 0px darkgrey;
+ }
+
+ #homePageMainTextTitle
+ {
+   width:100%;
+   color:var(--goldenColor);
+   font-size:x-large;
+   font-weight:700;
+   float:right;
+ }
+
+ #homePageMainText
+ {
+   padding-top:5px;
+   color:#939393;
+   border-top: 2px solid lightgrey;
+   float: right;
+   font-size:100%;
+   text-align:justify;
+   font-weight:600;
+   height:200px;
+ }
+
+ #homePageMainTextDate
+ {
+   margin-top:10px;
+   color:#939393;
+   font-size:medium;
+   width:140px;
+   font-weight:600;
+   text-align:right;
+   float:right;
+ }
+
+ /*
+  * MAIN PAGE TOP ROW - DONATION BOX
+  */
+  #donateTexts
+  {
+    width:100%;
+    height:220px;
+    background-color:lightgrey;
+    border-bottom-right-radius:15px;
+    font-weight:600;
+    clear:both;
+  }
+
+  #donateBoxDoarAgora
+  {
+    padding-top:5px;
+    background-color:#185472;
+    height:25px;
+  }
+
+  #donateBoxDoarAgora p
+  {
+    margin-left:10px;
+    color:white;
+    font-weight:bold;
+  }
+
+  #donateBoxButtonsContainer
+  {
+    background-color:#185472;
+    height:175px;
+    width:300px;
+    float:right;
+    margin-top:10px;
+    margin-right:10px;
+  }
+
+  #donateBoxTextoDoacao
+  {
+    position:absolute;
+    width:52%;
+    height:80%;
+    margin-top:10px;
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+  .donateTexto
+  {
+    color:dimgrey ;
+    font-size:85%;
+    text-align:justify;
+  }
+
+  .donateBoxButtonDiv
+  {
+    width:100%;
+    height:25%;
+    border:1px solid lightgrey;
+  }
+
+  .donateBoxButtonDivInside
+  {
+    float:left;
+    padding:5px;
+  }
+
+  .donateBoxButtonDiv:hover
+  {
+    cursor:pointer;
+    background-color:var(--goldenColor);
+  }
+
+  .donateBoxButtonDivInside img
+  {
+    border:1.5px solid lightgrey;
+    border-radius:5px;
+    padding:4px;
+  }
+
+  .donateBoxButtonDivInsideText
+  {
+    margin-top:13px;
+    color:lightgrey;
+    font-size:14px;
+    text-align:center;
+  }
+
+  .donateBoxButtonDivPage
+  {
+    width:100%;
+    height:25%;
+    border:1px solid lightgrey;
+  }
+
+  .donateBoxButtonDivInsidePage
+  {
+    float:left;
+    padding:6px;
+
+  }
+
+  .donateBoxButtonDivInsidePage img
+  {
+    margin-top:4px;
+    border:1.5px solid lightgrey;
+    border-radius:5px;
+    padding:4px;
+  }
+
+  .donateBoxButtonDivInsideTextPage
+  {
+    margin-top:8px;
+    color:lightgrey;
+    font-size:20px;
+    text-align:center;
+  }
+
+  #dotsDonationBox
+  {
+    background-color:lightgrey;
+    width:90px;
+    height:25px;
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    border-top-left-radius:10px;
+    cursor:pointer;
+  }
+
+  #dotsDonationBox ul
+  {
+    list-style: none;
+    padding-left:0px;
+    margin-top:4px;
+  }
+
+  #dotsDonationBox ul li
+  {
+    float:left;
+    padding-left:5px;
+  }
+
+  .dotsDonationBoxItem
+  {
+    display: block;
+    width:17px;
+    height:17px;
+    border-radius:25px;
+  }
+
+ /*
+  * MAIN PAGE NEWS ROW
+  */
 
 #newsRowContainer
 {
@@ -126,18 +422,19 @@ body {
 {
   /*-webkit-text-stroke: 0.2px black;*/
   color:lightgrey;
-  font-size:16px;
+  font-size:large;
   font-weight:bold;
   margin-left:5px;
   margin-top:4px;
   line-height: 110%;
-  width:400px;
+  width:100%;
 }
 
 #newsRowTextDate
 {
   color:silver;
-  font-size:14px;
+  font-size:medium;
+  text-decoration:underline;
   margin-left:5px;
   margin-top:2px;
 }
@@ -145,16 +442,16 @@ body {
 #newsRowTextBody
 {
   color:silver;
-  font-size:16px;
+  font-size:medium;
   margin-left:5px;
   margin-top:2px;
-  width:400px;
+  width:80%;
 }
 
 #newsRowIcons img
 {
-  width:65px;
-  height:65px;
+  width:4vw;
+  height:4vw;
   right:0px;
   bottom:0px;
   position:absolute;
@@ -169,7 +466,7 @@ body {
   -webkit-user-select: none;
   pointer-events:all;
   position:absolute;
-  bottom:295px;
+  bottom:85%;
   right:-5px;
   z-index:2;
 }
@@ -192,8 +489,7 @@ body {
   display:block;
   height:100%;
   color:lightgrey;
-  font-size:9px;
-  font-size:0.5vw;
+  font-size:x-small;
   font-weight:bold;
   z-index:1;
   cursor:pointer;
@@ -207,72 +503,204 @@ body {
     transform: translate(-50%, -50%)
 }
 
-.newsRowLikeIconSelected
-{
-  color:lawngreen;
-}
-
 #newsRowLikeIcon img:hover
 {
   cursor:pointer;
 }
 
-#donateTexts
+/*
+ * MAIN PAGE STORIES ROW
+ */
+
+ #storyBoxControlRow
+ {
+   padding:0px;
+   margin:auto;
+   width:calc(var(--globalwidth)*2);
+ }
+
+ #storyBoxControlDiv
+ {
+   background-color:#185472;
+   width:100%;
+   height:450px;
+ }
+
+ #storyBoxControlDiv h1
+ {
+   color: lightgrey;
+   font-size:xx-large;
+ }
+
+ #storyBoxControlDivTitle
+ {
+   padding-top:30px;
+ }
+
+
+.iFrameStoriesFP
 {
-  width:100%;
-  height:220px;
-  background-color:lightgrey;
-  border-bottom-right-radius:15px;
-  font-weight:600;
-  clear:both;
+  width:530px;
+  height:300px;
 }
 
-#homePageMainTextTitle
+#dotStoriesIndex
 {
+  position:absolute;
+  padding-top:2px;
+  right:0px;
+  bottom:0px;
+  height:25px;
   width:100%;
-  color:var(--goldenColor);
-  font-size:24px;
-  font-weight:700;
-  float:right;
+  cursor:pointer;
 }
 
-#homePageMainText
+#dotStoriesIndex ul
 {
-  padding-top:5px;
-  color:#939393;
-  border-top: 2px solid lightgrey;
-  float: right;
-  font-size:14px;
+  list-style: none; float:right;
+}
+
+#dotStoriesIndex ul li
+{
+  float:left; padding-left:5px;
+}
+
+.dotStoriesIndexDiv
+{
+  display:  block;
+  width:17px;
+  height:17px;
+  border-radius:25px;
+}
+
+#storiesIndexText
+{
+  margin-top:105px;
+  height:300px;
+  padding:0px;
+}
+
+#storiesIndexText h1
+{
+  color: lightgrey;
+  text-align:left;
+  margin:0px;
+}
+
+#storiesIndexText p
+{
+  font-size:medium;
+  color: lightgrey;
+  padding-top:75px;
   text-align:justify;
-  font-weight:600;
-  height:200px;
 }
 
-#homePageMainTextDate
+.storiesIndexVideo
 {
-  margin-top:10px;
-  color:#939393;
-  font-size:16px;
-  width:140px;
-  font-weight:600;
-  text-align:right;
-  float:right;
+  padding-top:10px;
 }
 
-#topRow
-{
-  width:calc(var(--globalwidth)*2);
+/*
+ * MAIN PAGE PARTNERS ROW
+ */
+
+ #partnerBox
+ {
+   background-color:var(--greyColor);
+   width:calc(var(--globalwidth)*2);
+   margin:auto;
+   margin-bottom:50px;
+ }
+
+ #partnerBox h1
+ {
+   color:#185472;
+   padding-top:30px;
+ }
+
+ #slickCarouselPartners
+ {
+   margin-top:40px;
+   width:calc(var(--globalwidth)*2);
+   height:100px;
+   padding-bottom:30px;
+ }
+
+ #slickCarouselPartners ul
+ {
+   list-style: none;
+   height:100px;
+   display:table-row;
+   padding-left:30px;
+ }
+
+ #slickCarouselPartners ul li
+ {
+  vertical-align:middle;
   margin:auto;
-}
+  display:table-cell;
+  width:350px;
+ }
 
-#mainImageContainer
-{
-  width:var(--globalwidth);
-  height:450px;
-  background-size:cover;
-  background-position:50% 50%;
-  box-shadow: 5px 5px 15px 0px darkgrey;
-}
+ #slickCarouselPartners ul li img
+ {
+   max-width:14vw;
+   margin:auto;
+   max-height:95px;
+   filter: grayscale(100%);
+   -webkit-filter: grayscale(100%);
+ }
+
+/*
+ * FOOTER
+ */
+
+ #footer
+ {
+   background-color:#185472;
+   margin:0px;
+   width:100%;
+   height:200px;
+ }
+
+
+ #footerRow
+ {
+   font-weight:600;
+   color:lightgrey;
+   margin:auto;
+   width:calc(var(--globalwidth)*2);
+ }
+
+ #footerLeft
+ {
+   padding:0px;
+   height:20vh;
+ }
+
+ #footerRight p
+ {
+   text-align:right;
+   margin-top:100px;
+   position:absolute;
+   right:0px;
+ }
+
+ #footerRight a
+ {
+   color:var(--goldenColor);
+ }
+
+ #footerRight a:hover
+ {
+   color:lightgrey;
+ }
+
+
+
+/*
+ * ADMIN SMART TABLES
+ */
 
 table
 {
@@ -301,6 +729,10 @@ tbody tr
     height:20vh;
     overflow-y:auto;
 }
+
+/*
+ * ADMIN INPUT FORM
+ */
 
 input[type="file"] {
     width:180px;
@@ -338,6 +770,12 @@ input[type="file"] {
   border:1px solid var(--greyColor);
 }
 
+#contactFormContainer
+{
+  margin-top:110px;
+  width:110vw;
+}
+
 #textAreaContact
 {
   padding-top:20px;
@@ -345,20 +783,43 @@ input[type="file"] {
   resize: none;
   overflow: auto;
   box-sizing: border-box;
+  margin-top:20px;
+  width:583px;
+  height:150px;
 }
 
 #buttonSubmitContact
 {
   color:lightgrey;
   background-color:#185472;
-  border:1px solid var(--greyColor);;
+  border:1px solid var(--greyColor);
+  float:right;
+  margin-right:0px;
+  margin-top:-64px;
+  width:280px;
+  height:50px;
+  font-weight:600;
 }
+
 
 #buttonSubmitContact:hover
 {
   color:#185472;
   background-color:lightgrey;
   border:1px solid #185472;
+}
+
+#contactName
+{
+  width:300px;
+  height:50px;
+}
+
+#contactEmail
+{
+  margin-left:20px;
+  width:300px;
+  height:50px;
 }
 
 .fadein,
@@ -383,188 +844,12 @@ input[type="file"] {
 
 .evenStory
 {
-  background-color:#A8A8A8;
-}
-
-#dotStoriesIndex
-{
-  position:absolute;
-  padding-top:2px;
-  bottom:32px;
-  height:25px;
-  width:100%;
-  cursor:pointer;
-}
-
-#dotStoriesIndex ul
-{
-  list-style: none; float:right;
-}
-
-#dotStoriesIndex ul li
-{
-  float:left; padding-left:5px;
-}
-
-.dotStoriesIndexDiv
-{
-  display:
-  block;
-  width:17px;
-  height:17px;
-  border-radius:25px;
-}
-
-#partnerBox
-{
-  background-color:var(--greyColor);
-  width:calc(var(--globalwidth)*2);
-  margin:auto;
-  margin-bottom:50px;
-}
-
-#partnerBox h1
-{
-  color:#185472;
-  padding-top:30px;
-}
-
-#slickCarouselPartners
-{
-  margin-top:40px;
-  width:calc(var(--globalwidth)*2);
-  height:100px;
-  padding-bottom:30px;
-}
-
-#slickCarouselPartners ul
-{
-  list-style: none;
-  height:100px;
-  display:table-row;
-  padding-left:30px;
-}
-
-#slickCarouselPartners ul li
-{
- vertical-align:middle;
- margin:auto;
- display:table-cell;
- width:350px;
-}
-
-#slickCarouselPartners ul li img
-{
-  max-width:250px;
-  margin:auto;
-  max-height:95px;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-}
-
-#storiesIndexText
-{
-  margin-top:150px;
-  height:340px;
-  padding:0px;
-}
-
-#storiesIndexText h1
-{
-  color: lightgrey;
-  text-align:left;
-  margin:0px;
-}
-
-#storiesIndexText p
-{
-  color: lightgrey;
-  padding-top:120px;
-  text-align:justify;
-}
-
-.storiesIndexVideo
-{
-  padding-top:10px;
-}
-
-#storyBoxControlRow
-{
-  padding:0px;
-  margin:auto;
-  width:calc(var(--globalwidth)*2);
-}
-
-#storyBoxControlDiv
-{
-  background-color:#185472;
-  width:100%;
-
-}
-
-#storyBoxControlDivTitle
-{
-  color: lightgrey;
-  padding-top:30px;
+  background-color:lightgrey;
 }
 
 .container-fluid
 {
   padding:0px;
-}
-
-#footer
-{
-  background-color:#185472;
-  margin:0px;
-  width:100%;
-}
-
-
-#footerRow
-{
-  font-weight:600;
-  color:lightgrey;
-  margin:auto;
-  width:calc(var(--globalwidth)*2);
-}
-
-#footerLeft
-{
-  height:20vh;
-}
-
-#footerRight p
-{
-  text-align:right;
-  margin-top:100px;
-  position:absolute;
-  right:0px;
-}
-
-#footerRight a
-{
-  color:var(--goldenColor);
-}
-
-#footerRight a:hover
-{
-  color:lightgrey;
-}
-
-
-.navbar-brand
-{
-  bottom:48px;
-  position:absolute;
-}
-
-.navbar-brand img
-{
-  width:111px;
-  height:87px;
-  margin:0px;
-  margin-left:232px;
 }
 
 #donateNowButton
@@ -591,158 +876,6 @@ input[type="file"] {
   cursor:pointer;
 }
 
-#subMenu
-{
-  height:40px;
-  margin-top:100px;
-  background-color:#185472;
-  box-shadow: 0px 2px 5px 0px darkgrey;
-}
-
-#subMenu a
-{
-  color:lightgrey;
-  text-decoration:none;
-  padding:15px;
-}
-
-#subMenu a:hover
-{
-  color:var(--goldenColor);
-}
-
-#subMenuAbout
-{
-  margin-left:1218px;
-  padding-top:10px;
-  font-weight:600;
-}
-
-#subMenuPartners
-{
-  margin-left:1322px;
-  padding-top:10px;
-  font-weight:600;
-}
-
-#donateBoxDoarAgora
-{
-  padding-top:5px;
-  background-color:#185472;
-  height:25px;
-}
-
-#donateBoxDoarAgora p
-{
-  margin-left:10px;
-  color:white;
-  font-weight:bold;
-}
-
-.donateBoxButtonDiv
-{
-  width:100%;
-  height:25%;
-  border:1px solid lightgrey;
-}
-
-.donateBoxButtonDivInside
-{
-  float:left;
-  padding:5px;
-}
-
-.donateBoxButtonDiv:hover
-{
-  cursor:pointer;
-  background-color:var(--goldenColor);
-}
-
-.donateBoxButtonDivInside img
-{
-  border:1.5px solid lightgrey;
-  border-radius:5px;
-  padding:4px;
-}
-
-.donateBoxButtonDivInsideText
-{
-  margin-top:13px;
-  color:lightgrey;
-  font-size:14px;
-  text-align:center;
-}
-
-.donateBoxButtonDivPage
-{
-  width:100%;
-  height:25%;
-  border:1px solid lightgrey;
-}
-
-.donateBoxButtonDivInsidePage
-{
-  float:left;
-  padding:6px;
-
-}
-
-.donateBoxButtonDivInsidePage img
-{
-  margin-top:4px;
-  border:1.5px solid lightgrey;
-  border-radius:5px;
-  padding:4px;
-}
-
-.donateBoxButtonDivInsideTextPage
-{
-  margin-top:8px;
-  color:lightgrey;
-  font-size:20px;
-  text-align:center;
-}
-
-.donateTexto
-{
-  color:dimgrey ;
-  font-size:11px;
-  text-align:justify;
-}
-
-#dotsDonationBox
-{
-  background-color:lightgrey;
-  width:90px;
-  height:25px;
-  position:absolute;
-  right:10px;
-  bottom:10px;
-  border-top-left-radius:10px;
-  cursor:pointer;
-}
-
-#dotsDonationBox ul
-{
-  list-style: none;
-  padding-left:0px;
-  margin-top:4px;
-}
-
-#dotsDonationBox ul li
-{
-  float:left;
-  padding-left:5px;
-}
-
-.dotsDonationBoxItem
-{
-  display: block;
-  width:17px;
-  height:17px;
-  border-radius:25px;
-}
-
 #missionText
 {
   width:calc(var(--globalwidth)*2);
@@ -751,12 +884,14 @@ input[type="file"] {
 
 #missionText h1
 {
+  font-size:xx-large;
   font-weight:600;
   color:#cea44a;
 }
 
 #missionText p
 {
+  font-size:medium;
   width:100%;
   text-align:justify;
   color:grey;
@@ -765,16 +900,30 @@ input[type="file"] {
 
 #teamText
 {
-  width:100%;
-  margin:230px;
+  position:inherit;
+  width:calc(var(--globalwidth)*2);
+  margin:auto;
   margin-bottom:80px;
   background-color:#185472;
-  height:60vh;
+  height:750px;
   margin-top:60px;
+  z-index:2;
+}
+
+#teamFiller
+{
+  position:absolute;
+  width:calc(var(--globalwidth)*2);
+  background-color:#185472;
+  height:750px;
+  right:0px;
+  top:363px;
+  z-index:1;
 }
 
 #teamText h1
 {
+  font-size:xx-large;;
   font-weight:600;
   color:#cea44a;
   padding-top:25px;
@@ -785,24 +934,31 @@ input[type="file"] {
 {
   width:calc(var(--globalwidth)*2);
   height:auto;
+  z-index:2;
+
 }
 
 #teamContainer ul
 {
   list-style: none;
-  padding-left:20px;
+  padding-left:48px;
+  z-index:2;
+
 }
 
 #teamContainer ul li
 {
   float:left;
+  z-index:2;
+
 }
 
 .teamMemberPhoto
 {
+  z-index:2;
   margin-top:10px;
-  width:332px;
-  height:220px;
+  width:325px;
+  height:300px;
   background-color:white;
   background-position:center;
   background-repeat:no-repeat;
@@ -811,13 +967,32 @@ input[type="file"] {
 
 .teamMemberTag
 {
-  padding-top:5px; border:1px solid lightgrey; border-bottom:none; border-top-right-radius:15px; border-top-left-radius:15px; position:absolute; margin-right:30px; margin-top:-20px; width:332px; height:20px; background-color:#185472;
+  padding-top:5px;
+  border:1px solid lightgrey;
+  border-bottom:none;
+  border-top-right-radius:15px;
+  border-top-left-radius:15px;
+  position:absolute;
+  margin-right:30px;
+  margin-top:-20px;
+  width:325px;
+  height:20px;
+  background-color:#185472;
+}
+
+.teamMemberTag p
+{
+  margin-top:-5px;
+  text-align:center;
+  margin-left:1%;
+  color:white;
+  font-size:small;
 }
 
 #projectsPageDiv
 {
   margin:auto;
-  width:calc(var(--globalwidth)*2);
+  width:76%;
   height:auto;
 }
 
@@ -833,7 +1008,7 @@ input[type="file"] {
   width:100%;
   display:block;
   color:black;
-  height:350px;
+  height:30vh;
   background-size:cover;
   background-position:50% 0%;
   position:relative;
@@ -846,14 +1021,14 @@ input[type="file"] {
   background-color:#185472;
   position:absolute;
   bottom:0px;
-  height:110px;
+  height:10vh;
   width:100%;
 }
 
 #projectTitle
 {
   color:lightgrey;
-  font-size:16px;
+  font-size:medium;
   font-weight:600;
   padding-left:20px;
   padding-top:10px;
@@ -862,7 +1037,7 @@ input[type="file"] {
 #projectDescription
 {
   color:lightgrey;
-  font-size:14px;
+  font-size:small;
   font-weight:600;
   padding-left:20px;
   padding-top:10px;
@@ -878,11 +1053,10 @@ input[type="file"] {
 
 #statsDivImagesContainer
 {
-
-  width:calc(var(--globalwidth)*2);
+  width:76%;
   height:auto;
   text-align:center;
-  padding-left:calc(var(--globalwidth)/2);
+  padding-left:25vw;
 }
 
 #statsDivImage
@@ -890,7 +1064,7 @@ input[type="file"] {
   float:left;
   display:block;
   margin-top:120px;
-  margin-left:calc(var(--globalwidth)/10);
+  margin-left:2.5vw;
 }
 
 #statsDivImage img
@@ -906,7 +1080,7 @@ input[type="file"] {
 {
   margin-top:20px;
   color:var(--greyColor);
-  font-size:64px;
+  font-size:480%;
   font-weight:600;
   margin-bottom:0px;
   line-height: 0.7;
@@ -915,7 +1089,7 @@ input[type="file"] {
 #statsDivImage p
 {
   color:var(--greyColor);
-  font-size:22px;
+  font-size:large;
   font-weight:100;
 }
 
@@ -1024,6 +1198,12 @@ input[type="file"] {
   width:80%;
   height:40%;
   margin:auto;
+}
+
+#donationPageBoxPaypalRightContainerDonate a
+{
+  font-size:360%;
+  margin-left:15%;
 }
 
 #donationPageBoxPaypalRightContainerDonate:hover
@@ -1193,4 +1373,184 @@ input.donation:focus {
   color:white;
   background-color:#185472;
   border:1px solid lightgrey;
+}
+
+#membershipRow
+{
+  border-bottom:1px solid #185472;
+  width:100%;
+  margin-left:0px;
+  padding-bottom:40px;
+}
+
+#membershipContainer
+{
+  width:76%;
+}
+
+#membershipForm
+{
+  margin-top:80px;
+}
+
+#rowContacts
+{
+  margin:auto;
+  width:76%;
+  padding-top:60px;
+  color:lightgrey;
+}
+
+#storiesRow
+{
+  width:100%;
+  margin-left:0px;
+}
+
+#partnersRow
+{
+  width:100%;
+  margin-left:0px;
+  background-color:#185472;
+}
+
+#partnersContainer
+{
+  width:79%;
+  margin-left:8.5vw;
+}
+
+#partnersContainer h1
+{
+  color:#e8e8e8;
+  margin-top:50px;
+  margin-bottom:20px;
+}
+
+#partnersContainer p
+{
+  color:#e8e8e8;
+  margin-top:20px;
+  width:100%;
+  text-align:justify;
+  margin-bottom:50px;
+}
+
+#partnersContainerImgCont
+{
+  width:300px;
+  margin:40px;
+  text-align:center;
+}
+
+#partnersContainer img
+{
+  max-width:15vw;
+  max-height:10vh;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+#acknowledgementsStoriesText
+{
+  color:#185472;
+  width:79%;
+  height:240px;
+  text-align:justify;
+  padding-left:20px;
+  padding-right:0px;
+  margin-top:6px;
+}
+
+#iFrameAcknowledgments
+{
+  padding-left:12vw;
+  padding-top:6px;
+  width:90%;
+  height:240px;
+}
+
+.contactForm
+{
+  color:lightgrey;
+  padding-left:10px;
+  background-color:#185472;
+  border:1px solid var(--greyColor);
+}
+
+#contactFormContainer
+{
+  margin-top:110px;
+  width:36.8vw;
+}
+
+#textAreaContact
+{
+  padding-top:20px;
+  padding-left:10px;
+  resize: none;
+  overflow: auto;
+  box-sizing: border-box;
+  margin-top:20px;
+  width:36.8vw;
+  height:150px;
+}
+
+#buttonSubmitContact
+{
+  color:lightgrey;
+  background-color:#185472;
+  border:1px solid var(--greyColor);
+  float:right;
+  margin-right:0px;
+  margin-top:-64px;
+  width:17vw;
+  height:50px;
+  font-weight:600;
+}
+
+#buttonSubmitMembership
+{
+  color:lightgrey;
+  background-color:#185472;
+  border:1px solid var(--greyColor);
+  float:right;
+  margin-right:0px;
+  margin-top:0px;
+  width:280px;
+  height:50px;
+  font-weight:600;
+}
+
+#buttonSubmitContact:hover
+{
+  color:#185472;
+  background-color:lightgrey;
+  border:1px solid #185472;
+}
+
+#buttonSubmitMembership:hover
+{
+  color:#185472;
+  background-color:lightgrey;
+  border:1px solid #185472;
+}
+
+#contactName
+{
+  width:17vw;
+  height:50px;
+}
+
+#contactEmail
+{
+  margin-left:48.5px;
+  width:17vw;
+  height:50px;
+}
+
+#containerContacts
+{
+  background-color:#185472;
+  height:55vh;
 }

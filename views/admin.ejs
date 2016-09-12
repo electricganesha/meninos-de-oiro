@@ -93,7 +93,7 @@
             <label>Imagem:</label>
             <br>
             <label for="files" class="btn btn-sm btn-success" style="margin-left:5px;">Escolha uma imagem do seu computador</label>&nbsp; ou &nbsp; <input type="text" class="form-control" name="imagem" ng-model="imagem" placeholder="Introduza o link da imagem." style="display:inline-block; width:15vw;">
-            <input id="files" onchange="angular.element(this).scope().fileNameChanged(this)" type="file" class="form-control" name="uploadImageFile" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
+            <input id="files" onchange="angular.element(this).scope().fileNameChanged(this)" ng-model="imagem" type="file" class="form-control" name="uploadImageFile" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
           </div>
           <div class="form-group">
               <label>Texto:</label>
@@ -139,7 +139,7 @@
       <div>
       </div>
       </div>
-          <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+          <input id="file-input" type="file" style="display:block" ng-model="newsImage" data-file="param.file"/>
       </div>
       <div contentEditable="true" style=" border:1px solid black;position:relative; width:180px; color:black; text-align:left; margin-top:10px;" ng-model="row.imageLink"> {{newsPost.imageLink}} </div>
       </div>
@@ -191,7 +191,7 @@
           <label>Ícone:</label>
           <br>
           <label for="filesCategory" class="btn btn-sm btn-success" style="margin-left:5px;">Escolha um icone do seu computador</label>&nbsp; ou &nbsp; <input type="text" class="form-control" name="imagemCategory" ng-model="imagemCategory" placeholder="Introduza o link da imagem." style="display:inline-block; width:15vw;">
-          <input id="filesCategory" onchange="angular.element(this).scope().fileNameChangedCategory(this)" type="file" class="form-control" name="uploadImageFileCategory" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
+          <input id="filesCategory" onchange="angular.element(this).scope().fileNameChanged(this)" type="file" class="form-control" name="uploadImageFileCategory" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
         </div>
         <div>
         <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsCategory = ! showDetailsCategory">
@@ -207,11 +207,6 @@
 		<th>Cor</th>
 		<th>Icone</th>
     <th>Icone Like</th>
-    <!--<th>
-      <button type="button" ng-click="showDetailsCategory = ! showDetailsCategory" class="btn btn-sm btn-success" style="float:left;">
-      <i class="glyphicon glyphicon-plus-sign"></i> Inserir
-    </button>
-    </th>-->
 	</tr>
 	</thead>
 	<tbody>
@@ -220,12 +215,6 @@
 		<td> <div ng-model="row.color" style="background-color:{{category.color}}; width:100%; height:100%; border:1px solid black;"></div></td>
 		<td> <div ng-model="row.image"><img src="{{category.icon}}" style="width:64px; height:64px; display:block; margin:auto;"></div></td>
     <td> <div ng-model="row.image"><img src="{{category.likeIcon}}" style="width:64px; height:64px; display:block; margin:auto;"></div></td>
-    <!--<td style="width=50px;">
-      <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeItem(row,category)" class="btn btn-sm btn-danger">
-      <i class="glyphicon glyphicon-trash">
-      </i>
-      </button>
-    </td>-->
 	</tr>
 	</tbody>
 </table>
@@ -297,11 +286,11 @@
         <h2 style="margin-bottom:20px;"><u>Nova História</u></h2>
         <div class="form-group">
             <label>Título:</label>
-            <input type="text" class="form-control" name="tituloStory" ng-model="tituloStory" placeholder="Por favor introduza o titulo da história.">
+            <input type="text" class="form-control" maxlength="40" name="tituloStory" ng-model="tituloStory" placeholder="Por favor introduza o titulo da história.">
         </div>
         <div class="form-group">
             <label>Corpo:</label>
-            <textarea class="form-control" rows="5" id="comment" name="corpoStory" ng-model="corpoStory" placeholder="Por favor introduza o corpo da história."></textarea>
+            <textarea class="form-control" rows="5" maxlength="600" id="comment" name="corpoStory" ng-model="corpoStory" placeholder="Por favor introduza o corpo da história."></textarea>
         </div>
         <div class="form-group">
             <label>Link Para Vídeo:</label>
@@ -363,15 +352,17 @@
         <h2 style="margin-bottom:20px;"><u>Novo Parceiro</u></h2>
         <div class="form-group">
             <label>Nome:</label>
-            <input type="text" class="form-control" name="nomeParceiro" ng-model="nomeParceiro" placeholder="Por favor introduza o nome do Parceiro.">
+            <input type="text" class="form-control" maxlength="60" name="nomeParceiro" ng-model="nomeParceiro" placeholder="Por favor introduza o nome do Parceiro.">
         </div>
-        <div class="form-group">
-            <label>Ícone:</label>
-            <input type="text" class="form-control" name="iconeParceiro" ng-model="iconeParceiro" placeholder="Por favor introduza o icone do parceiro.">
+        <div class="form-group" style="display:inline-block;">
+          <label>Icone:</label>
+          <br>
+          <label for="files" class="btn btn-sm btn-success" style="margin-left:5px;">Escolha uma imagem do seu computador</label>&nbsp; ou &nbsp; <input type="text" class="form-control" name="imagem" ng-model="imagem" placeholder="Introduza o link da imagem." style="display:inline-block; width:15vw;">
+          <input id="files" onchange="angular.element(this).scope().fileNameChanged(this)" type="file" class="form-control" name="uploadImageFile" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
         </div>
         <div class="form-group">
             <label>Link:</label>
-            <input type="text" class="form-control" name="linkParceiro" ng-model="linkParceiro" placeholder="Por favor introduza o link da página do parceiro.">
+            <input type="text" class="form-control" maxlength="600" name="linkParceiro" ng-model="linkParceiro" placeholder="Por favor introduza o link da página do parceiro.">
         </div>
         <div>
         <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsPartners = ! showDetailsPartners">
@@ -395,19 +386,21 @@
 	</thead>
 	<tbody>
   	<tr ng-repeat="partner in partners">
-  		<td> <div contentEditable="true" ng-model="row.partnerName">{{partner.name}}</div></td>
-      <td style="border: 1px solid blue;">
+      <td><div contentEditable="true" ng-model="row.partnerName" contentLength="60">{{partner.name}}</div>
+      <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="partnerName.originalLength = 60"><b>{{partner.name.length}}</b> / <b>{{partnerName.originalLength}}</b></p></td>
+      <td style="border: 1px solid black;">
         <div style=" position: relative;  width: 320px; height: 180px; overflow: hidden; border:1px solid black;" >
           <img src="{{partner.iconPath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; max-width:100%; max-height:100%; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
         <div>
         </div>
         </div>
-            <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+            <input id="file-input" type="file" style="display:block" ng-model="partnerImage" data-file="param.file"/>
         </div>
-        <div contentEditable="true" style=" border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-model="row.partnerIcon"> {{partner.iconPath}} </div>
+        <div contentEditable="true" style=" border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-init="partnerIcon.originalLength = 600" ng-model="row.partnerIcon"> {{partner.iconPath}} </div>
         </div>
       </td>
-  		<td> <div contentEditable="true" ng-model="row.partnerLink">{{partner.link}}</div></div></td>
+      <td><div contentEditable="true" ng-model="row.partnerLink" contentLength="600">{{partner.link}}</div>
+      <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="partnerLink.originalLength = 600"><b>{{partner.link.length}}</b> / <b>{{partnerLink.originalLength}}</b></p></td>
       <td style="width=50px;">
         <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removePartner(row,partner)" class="btn btn-sm btn-danger">
         <i class="glyphicon glyphicon-trash">
@@ -433,15 +426,17 @@
           <h2 style="margin-bottom:20px;"><u>Novo Membro de Equipa</u></h2>
           <div class="form-group">
               <label>Nome:</label>
-              <input type="text" class="form-control" name="nomeMembro" ng-model="nomeMembro" placeholder="Por favor introduza o nome do Membro de Equipa.">
+              <input type="text" class="form-control" maxlength="120" name="nomeMembro" ng-model="nomeMembro" placeholder="Por favor introduza o nome do Membro de Equipa.">
           </div>
           <div class="form-group">
               <label>Posição:</label>
-              <input type="text" class="form-control" name="posicaoMembro" ng-model="posicaoMembro" placeholder="Por favor introduza a posição do Membro de Equipa.">
+              <input type="text" class="form-control" maxlength="120" name="posicaoMembro" ng-model="posicaoMembro" placeholder="Por favor introduza a posição do Membro de Equipa.">
           </div>
-          <div class="form-group">
-              <label>Link:</label>
-              <input type="text" class="form-control" name="linkMembro" ng-model="linkMembro" placeholder="Por favor introduza o link da imagem do Membro de Equipa.">
+          <div class="form-group" style="display:inline-block;">
+            <label>Foto:</label>
+            <br>
+            <label for="files" class="btn btn-sm btn-success" style="margin-left:5px;">Escolha uma imagem do seu computador</label>&nbsp; ou &nbsp; <input type="text" class="form-control" name="imagem" ng-model="imagem" placeholder="Introduza o link da imagem." style="display:inline-block; width:15vw;">
+            <input id="files" onchange="angular.element(this).scope().fileNameChanged(this)" type="file" class="form-control" name="uploadImageFile" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
           </div>
           <div>
           <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsTeam = ! showDetailsTeam">
@@ -465,17 +460,19 @@
   	</thead>
   	<tbody>
     	<tr ng-repeat="teammember in team">
-    		<td> <div contentEditable="true" ng-model="row.teamName">{{teammember.name}}</div></td>
-        <td> <div contentEditable="true" ng-model="row.teamPosicao">{{teammember.position}}</div></div></td>
-        <td style="border: 1px solid blue;">
+        <td><div contentEditable="true" ng-model="row.teamName" contentLength="120">{{teammember.name}}</div>
+        <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="teamName.originalLength = 120"><b>{{teammember.name.length}}</b> / <b>{{teamName.originalLength}}</b></p></td>
+        <td><div contentEditable="true" ng-model="row.teamName" contentLength="120">{{teammember.position}}</div>
+        <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="teamPosition.originalLength = 120"><b>{{teammember.position.length}}</b> / <b>{{teamPosition.originalLength}}</b></p></td>
+        <td style="border: 1px solid black;">
           <div style=" position: relative;  width: 320px; height: 180px; overflow: hidden; border:1px solid black;" >
-            <img src="{{teammember.imagePath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+            <img src="{{teammember.imagePath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; max-width:100%; max-height:100%; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
           <div>
           </div>
           </div>
-              <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+              <input id="file-input" type="file" style="display:block" ng-model="teamImage" data-file="param.file"/>
           </div>
-          <div contentEditable="true" style=" border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-model="row.imagePath"> {{teammember.imagePath}} </div>
+          <div contentEditable="true" style=" border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-init="teamImage.originalLength = 600" ng-model="row.teammemberImage"> {{teammember.imagePath}} </div>
           </div>
         </td>
         <td style="width=50px;">
@@ -503,15 +500,17 @@
           <h2 style="margin-bottom:20px;"><u>Novo Projecto</u></h2>
           <div class="form-group">
               <label>Título:</label>
-              <input type="text" class="form-control" name="nomeProjecto" ng-model="nomeProjecto" placeholder="Por favor introduza o título do Projecto.">
+              <input type="text" class="form-control" maxlength="120" name="nomeProjecto" ng-model="nomeProjecto" placeholder="Por favor introduza o título do Projecto.">
           </div>
           <div class="form-group">
               <label>Descrição:</label>
-              <input type="text" class="form-control" name="descricaoProjecto" ng-model="descricaoProjecto" placeholder="Por favor introduza a descrição do Projecto.">
+              <input type="text" class="form-control" maxlength="120" name="descricaoProjecto" ng-model="descricaoProjecto" placeholder="Por favor introduza a descrição do Projecto.">
           </div>
-          <div class="form-group">
-              <label>Link:</label>
-              <input type="text" class="form-control" name="linkProjecto" ng-model="linkProjecto" placeholder="Por favor introduza o link da imagem do Projecto.">
+          <div class="form-group" style="display:inline-block;">
+            <label>Imagem:</label>
+            <br>
+            <label for="files" class="btn btn-sm btn-success" style="margin-left:5px;">Escolha uma imagem do seu computador</label>&nbsp; ou &nbsp; <input type="text" class="form-control" name="imagem" ng-model="imagem" placeholder="Introduza o link da imagem." style="display:inline-block; width:15vw;">
+            <input id="files" onchange="angular.element(this).scope().fileNameChanged(this)" type="file" class="form-control" name="uploadImageFile" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
           </div>
           <div>
           <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsProject = ! showDetailsProject">
@@ -535,15 +534,17 @@
     </thead>
     <tbody>
       <tr ng-repeat="project in projects">
-        <td> <div contentEditable="true" ng-model="row.nomeProjecto">{{project.title}}</div></td>
-        <td> <div contentEditable="true" ng-model="row.descricaoProjecto">{{project.description}}</div></div></td>
-        <td style="border: 1px solid blue;">
+        <td><div contentEditable="true" ng-model="row.projectTitle" contentLength="120">{{project.title}}</div>
+        <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="projectTitle.originalLength = 120"><b>{{project.title.length}}</b> / <b>{{projectTitle.originalLength}}</b></p></td>
+        <td><div contentEditable="true" ng-model="row.projectTitle" contentLength="120">{{project.description}}</div>
+        <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="descricaoProjecto.originalLength = 120"><b>{{project.description.length}}</b> / <b>{{descricaoProjecto.originalLength}}</b></p></td>
+        <td style="border: 1px solid black;">
           <div style=" position: relative;  width: 320px; height: 180px; overflow: hidden; border:1px solid black;" >
             <img src="{{project.imagePath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
           <div>
           </div>
           </div>
-              <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+              <input id="file-input" type="file" style="display:block" ng-model="projectImage" data-file="param.file"/>
           </div>
           <div contentEditable="true" style="border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-model="row.linkProjecto"> {{project.imagePath}} </div>
           </div>
@@ -573,15 +574,17 @@
           <h2 style="margin-bottom:20px;"><u>Nova Estatística</u></h2>
           <div class="form-group">
               <label>Descrição:</label>
-              <input type="text" class="form-control" name="descricaoStat" ng-model="descricaoStat" placeholder="Por favor introduza a descrição da Estatística.">
+              <input type="text" class="form-control" maxlength="60" name="descricaoStat" ng-model="descricaoStat" placeholder="Por favor introduza a descrição da Estatística.">
           </div>
           <div class="form-group">
               <label>Número:</label>
-              <input type="text" class="form-control" name="numeroStat" ng-model="numeroStat" placeholder="Por favor introduza o número da Estatística.">
+              <input type="text" class="form-control" maxlength="8" name="numeroStat" ng-model="numeroStat" placeholder="Por favor introduza o número da Estatística.">
           </div>
-          <div class="form-group">
-              <label>Link:</label>
-              <input type="text" class="form-control" name="linkStat" ng-model="linkStat" placeholder="Por favor introduza o link da imagem do Estatística.">
+          <div class="form-group" style="display:inline-block;">
+            <label>Icone:</label>
+            <br>
+            <label for="files" class="btn btn-sm btn-success" style="margin-left:5px;">Escolha uma imagem do seu computador</label>&nbsp; ou &nbsp; <input type="text" class="form-control" name="imagem" ng-model="imagem" placeholder="Introduza o link da imagem." style="display:inline-block; width:15vw;">
+            <input id="files" onchange="angular.element(this).scope().fileNameChanged(this)" type="file" class="form-control" name="uploadImageFile" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
           </div>
           <div>
           <button type="submit" class="btn btn-sm btn-success" style="float:right; margin-top:10px;" ng-click="showDetailsStats = ! showDetailsStats">
@@ -605,15 +608,17 @@
     </thead>
     <tbody>
       <tr ng-repeat="stat in stats">
-        <td> <div contentEditable="true" ng-model="row.descricaoStat">{{stat.description}}</div></td>
-        <td> <div contentEditable="true" ng-model="row.numeroStat">{{stat.number}}</div></div></td>
-        <td style="border: 1px solid blue;">
+        <td><div contentEditable="true" ng-model="row.descricaoStat" contentLength="60">{{stat.description}}</div>
+        <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="descricaoStat.originalLength = 60"><b>{{stat.description.length}}</b> / <b>{{descricaoStat.originalLength}}</b></p></td>
+        <td><div contentEditable="true" ng-model="row.numeroStat" contentLength="8">{{stat.number}}</div>
+        <p style="border-top:1px solid black; width:75px; margin-top:20px;" ng-init="numeroStat.originalLength = 8"><b>{{stat.number.length}}</b> / <b>{{numeroStat.originalLength}}</b></p></td>
+        <td style="border: 1px solid black;">
           <div style=" position: relative;  width: 320px; height: 180px; overflow: hidden; border:1px solid black;" >
             <img src="{{stat.imagePath}}" style="cursor: pointer; position: absolute; left: 50%; top: 50%; height: 100%; width: auto; -webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
           <div>
           </div>
           </div>
-              <input id="file-input" type="file" style="display:block" data-file="param.file"/>
+              <input id="file-input" type="file" style="display:block" ng-model="statImage" data-file="param.file"/>
           </div>
           <div contentEditable="true" style="border:1px solid black;position:relative; width:320px; color:black; text-align:left; margin-top:10px;" ng-model="row.linkStat"> {{stat.imagePath}} </div>
           </div>
@@ -628,8 +633,24 @@
       </tbody>
     </table>
   </div>
-<div class="container-fluid" style="margin:15px;" ng-show="show == 'finance'">
-  <p> FINANÇAAAAAS </p>
+  <!-- FINANCE
+  ****************************************************
+  ******************   FINANCE   ************************
+  ****************************************************
+  -->
+<div class="container-fluid" style="width:90vw; margin-left:5vw;" ng-show="show == 'finance'" ng-controller="FinanceCtrl">
+  <div style="margin:auto; width:10%;">
+  <br>
+  <div contenteditable="true" ng-model="financeLink" contentLength="120" style="margin-left:26%;"><p> {{documentLink}} </p></div>
+  <br>
+  <br>
+  <div class="form-group" style="display:inline-block;">
+    <label style="margin-left:25%;">Upload de ficheiro:</label>
+    <br>
+    <label for="financeFiles" class="btn btn-sm btn-success" style="margin-left:5px;">Escolha um ficheiro do seu computador</label>
+    <input id="financeFiles" onchange="angular.element(this).scope().fileNameChangedFinance(this)" type="file" class="form-control" name="uploadImageFile" placeholder="Por favor escolha uma imagem do seu computador." style="visibility:hidden;">
+  </div>
+  </div>
 </div>
 <!-- MEMBERS
 ****************************************************
@@ -695,12 +716,12 @@
   </thead>
   <tbody>
     <tr ng-repeat="member in members">
-      <td> <div contentEditable="true" ng-model="row.descricaoStat">{{member.name}}</div></td>
-      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.email}}</div></div></td>
-      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.telephone}}</div></div></td>
-      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.address}}</div></div></td>
-      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.birthDate | date :'dd-M-yyyy'}}</div></div></td>
-      <td> <div contentEditable="true" ng-model="row.numeroStat">{{member.subscribedToNewsLetter | boolText}}</div></div></td>
+      <td> <div ng-model="row.descricaoStat">{{member.name}}</div></td>
+      <td> <div ng-model="row.numeroStat">{{member.email}}</div></div></td>
+      <td> <div ng-model="row.numeroStat">{{member.telephone}}</div></div></td>
+      <td> <div ng-model="row.numeroStat">{{member.address}}</div></div></td>
+      <td> <div ng-model="row.numeroStat">{{member.birthDate | date :'dd-M-yyyy'}}</div></div></td>
+      <td> <div ng-model="row.numeroStat">{{member.subscribedToNewsLetter | boolText}}</div></div></td>
       <td style="width=50px;">
         <button style="margin-left:2.5%; margin-top:2.5%;"type="button" ng-click="removeMember(row,member)" class="btn btn-sm btn-danger">
         <i class="glyphicon glyphicon-trash">

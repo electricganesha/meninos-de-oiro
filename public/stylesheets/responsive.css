@@ -1,6 +1,3478 @@
 
+
 /*
-* RESOLUTIONS 989
+* RESOLUTIONS 480
+*/
+@media screen and (max-width: 479px) {
+
+  .navbar
+  {
+    height:100px;
+    width:100%;
+    margin:auto;
+    background-color:white;
+    margin-bottom:70px;
+    box-shadow: 0px 2px 5px 0px darkgrey;te
+    font-size:small;
+  }
+
+  #navbarContainer
+  {
+    width:calc(var(--globalwidth)*0.45);
+    height:100%;
+  }
+
+  .navbar-collapse
+  {
+    padding:0px;
+  }
+
+  .navbar-right
+  {
+    padding:0px;
+    margin:0px;
+    margin-top:52px;
+    right:0px;
+    background-color:white;
+    z-index:2;
+    width:100%;
+    text-align:center;
+    border-bottom:35px solid #185472;
+  }
+
+  .navbar-brand
+  {
+    position:absolute;
+  }
+
+  .navbar-brand img
+  {
+    width:auto;
+    height:70px;
+    margin:0px;
+    margin-left:0px;
+    margin-top:-1vh;
+  }
+
+  #navBarBelowContainer
+  {
+    border-top:0px;
+    height:100%;
+    width:calc(var(--globalwidth)*0.45);
+    position:absolute;
+    z-index:2;
+    margin-top:-3px;
+  }
+
+  #mainNavBar
+  {
+    border-top:none;
+    margin:0px;
+  }
+
+  #mobileSubMenu
+  {
+    display:block;
+    margin-right:0px;
+    font-size:110%;
+    font-weight:normal;
+  }
+
+  #navbarSeparator
+  {
+    display:none;
+  }
+
+  .navbar-default .navbar-nav li a {
+    color: darkgrey;
+    font-weight:bold;
+    font-size:130%;
+  }
+
+  .navbar-default .navbar-nav li a:hover {
+    color: var(--goldenColor);
+    font-weight:bold;
+  }
+
+  .navbar-header-links
+  {
+    position:absolute;
+    top:15px;
+    width:100%;
+    z-index:2;
+    right:0px;
+  }
+
+  #navBarHeaderContainer
+  {
+    position:relative;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.45);
+  }
+
+  .navbar-header-links li
+  {
+    display:inline;
+  }
+
+  .navbar-header-links li a
+  {
+    color: darkgrey;
+    font-weight:bold;
+    padding:10px;
+    float:right;
+    cursor:pointer;
+  }
+
+  .navbar-header-links li a:hover {
+    color: var(--goldenColor);
+    font-weight:bold;
+    text-decoration:none;
+  }
+
+  #subMenu
+  {
+    width:100%;
+    height:40px;
+    background-color:#185472;
+    box-shadow: 0px 2px 5px 0px darkgrey;
+  }
+
+  #subMenu a
+  {
+    color:lightgrey;
+    text-decoration:none;
+    padding:13.5px;
+  }
+
+  #subMenu a:hover
+  {
+    color:var(--goldenColor);
+  }
+
+  #subMenuAbout
+  {
+    width:calc(var(--globalwidth)*0.45);
+    margin:auto;
+    padding-top:10px;
+    font-weight:600;
+  }
+
+  #subMenuAboutContainer
+  {
+    float:right;
+    margin-right:55px;
+  }
+
+  #subMenuPartners
+  {
+    width:calc(var(--globalwidth)*0.45);
+    margin:auto;
+    padding-top:10px;
+    font-weight:600;
+  }
+
+  #subMenuPartnersContainer
+  {
+    float:right;
+    margin-right:150px;
+  }
+
+  #topRow
+  {
+    width:calc(var(--globalwidth)*0.45);
+  }
+
+  #newsRowContainer
+  {
+    width:calc(var(--globalwidth)*0.45);
+    margin:auto;
+    margin-top:16px;
+  }
+
+  #homePageMainTextTitle
+  {
+    margin-top:20px;
+    width:80%;
+    height:110%;
+    color:var(--goldenColor);
+    font-size:160%;
+    font-weight:700;
+    float:left;
+  }
+
+  #homePageMainTextDate
+  {
+    margin-top:20px;
+    color:#939393;
+    font-size:small;
+    width:140px;
+    font-weight:600;
+    text-align:right;
+    position:absolute;
+    right:0px;
+    top:6px;
+  }
+
+  #homePageMainText
+  {
+    padding-top:5px;
+    color:#939393;
+    float: right;
+    font-size:100%;
+    text-align:justify;
+    font-weight:600;
+    height:110%;
+    padding-bottom:20px;
+  }
+
+  #mainImageContainer
+  {
+    width:100%;
+    height:275px;
+    background-size:cover;
+    background-position:50% 50%;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+  }
+
+  #newsRowColMd4[style]
+  {
+    width:100%;
+    margin-bottom:15px;
+    padding:0px;
+    margin-left:0px !important;
+    padding-left:14px;
+  }
+
+  #newsRowImages
+  {
+    width:100%;
+    display:block;
+    color:black;
+    height:280px;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #newsRowIcons img
+  {
+    width:10vw;
+    height:10vw;
+    right:0px;
+    bottom:0px;
+    position:absolute;
+    padding:0px;
+    margin-bottom:10px;
+  }
+
+  #newsRowBoxes
+  {
+    width:100%;
+    height:100px;
+    bottom:0;
+    position:absolute;
+    /* background color is inline because of dynamic content */
+  }
+
+  #donateTexts
+  {
+    border:1px solid red;
+    width:100%;
+    height:465px !important;
+    background-color:lightgrey;
+    border-bottom-right-radius:15px;
+    font-weight:600;
+    clear:both;
+  }
+
+
+  #donateBoxTextoDoacao
+  {
+    width:93%;
+    height:220px;
+    margin-top:5px;
+    margin-left:3px;
+  }
+
+  #donateBoxButtonsContainer
+  {
+    margin-top:220px;
+    background-color:#185472;
+    height:220px;
+    width:100%;
+    margin-right:0px;
+  }
+
+  #dotsDonationBox
+  {
+    background-color:lightgrey;
+    width:80px;
+    height:24px;
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    border-top-left-radius:10px;
+    cursor:pointer;
+  }
+
+  #newsRowLikeIcon
+  {
+    width:60px;
+    height:60px;
+    -webkit-user-select: none;
+    pointer-events:all;
+    position:absolute;
+    bottom:80%;
+    right:-5px;
+    z-index:2;
+  }
+
+  .dotsDonationBoxItem
+  {
+    display: block;
+    width:14px;
+    height:14px;
+    border-radius:25px;
+  }
+
+  .storiesIndexVideo
+  {
+    padding-top:1vh;
+  }
+
+  #storiesIndexText
+  {
+    margin-top:40px;
+    height:320px;
+    padding:0px;
+  }
+
+  #storiesIndexText h1
+  {
+    color: lightgrey;
+    text-align:left;
+    margin:0px;
+    font-size:180%;
+  }
+
+  #storiesIndexText p
+  {
+    color: lightgrey;
+    padding-top:2vh;
+    text-align:justify;
+    font-size:100%;
+  }
+
+  #dotStoriesIndex
+  {
+    position:absolute;
+    bottom:0px;
+    height:25px;
+    width:100%;
+    cursor:pointer;
+  }
+
+  #donateTexts
+  {
+    width:100%;
+    height:410px;
+    background-color:lightgrey;
+    border-bottom-right-radius:15px;
+    font-weight:600;
+    clear:both;
+  }
+
+  .donateTexto
+  {
+    color:dimgrey ;
+    font-size:85%;
+    text-align:justify;
+  }
+
+  #newsRowTextTitle
+  {
+    /*-webkit-text-stroke: 0.2px black;*/
+    color:lightgrey;
+    font-size:medium;
+    font-weight:bold;
+    margin-left:5px;
+    margin-top:4px;
+    line-height: 110%;
+    width:100%;
+  }
+
+  #newsRowTextDate
+  {
+    color:silver;
+    font-size:small;
+    text-decoration:underline;
+    margin-left:5px;
+    margin-top:2px;
+  }
+
+  #newsRowTextBody
+  {
+    color:silver;
+    font-size:85%;
+    margin-left:5px;
+    margin-top:2px;
+    width:85%;
+  }
+
+  .iFrameStoriesFP
+  {
+    width:calc(var(--globalwidth)*0.45);
+    height:180px;
+  }
+
+  .donateBoxButtonDivInsideText
+  {
+    margin-top:13px;
+    color:lightgrey;
+    font-size:16px;
+    text-align:center;
+  }
+
+  .teamMemberPhoto
+  {
+    margin-top:10px;
+    width:15.5vw;
+    height:13vw;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:15.5vw;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:x-small;
+  }
+
+  #projectsPageDiv
+  {
+    margin:auto;
+    width:calc(var(--globalwidth)*0.45);
+    height:auto;
+  }
+
+  #projectContainer
+  {
+    width:100%;
+    float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:40vh;
+    margin-bottom:40px;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #statsDiv
+  {
+    width:100%;
+    margin-top:33px;
+    background-color:#185472;
+    height:1400px;
+  }
+
+  #statsDivImagesContainer
+  {
+    height:400px;
+    width:calc(var(--globalwidth)*0.45);
+    text-align:center;
+    margin:auto;
+  }
+
+  #statsDivImage
+  {
+    float:left;
+    display:block;
+    width:100%;
+    height:300px;
+    margin-top:50px;
+  }
+
+  #statsDivImage img
+  {
+    width:50%;
+    margin:auto;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*0.45);
+  }
+
+  #membershipForm
+  {
+    margin-top:10px;
+  }
+
+  #membershipTitle
+  {
+    font-size:130% !important;
+  }
+
+  #membershipRow
+  {
+    border-bottom:1px solid #185472;
+    width:100%;
+    margin-left:0px;
+    padding-bottom:10px;
+  }
+
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:200px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70% !important;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+  }
+
+  #membershipRecaptcha
+  {
+    width:calc(var(--globalwidth)*0.45);
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*0.45) !important;
+    margin-right:0px !important;
+  }
+
+  #donationDiv
+  {
+    height:260vh;
+    background-size:cover;
+    -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+    -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+    box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+  }
+
+  #donationPageBoxTitles
+  {
+    width:calc(var(--globalwidth)*0.45);
+    margin:auto;
+    color:white;
+    text-align:center;
+    padding-top:60px;
+  }
+
+  #donationPageBoxTitles h1
+  {
+    font-size:60px;
+    font-weight:600;
+    text-shadow: 2px 2px 10px grey;
+  }
+
+  #donationPageBoxTitles h2
+  {
+    font-size:40px;
+    font-weight:600;
+    text-shadow: 2px 2px 10px grey;
+  }
+
+  #donationPageBoxButtons
+  {
+    background-color:#185472;
+    height:350px;
+    width:100%;
+    float:left;
+    margin-top:60px;
+    margin-right:10px;
+  }
+
+  #donationPageBoxPaypal
+  {
+    background-color:var(--greyColor);
+    height:650px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPaypalLeft
+  {
+    height:48%;
+    width:100%;
+  }
+
+  #slider
+  {
+    width:75%;
+    margin-top:-15px;
+  }
+
+  #donationPageBoxPaypalLeft p
+  {
+    font-size:100% !important;
+  }
+
+  #donationPageBoxPaypalRight
+  {
+    float:right;
+    height:40%;
+    width:100%;
+    padding-top:20px;
+  }
+
+  #donationPageBoxPaypalRightContainer
+  {
+    border:2px solid #185472;
+    width:80%;
+    height:30%;
+    margin:auto;
+    margin-bottom:20px;
+  }
+
+  #donationPageBoxPaypalRightContainerEuro
+  {
+    padding:0px;
+    padding-left:10px;
+    font-size:55px;
+    color:#185472;
+    text-align:left;
+    height:100%;
+    width:30%;
+    float:left;
+  }
+
+  #donationPageBoxPaypalRightContainerValue
+  {
+    padding:0px;
+    width:60%;
+    float:right;
+    height:100%;
+    text-align:right;
+    padding-right:10px;
+    padding-bottom:20px;
+    font-size:55px;
+    color:#185472;
+  }
+
+  #donationPageBoxPaypalRightContainerDonate
+  {
+    background-color:#185472;
+    width:80%;
+    height:40%;
+    margin:auto;
+    display:inline-block;
+    vertical-align: middle;
+  }
+
+  #donationPageBoxPaypalRightContainerDonate a
+  {
+    font-size:245%;
+    margin:auto;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonate:hover
+  {
+    background-color:var(--goldenColor);
+  }
+
+  #donationPageBoxPaypal p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  .donationPagedonateBoxButtonDivPage
+  {
+    width:100%;
+    height:25%;
+    border:1px solid lightgrey;
+  }
+
+  .donationPagedonateBoxButtonDivPage:hover
+  {
+    cursor:pointer;
+    background-color:var(--goldenColor);
+  }
+
+  .donationPagedonateBoxButtonDivInsidePage
+  {
+    float:left;
+    padding:6px;
+  }
+
+  .donationPagedonateBoxButtonDivInsidePage img
+  {
+    margin-top:4px;
+    border:1.5px solid lightgrey;
+    border-radius:5px;
+    padding:4px;
+  }
+
+  .donationPagedonateBoxButtonDivInsideTextPage
+  {
+    margin-top:8px;
+    color:lightgrey;
+    font-size:20px;
+    text-align:center;
+  }
+
+  .donationPagedonateBoxButtonDivInsideText
+  {
+    margin-top:13px;
+    color:lightgrey;
+    font-size:42px;
+    text-align:center;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:75vh;
+  }
+
+  #rowContacts
+  {
+    margin:auto;
+    width:70%;
+    padding-top:30px;
+    color:lightgrey;
+  }
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.2 !important;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:100% !important;
+  }
+
+  #textAreaContact
+  {
+    padding-top:20px;
+    padding-left:10px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-top:20px;
+    height:150px;
+    width:100% !important;
+  }
+
+  #contactName
+  {
+    width:100% !important;
+    height:50px;
+    margin-bottom:10px;
+  }
+
+  #contactEmail
+  {
+    margin-left:0px;
+    width:100% !important;
+    height:50px;
+  }
+
+  #buttonSubmitContact
+  {
+    color:lightgrey;
+    background-color:#185472;
+    border:1px solid var(--greyColor);
+    float:right;
+    margin-right:0px;
+    margin-top:0px;
+    margin-bottom:20px;
+    width:100%;
+    height:50px;
+    font-weight:600;
+  }
+
+  #partnersContainerImgCont
+  {
+    width:15vw;
+    margin-left:2vw;
+    text-align:center;
+  }
+
+  #acknowledgementsStoriesText
+  {
+    color:#185472;
+    width:79%;
+    text-align:justify;
+    padding-left:20px;
+    padding-right:0px;
+    margin-top:6px;
+    height:200px;
+  }
+
+  #iFrameAcknowledgments
+  {
+    padding-left:160px;
+    padding-top:6px;
+    width:500px;
+    height:200px;
+  }
+
+  #footerLeft
+  {
+    width:100%;
+    float:left;
+  }
+
+  #footerRight
+  {
+    width:100%;
+    float:left;
+  }
+
+  #footer
+  {
+    background-color:#185472;
+    margin:0px;
+    width:100%;
+    height:300px;
+  }
+
+  #footerRow
+  {
+    font-weight:600;
+    color:lightgrey;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.45);
+  }
+
+  #buttonSubmitMembership
+  {
+    color:lightgrey;
+    background-color:#185472;
+    border:1px solid var(--greyColor);
+    float:right;
+    margin-right:0px;
+    margin-top:0px;
+    width:280px;
+    height:50px;
+    font-weight:600;
+  }
+
+  #storyBoxControlDiv
+  {
+    background-color:#185472;
+    width:100%;
+    height:700px;
+  }
+
+  #storyBoxControlRow
+  {
+    padding:0px;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.45);
+  }
+
+  #partnerBox
+  {
+    background-color:var(--greyColor);
+    width:calc(var(--globalwidth)*0.45);
+    margin:auto;
+    margin-bottom:50px;
+  }
+
+  #slickCarouselPartners
+  {
+    margin-top:40px;
+    width:calc(var(--globalwidth)*0.45);
+    height:100px;
+    padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*0.45);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*0.45);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:2600px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*0.45);
+    background-color:#185472;
+    height:2600px;
+    right:0px;
+    top:605px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*0.45);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+    padding:0px !important;
+    margin:0px !important;
+    margin-right:25px !important;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:270px;
+    height:300px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:270px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:80%;
+  }
+
+}
+
+
+
+/*
+* RESOLUTIONS 640
+*/
+@media screen and (min-width:480px) and (max-width: 639px) {
+
+  .navbar
+  {
+    height:100px;
+    width:100%;
+    margin:auto;
+    background-color:white;
+    margin-bottom:70px;
+    box-shadow: 0px 2px 5px 0px darkgrey;te
+    font-size:small;
+  }
+
+  #navbarContainer
+  {
+    width:calc(var(--globalwidth)*0.6);
+    height:100%;
+  }
+
+  .navbar-collapse
+  {
+    padding:0px;
+  }
+
+  .navbar-right
+  {
+    padding:0px;
+    margin:0px;
+    margin-top:52px;
+    right:0px;
+    background-color:white;
+    z-index:2;
+    width:100%;
+    text-align:center;
+    border-bottom:35px solid #185472;
+  }
+
+  .navbar-brand
+  {
+    position:absolute;
+  }
+
+  .navbar-brand img
+  {
+    width:auto;
+    height:9vh;
+    margin:0px;
+    margin-left:0px;
+    margin-top:-1vh;
+  }
+
+  #navBarBelowContainer
+  {
+    border-top:0px;
+    height:100%;
+    width:calc(var(--globalwidth)*0.6);
+    position:absolute;
+    z-index:2;
+    margin-top:-3px;
+  }
+
+  #mainNavBar
+  {
+    border-top:none;
+    margin:0px;
+  }
+
+  #mobileSubMenu
+  {
+    display:block;
+    margin-right:0px;
+    font-size:110%;
+    font-weight:normal;
+  }
+
+  #navbarSeparator
+  {
+    display:none;
+  }
+
+  .navbar-default .navbar-nav li a {
+    color: darkgrey;
+    font-weight:bold;
+    font-size:130%;
+  }
+
+  .navbar-default .navbar-nav li a:hover {
+    color: var(--goldenColor);
+    font-weight:bold;
+  }
+
+  .navbar-header-links
+  {
+    position:absolute;
+    top:15px;
+    width:100%;
+    z-index:2;
+    right:0px;
+  }
+
+  #navBarHeaderContainer
+  {
+    position:relative;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.6);
+  }
+
+  .navbar-header-links li
+  {
+    display:inline;
+  }
+
+  .navbar-header-links li a
+  {
+    color: darkgrey;
+    font-weight:bold;
+    padding:10px;
+    float:right;
+    cursor:pointer;
+  }
+
+  .navbar-header-links li a:hover {
+    color: var(--goldenColor);
+    font-weight:bold;
+    text-decoration:none;
+  }
+
+  #subMenu
+  {
+    width:100%;
+    height:40px;
+    background-color:#185472;
+    box-shadow: 0px 2px 5px 0px darkgrey;
+  }
+
+  #subMenu a
+  {
+    color:lightgrey;
+    text-decoration:none;
+    padding:13.5px;
+  }
+
+  #subMenu a:hover
+  {
+    color:var(--goldenColor);
+  }
+
+  #subMenuAbout
+  {
+    width:calc(var(--globalwidth)*0.6);
+    margin:auto;
+    padding-top:10px;
+    font-weight:600;
+  }
+
+  #subMenuAboutContainer
+  {
+    float:right;
+    margin-right:55px;
+  }
+
+  #subMenuPartners
+  {
+    width:calc(var(--globalwidth)*0.6);
+    margin:auto;
+    padding-top:10px;
+    font-weight:600;
+  }
+
+  #subMenuPartnersContainer
+  {
+    float:right;
+    margin-right:150px;
+  }
+
+  #topRow
+  {
+    width:calc(var(--globalwidth)*0.6);
+  }
+
+  #newsRowContainer
+  {
+    width:calc(var(--globalwidth)*0.6);
+    margin:auto;
+    margin-top:16px;
+  }
+
+  #homePageMainTextTitle
+  {
+    margin-top:20px;
+    width:80%;
+    height:110%;
+    color:var(--goldenColor);
+    font-size:160%;
+    font-weight:700;
+    float:left;
+  }
+
+  #homePageMainTextDate
+  {
+    margin-top:20px;
+    color:#939393;
+    font-size:small;
+    width:140px;
+    font-weight:600;
+    text-align:right;
+    position:absolute;
+    right:0px;
+    top:6px;
+  }
+
+  #homePageMainText
+  {
+    padding-top:5px;
+    color:#939393;
+    float: right;
+    font-size:100%;
+    text-align:justify;
+    font-weight:600;
+    height:110%;
+    padding-bottom:20px;
+  }
+
+  #mainImageContainer
+  {
+    width:100%;
+    height:275px;
+    background-size:cover;
+    background-position:50% 50%;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+  }
+
+  #newsRowColMd4[style]
+  {
+    width:100%;
+    margin-bottom:15px;
+    padding:0px;
+    margin-left:0px !important;
+    padding-left:14px;
+  }
+
+  #newsRowImages
+  {
+    width:100%;
+    display:block;
+    color:black;
+    height:280px;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #newsRowIcons img
+  {
+    width:10vw;
+    height:10vw;
+    right:0px;
+    bottom:0px;
+    position:absolute;
+    padding:0px;
+    margin-bottom:10px;
+  }
+
+  #newsRowBoxes
+  {
+    width:100%;
+    height:100px;
+    bottom:0;
+    position:absolute;
+    /* background color is inline because of dynamic content */
+  }
+
+
+  #donateBoxTextoDoacao
+  {
+    position:absolute;
+    width:50%;
+    height:90%;
+    margin-top:10px;
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+  #donateBoxButtonsContainer
+  {
+    background-color:#185472;
+    height:200px;
+    width:170px;
+    float:right;
+    margin-top:10px;
+    margin-right:10px;
+  }
+
+  #dotsDonationBox
+  {
+    background-color:lightgrey;
+    width:80px;
+    height:24px;
+    position:absolute;
+    right:10px;
+    bottom:130px;
+    border-top-left-radius:10px;
+    cursor:pointer;
+  }
+
+  #newsRowLikeIcon
+  {
+    width:60px;
+    height:60px;
+    -webkit-user-select: none;
+    pointer-events:all;
+    position:absolute;
+    bottom:80%;
+    right:-5px;
+    z-index:2;
+  }
+
+  .dotsDonationBoxItem
+  {
+    display: block;
+    width:14px;
+    height:14px;
+    border-radius:25px;
+  }
+
+  .storiesIndexVideo
+  {
+    padding-top:1vh;
+  }
+
+  #storiesIndexText
+  {
+    margin-top:40px;
+    height:250px;
+    padding:0px;
+  }
+
+  #storiesIndexText h1
+  {
+    color: lightgrey;
+    text-align:left;
+    margin:0px;
+    font-size:180%;
+  }
+
+  #storiesIndexText p
+  {
+    color: lightgrey;
+    padding-top:2vh;
+    text-align:justify;
+    font-size:100%;
+  }
+
+  #dotStoriesIndex
+  {
+    position:absolute;
+    bottom:0px;
+    height:25px;
+    width:100%;
+    cursor:pointer;
+  }
+
+  #donateTexts
+  {
+    width:100%;
+    height:370px;
+    background-color:lightgrey;
+    border-bottom-right-radius:15px;
+    font-weight:600;
+    clear:both;
+  }
+
+  .donateTexto
+  {
+    color:dimgrey ;
+    font-size:85%;
+    text-align:justify;
+  }
+
+  #newsRowTextTitle
+  {
+    /*-webkit-text-stroke: 0.2px black;*/
+    color:lightgrey;
+    font-size:medium;
+    font-weight:bold;
+    margin-left:5px;
+    margin-top:4px;
+    line-height: 110%;
+    width:100%;
+  }
+
+  #newsRowTextDate
+  {
+    color:silver;
+    font-size:small;
+    text-decoration:underline;
+    margin-left:5px;
+    margin-top:2px;
+  }
+
+  #newsRowTextBody
+  {
+    color:silver;
+    font-size:100%;
+    margin-left:5px;
+    margin-top:2px;
+    width:80%;
+  }
+
+  .iFrameStoriesFP
+  {
+    width:calc(var(--globalwidth)*0.6);
+    height:250px;
+  }
+
+  .donateBoxButtonDivInsideText
+  {
+    margin-top:13px;
+    color:lightgrey;
+    font-size:16px;
+    text-align:left;
+  }
+
+  .teamMemberPhoto
+  {
+    margin-top:10px;
+    width:15.5vw;
+    height:13vw;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:15.5vw;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:x-small;
+  }
+
+  #projectsPageDiv
+  {
+    margin:auto;
+    width:calc(var(--globalwidth)*0.6);
+    height:auto;
+  }
+
+  #projectContainer
+  {
+    width:100%;
+    float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:40vh;
+    margin-bottom:40px;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #statsDiv
+  {
+    width:100%;
+    margin-top:33px;
+    background-color:#185472;
+    height:700px;
+  }
+
+  #statsDivImagesContainer
+  {
+    height:400px;
+    width:calc(var(--globalwidth)*0.6);
+    text-align:center;
+    margin:auto;
+  }
+
+  #statsDivImage
+  {
+    float:left;
+    display:block;
+    width:50%;
+    height:300px;
+    margin-top:50px;
+  }
+
+  #statsDivImage img
+  {
+    width:50%;
+    margin:auto;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*0.6);
+  }
+
+  #membershipForm
+  {
+    margin-top:10px;
+  }
+
+  #membershipRow
+  {
+    border-bottom:1px solid #185472;
+    width:100%;
+    margin-left:0px;
+    padding-bottom:10px;
+  }
+
+  #membershipTitle
+  {
+    font-size:130% !important;
+  }
+
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:100% !important;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+  }
+
+  #membershipRecaptcha
+  {
+    width:calc(var(--globalwidth)*0.6);
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*0.6) !important;
+    margin-right:0px !important;
+  }
+
+  #donationDiv
+  {
+    height:200vh;
+    background-size:cover;
+    -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+    -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+    box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+  }
+
+  #donationPageBoxTitles
+  {
+    width:calc(var(--globalwidth)*0.6);
+    margin:auto;
+    color:white;
+    text-align:center;
+    padding-top:60px;
+  }
+
+  #donationPageBoxTitles h1
+  {
+    font-size:60px;
+    font-weight:600;
+    text-shadow: 2px 2px 10px grey;
+  }
+
+  #donationPageBoxTitles h2
+  {
+    font-size:40px;
+    font-weight:600;
+    text-shadow: 2px 2px 10px grey;
+  }
+
+  #donationPageBoxButtons
+  {
+    background-color:#185472;
+    height:350px;
+    width:100%;
+    float:left;
+    margin-top:60px;
+    margin-right:10px;
+  }
+
+  #donationPageBoxPaypal
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPaypalLeft
+  {
+    float:left;
+    height:70%;
+    width:50%;
+  }
+
+  #donationPageBoxPaypalLeft p
+  {
+    font-size:75% !important;
+  }
+
+  #donationPageBoxPaypalRight
+  {
+    float:right;
+    height:70%;
+    width:50%;
+    padding-top:20px;
+  }
+
+  #donationPageBoxPaypalRightContainer
+  {
+    border:2px solid #185472;
+    width:80%;
+    height:40%;margin:auto;
+    margin-bottom:20px;
+  }
+
+  #donationPageBoxPaypalRightContainerEuro
+  {
+    padding:0px;
+    padding-left:10px;
+    font-size:55px;
+    color:#185472;
+    text-align:left;
+    height:100%;
+    width:30%;
+    float:left;
+  }
+
+  #donationPageBoxPaypalRightContainerValue
+  {
+    padding:0px;
+    width:60%;
+    float:right;
+    height:100%;
+    text-align:right;
+    padding-right:10px;
+    padding-bottom:20px;
+    font-size:55px;
+    color:#185472;
+  }
+
+  #donationPageBoxPaypalRightContainerDonate
+  {
+    background-color:#185472;
+    width:80%;
+    height:40%;
+    margin:auto;
+    display:inline-block;
+    vertical-align: middle;
+  }
+
+  #donationPageBoxPaypalRightContainerDonate a
+  {
+    font-size:140%;
+    margin:auto;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonate:hover
+  {
+    background-color:var(--goldenColor);
+  }
+
+  #donationPageBoxPaypal p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  .donationPagedonateBoxButtonDivPage
+  {
+    width:100%;
+    height:25%;
+    border:1px solid lightgrey;
+  }
+
+  .donationPagedonateBoxButtonDivPage:hover
+  {
+    cursor:pointer;
+    background-color:var(--goldenColor);
+  }
+
+  .donationPagedonateBoxButtonDivInsidePage
+  {
+    float:left;
+    padding:6px;
+  }
+
+  .donationPagedonateBoxButtonDivInsidePage img
+  {
+    margin-top:4px;
+    border:1.5px solid lightgrey;
+    border-radius:5px;
+    padding:4px;
+  }
+
+  .donationPagedonateBoxButtonDivInsideTextPage
+  {
+    margin-top:8px;
+    color:lightgrey;
+    font-size:20px;
+    text-align:center;
+  }
+
+  .donationPagedonateBoxButtonDivInsideText
+  {
+    margin-top:13px;
+    color:lightgrey;
+    font-size:42px;
+    text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:75vh;
+  }
+
+  #rowContacts
+  {
+    margin:auto;
+    width:75%;
+    padding-top:30px;
+    color:lightgrey;
+  }
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.2 !important;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:100% !important;
+  }
+
+  #textAreaContact
+  {
+    padding-top:20px;
+    padding-left:10px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-top:20px;
+    height:150px;
+    width:100% !important;
+  }
+
+  #contactName
+  {
+    width:46% !important;
+    height:50px;
+  }
+
+  #contactEmail
+  {
+    margin-left:25px;
+    width:46% !important;
+    height:50px;
+  }
+
+  #buttonSubmitContact
+  {
+    color:lightgrey;
+    background-color:#185472;
+    border:1px solid var(--greyColor);
+    float:right;
+    margin-right:0px;
+    margin-top:-64px;
+    width:17vw;
+    height:50px;
+    font-weight:600;
+  }
+
+
+  #partnersContainerImgCont
+  {
+    width:15vw;
+    margin-left:2vw;
+    text-align:center;
+  }
+
+  #acknowledgementsStoriesText
+  {
+    color:#185472;
+    width:79%;
+    text-align:justify;
+    padding-left:20px;
+    padding-right:0px;
+    margin-top:6px;
+    height:200px;
+  }
+
+  #iFrameAcknowledgments
+  {
+    padding-left:160px;
+    padding-top:6px;
+    width:500px;
+    height:200px;
+  }
+
+  #footerLeft
+  {
+    width:100%;
+    float:left;
+  }
+
+  #footerRight
+  {
+    width:100%;
+    float:left;
+  }
+
+  #footer
+  {
+    background-color:#185472;
+    margin:0px;
+    width:100%;
+    height:350px;
+  }
+
+  #footerRow
+  {
+    font-weight:600;
+    color:lightgrey;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.6);
+  }
+
+  #buttonSubmitMembership
+  {
+    color:lightgrey;
+    background-color:#185472;
+    border:1px solid var(--greyColor);
+    float:right;
+    margin-right:0px;
+    margin-top:0px;
+    width:280px;
+    height:50px;
+    font-weight:600;
+  }
+
+  #storyBoxControlDiv
+  {
+    background-color:#185472;
+    width:100%;
+    height:700px;
+  }
+
+  #storyBoxControlRow
+  {
+    padding:0px;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.6);
+  }
+
+  #partnerBox
+  {
+    background-color:var(--greyColor);
+    width:calc(var(--globalwidth)*0.6);
+    margin:auto;
+    margin-bottom:50px;
+  }
+
+  #slickCarouselPartners
+  {
+    margin-top:40px;
+    width:calc(var(--globalwidth)*0.6);
+    height:100px;
+    padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*0.6);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*0.6);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:3100px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*0.6);
+    background-color:#185472;
+    height:3100px;
+    right:0px;
+    top:517px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*0.6);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+    padding:0px !important;
+    margin:0px !important;
+    margin-right:25px !important;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:360px;
+    height:360px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:320px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:80%;
+  }
+
+}
+
+
+
+/*
+* RESOLUTIONS 768
+*/
+@media screen and (min-width:640px) and (max-width: 767px) {
+
+  .navbar
+  {
+    height:100px;
+    width:100%;
+    margin:auto;
+    background-color:white;
+    margin-bottom:70px;
+    box-shadow: 0px 2px 5px 0px darkgrey;te
+    font-size:small;
+  }
+
+  #navbarContainer
+  {
+    width:calc(var(--globalwidth)*0.8);
+    height:100%;
+  }
+
+  .navbar-collapse
+  {
+    padding:0px;
+  }
+
+  .navbar-right
+  {
+    padding:0px;
+    margin:0px;
+    margin-top:52px;
+    right:0px;
+    background-color:white;
+    z-index:2;
+    width:100%;
+    text-align:center;
+    border-bottom:35px solid #185472;
+  }
+
+  .navbar-brand
+  {
+    position:absolute;
+  }
+
+  .navbar-brand img
+  {
+    width:auto;
+    height:9vh;
+    margin:0px;
+    margin-left:0px;
+    margin-top:-1vh;
+  }
+
+  #navBarBelowContainer
+  {
+    border-top:0px;
+    height:100%;
+    width:calc(var(--globalwidth)*0.8);
+    position:absolute;
+    z-index:2;
+    margin-top:-3px;
+  }
+
+  #mainNavBar
+  {
+    border-top:none;
+    margin:0px;
+  }
+
+  #mobileSubMenu
+  {
+    display:block;
+    margin-right:0px;
+    font-size:110%;
+    font-weight:normal;
+  }
+
+  #navbarSeparator
+  {
+    display:none;
+  }
+
+  .navbar-default .navbar-nav li a {
+    color: darkgrey;
+    font-weight:bold;
+    font-size:130%;
+  }
+
+  .navbar-default .navbar-nav li a:hover {
+    color: var(--goldenColor);
+    font-weight:bold;
+  }
+
+  .navbar-header-links
+  {
+    position:absolute;
+    top:15px;
+    width:100%;
+    z-index:2;
+    right:0px;
+  }
+
+  #navBarHeaderContainer
+  {
+    position:relative;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.8);
+  }
+
+  .navbar-header-links li
+  {
+    display:inline;
+  }
+
+  .navbar-header-links li a
+  {
+    color: darkgrey;
+    font-weight:bold;
+    padding:10px;
+    float:right;
+    cursor:pointer;
+  }
+
+  .navbar-header-links li a:hover {
+    color: var(--goldenColor);
+    font-weight:bold;
+    text-decoration:none;
+  }
+
+  #subMenu
+  {
+    width:100%;
+    height:40px;
+    background-color:#185472;
+    box-shadow: 0px 2px 5px 0px darkgrey;
+  }
+
+  #subMenu a
+  {
+    color:lightgrey;
+    text-decoration:none;
+    padding:13.5px;
+  }
+
+  #subMenu a:hover
+  {
+    color:var(--goldenColor);
+  }
+
+  #subMenuAbout
+  {
+    width:calc(var(--globalwidth)*0.8);
+    margin:auto;
+    padding-top:10px;
+    font-weight:600;
+  }
+
+  #subMenuAboutContainer
+  {
+    float:right;
+    margin-right:55px;
+  }
+
+  #subMenuPartners
+  {
+    width:calc(var(--globalwidth)*0.8);
+    margin:auto;
+    padding-top:10px;
+    font-weight:600;
+  }
+
+  #subMenuPartnersContainer
+  {
+    float:right;
+    margin-right:150px;
+  }
+
+  #topRow
+  {
+    width:calc(var(--globalwidth)*0.8);
+  }
+
+  #newsRowContainer
+  {
+    width:calc(var(--globalwidth)*0.8);
+    margin:auto;
+    margin-top:16px;
+  }
+
+  #newsRowIcons img
+  {
+    width:6.5vw;
+    height:6.5vw;
+    right:0px;
+    bottom:0px;
+    position:absolute;
+    padding:0px;
+    margin-bottom:10px;
+  }
+
+  #homePageMainTextTitle
+  {
+    margin-top:20px;
+    width:80%;
+    height:4vh;
+    color:var(--goldenColor);
+    font-size:160%;
+    font-weight:700;
+    float:left;
+  }
+
+  #homePageMainTextDate
+  {
+    margin-top:20px;
+    color:#939393;
+    font-size:small;
+    width:140px;
+    font-weight:600;
+    text-align:right;
+    position:absolute;
+    right:0px;
+    top:0px;
+  }
+
+  #homePageMainText
+  {
+    padding-top:5px;
+    color:#939393;
+    float: right;
+    font-size:100%;
+    text-align:justify;
+    font-weight:600;
+    height:170px;
+  }
+
+  #mainImageContainer
+  {
+    width:100%;
+    height:475px;
+    background-size:cover;
+    background-position:50% 50%;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+  }
+
+  #newsRowColMd4[style]
+  {
+    width:49.189%;
+    margin-bottom:15px;
+    padding:0px;
+    margin-left:0px !important;
+    padding-left:14px;
+  }
+
+  #newsRowImages
+  {
+    width:100%;
+    display:block;
+    color:black;
+    height:280px;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #newsRowBoxes
+  {
+    width:100%;
+    height:100px;
+    bottom:0;
+    position:absolute;
+    /* background color is inline because of dynamic content */
+  }
+
+
+  #donateBoxTextoDoacao
+  {
+    position:absolute;
+    width:50%;
+    height:90%;
+    margin-top:10px;
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+  #donateBoxButtonsContainer
+  {
+    background-color:#185472;
+    height:220px;
+    width:245px;
+    float:right;
+    margin-top:10px;
+    margin-right:10px;
+  }
+
+  #dotsDonationBox
+  {
+    background-color:lightgrey;
+    width:80px;
+    height:24px;
+    position:absolute;
+    right:10px;
+    bottom:45px;
+    border-top-left-radius:10px;
+    cursor:pointer;
+  }
+
+  #newsRowLikeIcon
+  {
+    width:60px;
+    height:60px;
+    -webkit-user-select: none;
+    pointer-events:all;
+    position:absolute;
+    bottom:80%;
+    right:-5px;
+    z-index:2;
+  }
+
+  .dotsDonationBoxItem
+  {
+    display: block;
+    width:14px;
+    height:14px;
+    border-radius:25px;
+  }
+
+  .storiesIndexVideo
+  {
+    padding-top:1vh;
+  }
+
+  #storiesIndexText
+  {
+    margin-top:40px;
+    height:200px;
+    padding:0px;
+  }
+
+  #storiesIndexText h1
+  {
+    color: lightgrey;
+    text-align:left;
+    margin:0px;
+    font-size:180%;
+  }
+
+  #storiesIndexText p
+  {
+    color: lightgrey;
+    padding-top:2vh;
+    text-align:justify;
+    font-size:100%;
+  }
+
+  #dotStoriesIndex
+  {
+    position:absolute;
+    bottom:0px;
+    height:25px;
+    width:100%;
+    cursor:pointer;
+  }
+
+  #donateTexts
+  {
+    width:100%;
+    height:300px;
+    background-color:lightgrey;
+    border-bottom-right-radius:15px;
+    font-weight:600;
+    clear:both;
+  }
+
+  .donateTexto
+  {
+    color:dimgrey ;
+    font-size:90%;
+    text-align:justify;
+  }
+
+  #newsRowTextTitle
+  {
+    /*-webkit-text-stroke: 0.2px black;*/
+    color:lightgrey;
+    font-size:medium;
+    font-weight:bold;
+    margin-left:5px;
+    margin-top:4px;
+    line-height: 110%;
+    width:100%;
+  }
+
+  #newsRowTextDate
+  {
+    color:silver;
+    font-size:small;
+    text-decoration:underline;
+    margin-left:5px;
+    margin-top:2px;
+  }
+
+  #newsRowTextBody
+  {
+    color:silver;
+    font-size:75%;
+    margin-left:5px;
+    margin-top:2px;
+    width:85%;
+  }
+
+  .iFrameStoriesFP
+  {
+    width:calc(var(--globalwidth)*0.8);
+    height:320px;
+  }
+
+  .donateBoxButtonDivInside img
+  {
+    width:40px !important;
+    height:40px !important;
+  }
+
+  .donateBoxButtonDivInsideText
+  {
+    margin-top:13px;
+    color:lightgrey;
+    font-size:110%;
+    text-align:center;
+  }
+
+  .teamMemberPhoto
+  {
+    margin-top:10px;
+    width:15.5vw;
+    height:13vw;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:15.5vw;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:x-small;
+  }
+
+  #projectsPageDiv
+  {
+    margin:auto;
+    width:calc(var(--globalwidth)*0.8);
+    height:auto;
+  }
+
+  #projectContainer
+  {
+    width:100%;
+    float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:40vh;
+    margin-bottom:40px;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #statsDiv
+  {
+    width:100%;
+    margin-top:33px;
+    background-color:#185472;
+    height:700px;
+  }
+
+  #statsDivImagesContainer
+  {
+    height:400px;
+    width:calc(var(--globalwidth)*0.8);
+    text-align:center;
+    margin:auto;
+  }
+
+  #statsDivImage
+  {
+    float:left;
+    display:block;
+    width:50%;
+    height:300px;
+    margin-top:50px;
+  }
+
+  #statsDivImage img
+  {
+    width:50%;
+    margin:auto;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*0.8);
+  }
+
+  #membershipForm
+  {
+    margin-top:10px;
+  }
+
+  #membershipRow
+  {
+    margin:auto;
+    border-bottom:1px solid #185472;
+    width:80%;
+    margin-left:0px;
+    padding-bottom:10px;
+  }
+
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:calc(var(--globalwidth)*0.8) !important;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+  }
+
+  #membershipRecaptcha
+  {
+    width:calc(var(--globalwidth)*0.8);
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*0.8) !important;
+    margin-right:0px !important;
+  }
+
+
+  #donationDiv
+  {
+    height:200vh;
+    background-size:cover;
+    -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+    -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+    box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
+  }
+
+  #donationPageBoxTitles
+  {
+    width:calc(var(--globalwidth)*0.8);
+    margin:auto;
+    color:white;
+    text-align:center;
+    padding-top:60px;
+  }
+
+  #donationPageBoxTitles h1
+  {
+    font-size:80px;
+    font-weight:600;
+    text-shadow: 2px 2px 10px grey;
+  }
+
+  #donationPageBoxTitles h2
+  {
+    font-size:60px;
+    font-weight:600;
+    text-shadow: 2px 2px 10px grey;
+  }
+
+  #donationPageBoxButtons
+  {
+    background-color:#185472;
+    height:350px;
+    width:100%;
+    float:left;
+    margin-top:60px;
+    margin-right:10px;
+  }
+
+  #donationPageBoxPaypal
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPaypalLeft
+  {
+    float:left;
+    height:70%;
+    width:50%;
+  }
+
+  #donationPageBoxPaypalLeft p
+  {
+    font-size:90% !important;
+  }
+
+  #donationPageBoxPaypalRight
+  {
+    float:right;
+    height:70%;
+    width:50%;
+    padding-top:20px;
+  }
+
+  #donationPageBoxPaypalRightContainer
+  {
+    border:2px solid #185472;
+    width:80%;
+    height:40%;margin:auto;
+    margin-bottom:20px;
+  }
+
+  #donationPageBoxPaypalRightContainerEuro
+  {
+    padding:0px;
+    padding-left:10px;
+    font-size:70px;
+    color:#185472;
+    text-align:left;
+    height:100%;
+    width:30%;
+    float:left;
+  }
+
+  #donationPageBoxPaypalRightContainerValue
+  {
+    padding:0px;
+    width:60%;
+    float:right;
+    height:100%;
+    text-align:right;
+    padding-right:10px;
+    padding-bottom:20px;
+    font-size:70px;
+    color:#185472;
+  }
+
+  #donationPageBoxPaypalRightContainerDonate
+  {
+    background-color:#185472;
+    width:80%;
+    height:40%;
+    margin:auto;
+    display:inline-block;
+    vertical-align: middle;
+  }
+
+  #donationPageBoxPaypalRightContainerDonate a
+  {
+    font-size:200%;
+    margin:auto;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
+  }
+
+  #donationPageBoxPaypalRightContainerDonate:hover
+  {
+    background-color:var(--goldenColor);
+  }
+
+  #donationPageBoxPaypal p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  .donationPagedonateBoxButtonDivPage
+  {
+    width:100%;
+    height:25%;
+    border:1px solid lightgrey;
+  }
+
+  .donationPagedonateBoxButtonDivPage:hover
+  {
+    cursor:pointer;
+    background-color:var(--goldenColor);
+  }
+
+  .donationPagedonateBoxButtonDivInsidePage
+  {
+    float:left;
+    padding:6px;
+  }
+
+  .donationPagedonateBoxButtonDivInsidePage img
+  {
+    margin-top:4px;
+    border:1.5px solid lightgrey;
+    border-radius:5px;
+    padding:4px;
+  }
+
+  .donationPagedonateBoxButtonDivInsideTextPage
+  {
+    margin-top:8px;
+    color:lightgrey;
+    font-size:20px;
+    text-align:center;
+  }
+
+  .donationPagedonateBoxButtonDivInsideText
+  {
+    margin-top:13px;
+    color:lightgrey;
+    font-size:42px;
+    text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:75vh;
+  }
+
+  #rowContacts
+  {
+    margin:auto;
+    width:80%;
+    padding-top:30px;
+    color:lightgrey;
+  }
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.2 !important;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:100% !important;
+  }
+
+  #textAreaContact
+  {
+    padding-top:20px;
+    padding-left:10px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-top:20px;
+    height:150px;
+    width:100% !important;
+  }
+
+  #contactName
+  {
+    width:47% !important;
+    height:50px;
+  }
+
+  #contactEmail
+  {
+    margin-left:26px;
+    width:47% !important;
+    height:50px;
+  }
+
+  #buttonSubmitContact
+  {
+    color:lightgrey;
+    background-color:#185472;
+    border:1px solid var(--greyColor);
+    float:right;
+    margin-right:0px;
+    margin-top:-64px;
+    width:17vw;
+    height:50px;
+    font-weight:600;
+  }
+
+
+  #partnersContainerImgCont
+  {
+    width:15vw;
+    margin-left:2vw;
+    text-align:center;
+  }
+
+  #acknowledgementsStoriesText
+  {
+    color:#185472;
+    width:79%;
+    text-align:justify;
+    padding-left:20px;
+    padding-right:0px;
+    margin-top:6px;
+    height:200px;
+  }
+
+  #iFrameAcknowledgments
+  {
+    padding-left:160px;
+    padding-top:6px;
+    width:500px;
+    height:200px;
+  }
+
+  #buttonSubmitContact
+  {
+    color:lightgrey;
+    background-color:#185472;
+    border:1px solid var(--greyColor);
+    float:right;
+    margin-right:0px;
+    margin-top:-64px;
+    width:17vw;
+    height:50px;
+    font-weight:600;
+  }
+
+  #footerLeft
+  {
+    width:49%;
+    float:left;
+  }
+
+  #footerRight
+  {
+    width:49%;
+    float:right;
+  }
+
+  #footer
+  {
+    background-color:#185472;
+    margin:0px;
+    width:100%;
+    height:300px;
+  }
+
+  #footerRow
+  {
+    font-weight:600;
+    color:lightgrey;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.8);
+  }
+
+  #storyBoxControlDiv
+  {
+    background-color:#185472;
+    width:100%;
+    height:890px;
+  }
+
+  #storyBoxControlRow
+  {
+    padding:0px;
+    margin:auto;
+    width:calc(var(--globalwidth)*0.8);
+  }
+
+  #partnerBox
+  {
+    background-color:var(--greyColor);
+    width:calc(var(--globalwidth)*0.8);
+    margin:auto;
+    margin-bottom:50px;
+  }
+
+  #slickCarouselPartners
+  {
+    margin-top:40px;
+    width:calc(var(--globalwidth)*0.8);
+    height:100px;
+    padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*0.8);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*0.8);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:4700px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*0.8);
+    background-color:#185472;
+    height:4700px;
+    right:0px;
+    top:451px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*0.8);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+    padding:0px !important;
+    margin:0px !important;
+    margin-right:25px !important;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:520px;
+    height:560px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:420px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:80%;
+  }
+
+}
+
+
+
+/*
+* RESOLUTIONS 890
 */
 @media screen and (min-width:768px) and (max-width: 890px) {
 
@@ -251,7 +3723,7 @@
   {
     background-color:#185472;
     height:175px;
-    width:300px;
+    width:280px;
     float:right;
     margin-top:10px;
     margin-right:10px;
@@ -415,14 +3887,55 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:var(--globalwidth);
     height:auto;
   }
 
   #projectContainer
   {
-    width:31.1%;
+    width:30.2%;
     float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
   }
 
   #statsDiv
@@ -430,32 +3943,55 @@
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:300px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:var(--globalwidth);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:var(--globalwidth);
   }
 
   #membershipForm
@@ -465,15 +4001,64 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
-    margin-left:0px;
+    width:70%;
+    margin-left:10%;
     padding-bottom:10px;
+  }
+
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:90%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+  }
+
+  #membershipRecaptcha
+  {
+    width:var(--globalwidth);
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:var(--globalwidth); !important;
+    margin-right:0px !important;
   }
 
   #donationDiv
   {
-    height:110vh;
+    height:200vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -486,19 +4071,19 @@
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
   {
-    font-size:128px;
+    font-size:112px;
     font-weight:600;
     text-shadow: 2px 2px 10px grey;
   }
 
   #donationPageBoxTitles h2
   {
-    font-size:64px;
+    font-size:60px;
     font-weight:600;
     text-shadow: 2px 2px 10px grey;
   }
@@ -506,20 +4091,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:360px;
+    height:350px;
+    width:100%;
     float:left;
-    margin-top:5vh;
+    margin-top:60px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:100%;
     float:right;
-    margin-top:5vh;
+    margin-top:60px;
   }
 
   #donationPageBoxPaypalLeft
@@ -527,6 +4112,11 @@
     float:left;
     height:70%;
     width:50%;
+  }
+
+  #donationPageBoxPaypalLeft p
+  {
+    font-size:100% !important;
   }
 
   #donationPageBoxPaypalRight
@@ -541,8 +4131,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -550,7 +4139,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:70px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -567,7 +4156,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:70px;
     color:#185472;
   }
 
@@ -575,19 +4164,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:280%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -596,81 +4189,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -718,8 +4236,102 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:100%;
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
   }
 
   #containerContacts
@@ -731,22 +4343,21 @@
   #rowContacts
   {
     margin:auto;
-    width:76%;
+    width:85%;
     padding-top:30px;
     color:lightgrey;
   }
 
-  #contactName
+  #contactFormContainer
   {
-    width:235px;
-    height:50px;
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.2 !important;
   }
 
-  #contactEmail
+  #containerContacts
   {
-    margin-left:20px;
-    width:235px;
-    height:50px;
+    background-color:#185472;
+    height:100% !important;
   }
 
   #textAreaContact
@@ -757,8 +4368,21 @@
     overflow: auto;
     box-sizing: border-box;
     margin-top:20px;
-    width:492px;
     height:150px;
+    width:100% !important;
+  }
+
+  #contactName
+  {
+    width:47.5% !important;
+    height:50px;
+  }
+
+  #contactEmail
+  {
+    margin-left:28px;
+    width:47.5% !important;
+    height:50px;
   }
 
   #buttonSubmitContact
@@ -767,9 +4391,9 @@
     background-color:#185472;
     border:1px solid var(--greyColor);
     float:right;
-    margin-right:92px;
+    margin-right:0px;
     margin-top:-64px;
-    width:240px;
+    width:17vw;
     height:50px;
     font-weight:600;
   }
@@ -800,44 +4424,6 @@
     height:200px;
   }
 
-  #contactName
-  {
-    width:235px;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:20px;
-    width:235px;
-    height:50px;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:492px;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
-    height:50px;
-    font-weight:600;
-  }
-
   #footerLeft
   {
     width:49%;
@@ -866,45 +4452,6 @@
     width:var(--globalwidth);
   }
 
-  .contactForm
-  {
-    color:lightgrey;
-    padding-left:10px;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-  }
-
-  #contactFormContainer
-  {
-    margin-top:110px;
-    width:36vw;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:35.9vw;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:0px;
-    margin-top:-64px;
-    width:17.9vw;
-    height:50px;
-    font-weight:600;
-  }
-
   #buttonSubmitMembership
   {
     color:lightgrey;
@@ -916,26 +4463,6 @@
     width:280px;
     height:50px;
     font-weight:600;
-  }
-
-  #buttonSubmitContact:hover
-  {
-    color:#185472;
-    background-color:lightgrey;
-    border:1px solid #185472;
-  }
-
-  #contactName
-  {
-    width:17vw;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:22.1px;
-    width:17vw;
-    height:50px;
   }
 
   #storyBoxControlDiv
@@ -966,6 +4493,106 @@
     width:var(--globalwidth);
     height:100px;
     padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth));
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth));
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:1350px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth));
+    background-color:#185472;
+    height:1350px;
+    right:0px;
+    top:407px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth));
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+    padding:0px !important;
+    margin:0px !important;
+    margin-right:25px !important;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:320px;
+    height:300px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:320px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:80%;
   }
 
 }
@@ -1387,14 +5014,55 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.2);
     height:auto;
   }
 
   #projectContainer
   {
-    width:31.1%;
+    width:30.7%;
     float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
   }
 
   #statsDiv
@@ -1402,32 +5070,55 @@
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:320px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:calc(var(--globalwidth)*1.2);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*1.2);
   }
 
   #membershipForm
@@ -1437,15 +5128,128 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
+    width:80%;
     margin-left:0px;
     padding-bottom:10px;
   }
 
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+    width:90%;
+  }
+
+  #membershipRecaptcha
+  {
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*1.2); !important;
+    margin-right:0px !important;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:75vh;
+  }
+
+  #rowContacts
+  {
+    margin:auto;
+    width:90%;
+    padding-top:30px;
+    color:lightgrey;
+  }
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.2 !important;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:100% !important;
+  }
+
+  #textAreaContact
+  {
+    padding-top:20px;
+    padding-left:10px;
+    resize: none;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-top:20px;
+    height:150px;
+    width:100% !important;
+  }
+
+  #contactName
+  {
+    width:48% !important;
+    height:50px;
+  }
+
+  #contactEmail
+  {
+    margin-left:28px;
+    width:48% !important;
+    height:50px;
+  }
+
+  #buttonSubmitContact
+  {
+    color:lightgrey;
+    background-color:#185472;
+    border:1px solid var(--greyColor);
+    float:right;
+    margin-right:0px;
+    margin-top:-64px;
+    width:17vw;
+    height:50px;
+    font-weight:600;
+  }
+
   #donationDiv
   {
-    height:110vh;
+    height:140vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -1458,7 +5262,7 @@
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
@@ -1478,20 +5282,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:360px;
+    height:350px;
+    width:420px;
     float:left;
-    margin-top:5vh;
+    margin-top:60px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:calc((var(--globalwidth)*1.2)/2.0);
     float:right;
-    margin-top:5vh;
+    margin-top:60px;
   }
 
   #donationPageBoxPaypalLeft
@@ -1499,6 +5303,11 @@
     float:left;
     height:70%;
     width:50%;
+  }
+
+  #donationPageBoxPaypalLeft p
+  {
+    font-size:78% !important;
   }
 
   #donationPageBoxPaypalRight
@@ -1513,8 +5322,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -1522,7 +5330,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:55px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -1539,7 +5347,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:55px;
     color:#185472;
   }
 
@@ -1547,19 +5355,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:140%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -1568,81 +5380,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -1690,60 +5427,102 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
   }
 
-  #containerContacts
+  #linkDonate
   {
-    background-color:#185472;
-    height:75vh;
-  }
-
-  #rowContacts
-  {
-    margin:auto;
-    width:76%;
-    padding-top:30px;
+    text-decoration:none;
     color:lightgrey;
   }
 
-  #contactName
-  {
-    width:235px;
-    height:50px;
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
   }
 
-  #contactEmail
-  {
-    margin-left:20px;
-    width:235px;
-    height:50px;
+  input.donation:focus {
+    outline: none;
   }
 
-  #textAreaContact
+  #donationPageBoxPhone
   {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:492px;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.2)/2.0);
     float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
-    height:50px;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
     font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.2)/2.0);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.2)/2.0);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
   }
 
   #partnersContainerImgCont
@@ -1770,44 +5549,6 @@
     padding-top:6px;
     width:500px;
     height:200px;
-  }
-
-  #contactName
-  {
-    width:235px;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:20px;
-    width:235px;
-    height:50px;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:492px;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
-    height:50px;
-    font-weight:600;
   }
 
   #footerLeft
@@ -1838,45 +5579,6 @@
     width:calc(var(--globalwidth)*1.2);
   }
 
-  .contactForm
-  {
-    color:lightgrey;
-    padding-left:10px;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-  }
-
-  #contactFormContainer
-  {
-    margin-top:110px;
-    width:36vw;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:35.9vw;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:0px;
-    margin-top:-64px;
-    width:17.9vw;
-    height:50px;
-    font-weight:600;
-  }
-
   #buttonSubmitMembership
   {
     color:lightgrey;
@@ -1895,19 +5597,6 @@
     color:#185472;
     background-color:lightgrey;
     border:1px solid #185472;
-  }
-
-  #contactName
-  {
-    width:17vw;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:22.1px;
-    width:17vw;
-    height:50px;
   }
 
   #storyBoxControlDiv
@@ -1938,6 +5627,106 @@
     width:calc(var(--globalwidth)*1.2);
     height:100px;
     padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*1.2);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*1.2);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:850px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*1.2);
+    background-color:#185472;
+    height:850px;
+    right:0px;
+    top:385px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*1.2);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+    padding:0px !important;
+    margin:0px !important;
+    margin-right:25px !important;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:250px;
+    height:230px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:250px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:75%;
   }
 
 }
@@ -2357,14 +6146,55 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.3);
     height:auto;
   }
 
   #projectContainer
   {
-    width:31.1%;
+    width:30.9%;
     float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
   }
 
   #statsDiv
@@ -2372,32 +6202,55 @@
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:340px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:calc(var(--globalwidth)*1.3);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*1.3);
   }
 
   #membershipForm
@@ -2407,15 +6260,64 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
+    width:80%;
     margin-left:0px;
     padding-bottom:10px;
   }
 
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+    width:90%;
+  }
+
+  #membershipRecaptcha
+  {
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*1.3); !important;
+    margin-right:0px !important;
+  }
+
   #donationDiv
   {
-    height:110vh;
+    height:140vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -2428,7 +6330,7 @@
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
@@ -2448,20 +6350,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:360px;
+    height:350px;
+    width:420px;
     float:left;
-    margin-top:5vh;
+    margin-top:60px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:calc((var(--globalwidth)*1.3)/1.9);
     float:right;
-    margin-top:5vh;
+    margin-top:60px;
   }
 
   #donationPageBoxPaypalLeft
@@ -2469,6 +6371,11 @@
     float:left;
     height:70%;
     width:50%;
+  }
+
+  #donationPageBoxPaypalLeft p
+  {
+    font-size:80% !important;
   }
 
   #donationPageBoxPaypalRight
@@ -2483,8 +6390,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -2492,7 +6398,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:60px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -2509,7 +6415,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:60px;
     color:#185472;
   }
 
@@ -2517,19 +6423,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:170%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -2538,81 +6448,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -2660,8 +6495,102 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.3)/1.9);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.3)/1.9);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.3)/1.9);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
   }
 
   #containerContacts
@@ -2673,22 +6602,21 @@
   #rowContacts
   {
     margin:auto;
-    width:76%;
+    width:95%;
     padding-top:30px;
     color:lightgrey;
   }
 
-  #contactName
+  #contactFormContainer
   {
-    width:235px;
-    height:50px;
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.3 !important;
   }
 
-  #contactEmail
+  #containerContacts
   {
-    margin-left:20px;
-    width:235px;
-    height:50px;
+    background-color:#185472;
+    height:100% !important;
   }
 
   #textAreaContact
@@ -2699,8 +6627,21 @@
     overflow: auto;
     box-sizing: border-box;
     margin-top:20px;
-    width:492px;
     height:150px;
+    width:100% !important;
+  }
+
+  #contactName
+  {
+    width:46.5% !important;
+    height:50px;
+  }
+
+  #contactEmail
+  {
+    margin-left:27px;
+    width:46.5% !important;
+    height:50px;
   }
 
   #buttonSubmitContact
@@ -2709,9 +6650,9 @@
     background-color:#185472;
     border:1px solid var(--greyColor);
     float:right;
-    margin-right:92px;
+    margin-right:0px;
     margin-top:-64px;
-    width:240px;
+    width:17vw;
     height:50px;
     font-weight:600;
   }
@@ -2742,44 +6683,6 @@
     height:200px;
   }
 
-  #contactName
-  {
-    width:235px;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:20px;
-    width:235px;
-    height:50px;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:492px;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
-    height:50px;
-    font-weight:600;
-  }
-
   #footer
   {
     background-color:#185472;
@@ -2796,45 +6699,6 @@
     width:calc(var(--globalwidth)*1.3);
   }
 
-  .contactForm
-  {
-    color:lightgrey;
-    padding-left:10px;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-  }
-
-  #contactFormContainer
-  {
-    margin-top:110px;
-    width:36vw;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:35.9vw;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:0px;
-    margin-top:-64px;
-    width:17.9vw;
-    height:50px;
-    font-weight:600;
-  }
-
   #buttonSubmitMembership
   {
     color:lightgrey;
@@ -2846,26 +6710,6 @@
     width:280px;
     height:50px;
     font-weight:600;
-  }
-
-  #buttonSubmitContact:hover
-  {
-    color:#185472;
-    background-color:lightgrey;
-    border:1px solid #185472;
-  }
-
-  #contactName
-  {
-    width:17vw;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:22.1px;
-    width:17vw;
-    height:50px;
   }
 
   #storyBoxControlRow
@@ -2889,6 +6733,106 @@
     width:calc(var(--globalwidth)*1.3);
     height:100px;
     padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*1.3);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*1.3);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:850px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*1.3);
+    background-color:#185472;
+    height:850px;
+    right:0px;
+    top:385px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*1.3);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+    padding:0px !important;
+    margin:0px !important;
+    margin-right:25px !important;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:275px;
+    height:230px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:275px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:75%;
   }
 
 }
@@ -3306,7 +7250,7 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.4);
     height:auto;
   }
 
@@ -3316,37 +7260,101 @@
     float:left;
   }
 
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
   #statsDiv
   {
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:350px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:calc(var(--globalwidth)*1.4);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*1.4);
   }
 
   #membershipForm
@@ -3356,15 +7364,64 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
+    width:80%;
     margin-left:0px;
     padding-bottom:10px;
   }
 
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+    width:90%;
+  }
+
+  #membershipRecaptcha
+  {
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*1.4); !important;
+    margin-right:0px !important;
+  }
+
   #donationDiv
   {
-    height:110vh;
+    height:140vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -3377,7 +7434,7 @@
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
@@ -3397,20 +7454,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:360px;
+    height:350px;
+    width:420px;
     float:left;
-    margin-top:5vh;
+    margin-top:60px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:calc((var(--globalwidth)*1.4)/1.8);
     float:right;
-    margin-top:5vh;
+    margin-top:60px;
   }
 
   #donationPageBoxPaypalLeft
@@ -3418,6 +7475,11 @@
     float:left;
     height:70%;
     width:50%;
+  }
+
+  #donationPageBoxPaypalLeft p
+  {
+    font-size:88% !important;
   }
 
   #donationPageBoxPaypalRight
@@ -3432,8 +7494,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -3441,7 +7502,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -3458,7 +7519,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
   }
 
@@ -3466,19 +7527,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:200%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -3487,81 +7552,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -3609,60 +7599,102 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
   }
 
-  #containerContacts
+  #linkDonate
   {
-    background-color:#185472;
-    height:75vh;
-  }
-
-  #rowContacts
-  {
-    margin:auto;
-    width:76%;
-    padding-top:30px;
+    text-decoration:none;
     color:lightgrey;
   }
 
-  #contactName
-  {
-    width:235px;
-    height:50px;
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
   }
 
-  #contactEmail
-  {
-    margin-left:20px;
-    width:235px;
-    height:50px;
+  input.donation:focus {
+    outline: none;
   }
 
-  #textAreaContact
+  #donationPageBoxPhone
   {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:492px;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.4)/1.8);
     float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
-    height:50px;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
     font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.4)/1.8);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.4)/1.8);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
   }
 
   #partnersContainerImgCont
@@ -3691,17 +7723,30 @@
     height:200px;
   }
 
-  #contactName
+  #containerContacts
   {
-    width:235px;
-    height:50px;
+    background-color:#185472;
+    height:75vh;
   }
 
-  #contactEmail
+  #rowContacts
   {
-    margin-left:20px;
-    width:235px;
-    height:50px;
+    margin:auto;
+    width:90%;
+    padding-top:30px;
+    color:lightgrey;
+  }
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.4 !important;
+  }
+
+  #containerContacts
+  {
+    background-color:#185472;
+    height:100% !important;
   }
 
   #textAreaContact
@@ -3712,8 +7757,21 @@
     overflow: auto;
     box-sizing: border-box;
     margin-top:20px;
-    width:492px;
     height:150px;
+    width:100% !important;
+  }
+
+  #contactName
+  {
+    width:46.5% !important;
+    height:50px;
+  }
+
+  #contactEmail
+  {
+    margin-left:27px;
+    width:46.5% !important;
+    height:50px;
   }
 
   #buttonSubmitContact
@@ -3722,9 +7780,9 @@
     background-color:#185472;
     border:1px solid var(--greyColor);
     float:right;
-    margin-right:92px;
+    margin-right:0px;
     margin-top:-64px;
-    width:240px;
+    width:17vw;
     height:50px;
     font-weight:600;
   }
@@ -3745,45 +7803,6 @@
     width:calc(var(--globalwidth)*1.4);
   }
 
-  .contactForm
-  {
-    color:lightgrey;
-    padding-left:10px;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-  }
-
-  #contactFormContainer
-  {
-    margin-top:110px;
-    width:36vw;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:35.9vw;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:0px;
-    margin-top:-64px;
-    width:17.9vw;
-    height:50px;
-    font-weight:600;
-  }
-
   #buttonSubmitMembership
   {
     color:lightgrey;
@@ -3795,26 +7814,6 @@
     width:280px;
     height:50px;
     font-weight:600;
-  }
-
-  #buttonSubmitContact:hover
-  {
-    color:#185472;
-    background-color:lightgrey;
-    border:1px solid #185472;
-  }
-
-  #contactName
-  {
-    width:17vw;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:22.1px;
-    width:17vw;
-    height:50px;
   }
 
   #storyBoxControlRow
@@ -3838,6 +7837,103 @@
     width:calc(var(--globalwidth)*1.4);
     height:100px;
     padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*1.4);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*1.4);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:660px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*1.4);
+    background-color:#185472;
+    height:660px;
+    right:0px;
+    top:363px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*1.4);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:220px;
+    height:230px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-40px;
+    width:220px;
+    height:40px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:75%;
   }
 
 }
@@ -4250,14 +8346,55 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.5);
     height:auto;
   }
 
   #projectContainer
   {
-    width:31.1%;
+    width:31.3%;
     float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
   }
 
   #statsDiv
@@ -4265,32 +8402,55 @@
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:400px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:calc(var(--globalwidth)*1.5);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*1.5);
   }
 
   #membershipForm
@@ -4300,15 +8460,64 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
+    width:80%;
     margin-left:0px;
     padding-bottom:10px;
   }
 
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+    width:90%;
+  }
+
+  #membershipRecaptcha
+  {
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*1.5); !important;
+    margin-right:0px !important;
+  }
+
   #donationDiv
   {
-    height:110vh;
+    height:140vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -4321,7 +8530,7 @@
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
@@ -4341,20 +8550,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:360px;
+    height:350px;
+    width:420px;
     float:left;
-    margin-top:5vh;
+    margin-top:60px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:calc((var(--globalwidth)*1.5)/1.7);
     float:right;
-    margin-top:5vh;
+    margin-top:60px;
   }
 
   #donationPageBoxPaypalLeft
@@ -4362,6 +8571,11 @@
     float:left;
     height:70%;
     width:50%;
+  }
+
+  #donationPageBoxPaypalLeft p
+  {
+    font-size:small !important;
   }
 
   #donationPageBoxPaypalRight
@@ -4376,8 +8590,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -4385,7 +8598,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -4402,7 +8615,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
   }
 
@@ -4410,19 +8623,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:240%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -4431,81 +8648,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -4553,8 +8695,102 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.5)/1.7);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.5)/1.7);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.5)/1.7);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
   }
 
   #containerContacts
@@ -4566,22 +8802,21 @@
   #rowContacts
   {
     margin:auto;
-    width:76%;
+    width:90%;
     padding-top:30px;
     color:lightgrey;
   }
 
-  #contactName
+  #contactFormContainer
   {
-    width:235px;
-    height:50px;
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.5 !important;
   }
 
-  #contactEmail
+  #containerContacts
   {
-    margin-left:20px;
-    width:235px;
-    height:50px;
+    background-color:#185472;
+    height:100% !important;
   }
 
   #textAreaContact
@@ -4592,8 +8827,21 @@
     overflow: auto;
     box-sizing: border-box;
     margin-top:20px;
-    width:492px;
     height:150px;
+    width:100% !important;
+  }
+
+  #contactName
+  {
+    width:47.5% !important;
+    height:50px;
+  }
+
+  #contactEmail
+  {
+    margin-left:50px;
+    width:47.5% !important;
+    height:50px;
   }
 
   #buttonSubmitContact
@@ -4602,9 +8850,9 @@
     background-color:#185472;
     border:1px solid var(--greyColor);
     float:right;
-    margin-right:92px;
+    margin-right:0px;
     margin-top:-64px;
-    width:240px;
+    width:17vw;
     height:50px;
     font-weight:600;
   }
@@ -4660,19 +8908,6 @@
     height:150px;
   }
 
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
-    height:50px;
-    font-weight:600;
-  }
-
   #footer
   {
     background-color:#185472;
@@ -4689,45 +8924,6 @@
     width:calc(var(--globalwidth)*1.5);
   }
 
-  .contactForm
-  {
-    color:lightgrey;
-    padding-left:10px;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-  }
-
-  #contactFormContainer
-  {
-    margin-top:110px;
-    width:36vw;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:35.9vw;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:0px;
-    margin-top:-64px;
-    width:17.9vw;
-    height:50px;
-    font-weight:600;
-  }
-
   #buttonSubmitMembership
   {
     color:lightgrey;
@@ -4739,26 +8935,6 @@
     width:280px;
     height:50px;
     font-weight:600;
-  }
-
-  #buttonSubmitContact:hover
-  {
-    color:#185472;
-    background-color:lightgrey;
-    border:1px solid #185472;
-  }
-
-  #contactName
-  {
-    width:17vw;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:22.1px;
-    width:17vw;
-    height:50px;
   }
 
   #storyBoxControlRow
@@ -4782,6 +8958,103 @@
     width:calc(var(--globalwidth)*1.5);
     height:100px;
     padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*1.5);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*1.5);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:660px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*1.5);
+    background-color:#185472;
+    height:660px;
+    right:0px;
+    top:363px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*1.5);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:240px;
+    height:250px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:240px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:70%;
   }
 
 }
@@ -5194,14 +9467,55 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.6);
     height:auto;
   }
 
   #projectContainer
   {
-    width:31.1%;
+    width:31.4%;
     float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
   }
 
   #statsDiv
@@ -5209,32 +9523,55 @@
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:400px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:calc(var(--globalwidth)*1.6);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*1.6);
   }
 
   #membershipForm
@@ -5244,15 +9581,64 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
+    width:80%;
     margin-left:0px;
     padding-bottom:10px;
   }
 
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+    width:90%;
+  }
+
+  #membershipRecaptcha
+  {
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*1.6); !important;
+    margin-right:0px !important;
+  }
+
   #donationDiv
   {
-    height:110vh;
+    height:140vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -5265,7 +9651,7 @@
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
@@ -5285,20 +9671,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:360px;
+    height:350px;
+    width:420px;
     float:left;
-    margin-top:5vh;
+    margin-top:60px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:calc((var(--globalwidth)*1.6)/1.6);
     float:right;
-    margin-top:5vh;
+    margin-top:60px;
   }
 
   #donationPageBoxPaypalLeft
@@ -5320,8 +9706,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -5329,7 +9714,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -5346,7 +9731,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
   }
 
@@ -5354,19 +9739,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:280%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -5375,81 +9764,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -5497,35 +9811,114 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.6)/1.6);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.6)/1.6);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.6)/1.6);
+    float:right;
+    margin-top:60px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.6;
   }
 
   #containerContacts
   {
     background-color:#185472;
-    height:75vh;
-  }
-
-  #rowContacts
-  {
-    margin:auto;
-    width:76%;
-    padding-top:30px;
-    color:lightgrey;
-  }
-
-  #contactName
-  {
-    width:235px;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:20px;
-    width:235px;
-    height:50px;
+    height:100% !important;
   }
 
   #textAreaContact
@@ -5536,21 +9929,21 @@
     overflow: auto;
     box-sizing: border-box;
     margin-top:20px;
-    width:492px;
     height:150px;
+    width:100% !important;
   }
 
-  #buttonSubmitContact
+  #contactName
   {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
+    width:47% !important;
     height:50px;
-    font-weight:600;
+  }
+
+  #contactEmail
+  {
+    margin-left:50px;
+    width:47% !important;
+    height:50px;
   }
 
   #partnersContainerImgCont
@@ -5726,6 +10119,103 @@
     width:calc(var(--globalwidth)*1.6);
     height:100px;
     padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*1.6);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*1.6);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:660px;
+    margin-top:38px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*1.6);
+    background-color:#185472;
+    height:660px;
+    right:0px;
+    top:363px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*1.6);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:255px;
+    height:250px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:255px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:75%;
   }
 }
 
@@ -6134,14 +10624,55 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.7);
     height:auto;
   }
 
   #projectContainer
   {
-    width:31.1%;
+    width:31.5%;
     float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
   }
 
   #statsDiv
@@ -6149,32 +10680,55 @@
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:400px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:calc(var(--globalwidth)*1.7);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*1.7);
   }
 
   #membershipForm
@@ -6184,15 +10738,64 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
+    width:80%;
     margin-left:0px;
     padding-bottom:10px;
   }
 
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+    width:90%;
+  }
+
+  #membershipRecaptcha
+  {
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*1.7); !important;
+    margin-right:0px !important;
+  }
+
   #donationDiv
   {
-    height:110vh;
+    height:140vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -6205,7 +10808,7 @@
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
@@ -6225,20 +10828,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:360px;
+    height:350px;
+    width:420px;
     float:left;
-    margin-top:5vh;
+    margin-top:120px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:calc((var(--globalwidth)*1.7)/1.6);
     float:right;
-    margin-top:5vh;
+    margin-top:120px;
   }
 
   #donationPageBoxPaypalLeft
@@ -6260,8 +10863,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -6269,7 +10871,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -6286,7 +10888,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
   }
 
@@ -6294,19 +10896,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:300%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -6315,81 +10921,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -6437,35 +10968,114 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.7)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.7)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.7)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.6;
   }
 
   #containerContacts
   {
     background-color:#185472;
-    height:75vh;
-  }
-
-  #rowContacts
-  {
-    margin:auto;
-    width:76%;
-    padding-top:30px;
-    color:lightgrey;
-  }
-
-  #contactName
-  {
-    width:235px;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:20px;
-    width:235px;
-    height:50px;
+    height:100% !important;
   }
 
   #textAreaContact
@@ -6476,21 +11086,21 @@
     overflow: auto;
     box-sizing: border-box;
     margin-top:20px;
-    width:492px;
     height:150px;
+    width:100% !important;
   }
 
-  #buttonSubmitContact
+  #contactName
   {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
+    width:47% !important;
     height:50px;
-    font-weight:600;
+  }
+
+  #contactEmail
+  {
+    margin-left:50px;
+    width:47% !important;
+    height:50px;
   }
 
   #partnersContainerImgCont
@@ -6666,6 +11276,103 @@
     width:calc(var(--globalwidth)*1.7);
     height:100px;
     padding-bottom:30px;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*1.7);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*1.7);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:660px;
+    margin-top:60px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*1.7);
+    background-color:#185472;
+    height:660px;
+    right:0px;
+    top:363px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*1.7);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:275px;
+    height:250px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:275px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:80%;
   }
 }
 
@@ -7108,14 +11815,55 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.8);
     height:auto;
   }
 
   #projectContainer
   {
-    width:31%;
+    width:31.6%;
     float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
   }
 
   #statsDiv
@@ -7123,32 +11871,54 @@
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:400px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:calc(var(--globalwidth)*1.8);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*1.8);
   }
 
   #membershipForm
@@ -7158,15 +11928,64 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
+    width:80%;
     margin-left:0px;
     padding-bottom:10px;
   }
 
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+    width:90%;
+  }
+
+  #membershipRecaptcha
+  {
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*1.8); !important;
+    margin-right:0px !important;
+  }
+
   #donationDiv
   {
-    height:110vh;
+    height:140vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -7175,11 +11994,11 @@
 
   #donationPageBoxTitles
   {
-    width:calc(var(--globalwidth)*2);
+    width:calc(var(--globalwidth)*1.8);
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
@@ -7199,20 +12018,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:300px;
+    height:350px;
+    width:420px;
     float:left;
-    margin-top:5vh;
+    margin-top:120px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:calc((var(--globalwidth)*1.8)/1.6);
     float:right;
-    margin-top:5vh;
+    margin-top:120px;
   }
 
   #donationPageBoxPaypalLeft
@@ -7234,8 +12053,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -7243,7 +12061,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -7260,7 +12078,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
   }
 
@@ -7268,19 +12086,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:320%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -7289,81 +12111,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -7411,60 +12158,136 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.8)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.8)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.8)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.8;
   }
 
   #containerContacts
   {
     background-color:#185472;
-    height:75vh;
+    height:100% !important;
   }
 
   #rowContacts
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.8);
     padding-top:30px;
     color:lightgrey;
   }
 
   #contactName
   {
-    width:235px;
+    width:46% !important;
     height:50px;
   }
 
   #contactEmail
   {
-    margin-left:20px;
-    width:235px;
+    margin-left:48px;
+    width:46% !important;
     height:50px;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:492px;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
-    height:50px;
-    font-weight:600;
   }
 
   #buttonSubmitMembership
@@ -7514,17 +12337,16 @@
   }
 
 
-  #contactName
+  #contactFormContainer
   {
-    width:218px;
-    height:50px;
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.8;
   }
 
-  #contactEmail
+  #containerContacts
   {
-    margin-left:20px;
-    width:218px;
-    height:50px;
+    background-color:#185472;
+    height:100% !important;
   }
 
   #textAreaContact
@@ -7535,23 +12357,22 @@
     overflow: auto;
     box-sizing: border-box;
     margin-top:20px;
-    width:459px;
     height:150px;
+    width:100% !important;
   }
 
-  #buttonSubmitContact
+  #contactName
   {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:125px;
-    margin-top:-64px;
-    width:221px;
+    width:46% !important;
     height:50px;
-    font-weight:600;
   }
 
+  #contactEmail
+  {
+    margin-left:48px;
+    width:46% !important;
+    height:50px;
+  }
 
   #footer
   {
@@ -8108,14 +12929,55 @@
   #projectsPageDiv
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.8);
     height:auto;
   }
 
   #projectContainer
   {
-    width:31%;
+    width:31.6%;
     float:left;
+  }
+
+  #projectImages
+  {
+
+    width:100%;
+    display:block;
+    color:black;
+    height:30vh;
+    background-size:cover;
+    background-position:50% 0%;
+    position:relative;
+    box-shadow: 5px 5px 15px 0px darkgrey;
+    /* background image is inline because of dynamic content */
+  }
+
+  #projectBox
+  {
+    background-color:#185472;
+    position:absolute;
+    bottom:0px;
+    height:10vh;
+    width:100%;
+  }
+
+  #projectTitle
+  {
+    color:lightgrey;
+    font-size:medium;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
+  }
+
+  #projectDescription
+  {
+    color:lightgrey;
+    font-size:small;
+    font-weight:600;
+    padding-left:20px;
+    padding-top:10px;
   }
 
   #statsDiv
@@ -8123,32 +12985,55 @@
     width:100%;
     margin-top:33px;
     background-color:#185472;
-    height:60vh;
+    height:400px;
   }
 
   #statsDivImagesContainer
   {
-    width:100%;
-    height:auto;
+    height:400px;
+    width:calc(var(--globalwidth)*1.8);
     text-align:center;
-    padding-left:20vw;
+    margin:auto;
+
   }
 
   #statsDivImage
   {
     float:left;
     display:block;
-    margin-top:120px;
-    margin-left:2.5vw;
+    width:25%;
+    height:300px;
+    margin-top:50px;
   }
 
   #statsDivImage img
   {
-    width:80px;
+    width:50%;
     margin:auto;
-    max-height:100%;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+  }
+
+  #statsDivImage h1
+  {
+    margin-top:20px;
+    color:var(--greyColor);
+    font-size:480%;
+    font-weight:600;
+    margin-bottom:0px;
+    line-height: 0.7;
+  }
+
+  #statsDivImage p
+  {
+    color:var(--greyColor);
+    font-size:large;
+    font-weight:100;
+  }
+
+  #membershipContainer
+  {
+    width:calc(var(--globalwidth)*1.8);
   }
 
   #membershipForm
@@ -8158,15 +13043,64 @@
 
   #membershipRow
   {
+    margin:auto;
     border-bottom:1px solid #185472;
-    width:100%;
+    width:80%;
     margin-left:0px;
     padding-bottom:10px;
   }
 
+  #membershipColumn1
+  {
+    height:100%;
+    width:100%;
+    margin-top:22px;
+  }
+
+  #membershipColumn2
+  {
+    height:120px;
+    width:100%;
+  }
+
+  #membershipPostcode1
+  {
+    margin-right:0px !important;
+    width:181.5px !important;
+  }
+
+  #membershipBirthdate
+  {
+    top:0px !important;
+  }
+
+  #membershipCheckbox
+  {
+    width:70%;
+    top:90px;
+  }
+
+  #membershipRecaptchaContainer
+  {
+    margin:0px;
+    width:90%;
+  }
+
+  #membershipRecaptcha
+  {
+    padding-top:20px;
+    float:left;
+  }
+
+  #buttonSubmitMembership
+  {
+    width:calc(var(--globalwidth)*1.8); !important;
+    margin-right:0px !important;
+  }
+
   #donationDiv
   {
-    height:110vh;
+    height:140vh;
     background-size:cover;
     -webkit-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
     -moz-box-shadow: inset 0px -200px 44px -175px rgba(255,255,255,0.5);
@@ -8175,11 +13109,11 @@
 
   #donationPageBoxTitles
   {
-    width:calc(var(--globalwidth)*2);
+    width:calc(var(--globalwidth)*1.8);
     margin:auto;
     color:white;
     text-align:center;
-    padding-top:40px;
+    padding-top:60px;
   }
 
   #donationPageBoxTitles h1
@@ -8199,20 +13133,20 @@
   #donationPageBoxButtons
   {
     background-color:#185472;
-    height:50vh;
-    width:300px;
+    height:350px;
+    width:420px;
     float:left;
-    margin-top:5vh;
+    margin-top:120px;
     margin-right:10px;
   }
 
   #donationPageBoxPaypal
   {
     background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
+    height:350px;
+    width:calc((var(--globalwidth)*1.8)/1.6);
     float:right;
-    margin-top:5vh;
+    margin-top:120px;
   }
 
   #donationPageBoxPaypalLeft
@@ -8234,8 +13168,7 @@
   {
     border:2px solid #185472;
     width:80%;
-    height:30%;
-    margin:auto;
+    height:40%;margin:auto;
     margin-bottom:20px;
   }
 
@@ -8243,7 +13176,7 @@
   {
     padding:0px;
     padding-left:10px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
     text-align:left;
     height:100%;
@@ -8260,7 +13193,7 @@
     text-align:right;
     padding-right:10px;
     padding-bottom:20px;
-    font-size:360%;
+    font-size:69px;
     color:#185472;
   }
 
@@ -8268,19 +13201,23 @@
   {
     background-color:#185472;
     width:80%;
-    height:30%;
+    height:40%;
     margin:auto;
-    text-align:center;
+    display:inline-block;
+    vertical-align: middle;
   }
 
   #donationPageBoxPaypalRightContainerDonate a
   {
-    padding:0px;
-    font-size:210%;
-    color:lightgrey;
+    font-size:320%;
     margin:auto;
-    height:100%;
-    margin-left:10%;
+  }
+
+  #donationPageBoxPaypalRightContainerDonateInside
+  {
+    margin:auto;
+    width:80%;
+
   }
 
   #donationPageBoxPaypalRightContainerDonate:hover
@@ -8289,81 +13226,6 @@
   }
 
   #donationPageBoxPaypal p
-  {
-    padding:20px;
-    font-size:small;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxPhone
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxPhoneLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxPhone p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxTransfer
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxTransferLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxTransfer p
-  {
-    padding:20px;
-    font-size:14px;
-    font-weight:600;
-    color:grey;
-    text-align:justify;
-  }
-
-  #donationPageBoxDonation
-  {
-    background-color:var(--greyColor);
-    height:50vh;
-    width:620px;
-    float:right;
-    margin-top:5vh;
-  }
-
-  #donationPageBoxDonationLeft
-  {
-    float:left;
-    height:70%;
-    width:100%;
-  }
-
-  #donationPageBoxDonation p
   {
     padding:20px;
     font-size:14px;
@@ -8411,60 +13273,135 @@
   {
     margin-top:13px;
     color:lightgrey;
-    font-size:xx-large;
+    font-size:42px;
     text-align:center;
+  }
+
+  #linkDonate
+  {
+    text-decoration:none;
+    color:lightgrey;
+  }
+
+  input.donation {
+    width:100%;
+    height:100%;
+    background-color:#dedede;
+    border: none;
+    border-color: transparent;
+    text-align:right;
+  }
+
+  input.donation:focus {
+    outline: none;
+  }
+
+  #donationPageBoxPhone
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.8)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxPhoneLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxPhone p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxTransfer
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.8)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxTransferLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxTransfer p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #donationPageBoxDonation
+  {
+    background-color:var(--greyColor);
+    height:350px;
+    width:calc((var(--globalwidth)*1.8)/1.6);
+    float:right;
+    margin-top:120px;
+  }
+
+  #donationPageBoxDonationLeft
+  {
+      float:left;
+      height:70%;
+      width:100%;
+  }
+
+  #donationPageBoxDonation p
+  {
+    padding:20px;
+    font-size:14px;
+    font-weight:600;
+    color:grey;
+    text-align:justify;
+  }
+
+  #contactFormContainer
+  {
+    margin-top:110px;
+    width:calc(var(--globalwidth))/1.8;
   }
 
   #containerContacts
   {
     background-color:#185472;
-    height:75vh;
+    height:100% !important;
   }
 
   #rowContacts
   {
     margin:auto;
-    width:76%;
+    width:calc(var(--globalwidth)*1.8);
     padding-top:30px;
     color:lightgrey;
   }
 
   #contactName
   {
-    width:235px;
+    width:46% !important;
     height:50px;
   }
 
   #contactEmail
   {
-    margin-left:20px;
-    width:235px;
+    margin-left:48px;
+    width:46% !important;
     height:50px;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:492px;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:92px;
-    margin-top:-64px;
-    width:240px;
-    height:50px;
-    font-weight:600;
   }
 
   #buttonSubmitMembership
@@ -8512,46 +13449,6 @@
     width:500px;
     height:200px;
   }
-
-
-  #contactName
-  {
-    width:218px;
-    height:50px;
-  }
-
-  #contactEmail
-  {
-    margin-left:20px;
-    width:218px;
-    height:50px;
-  }
-
-  #textAreaContact
-  {
-    padding-top:20px;
-    padding-left:10px;
-    resize: none;
-    overflow: auto;
-    box-sizing: border-box;
-    margin-top:20px;
-    width:459px;
-    height:150px;
-  }
-
-  #buttonSubmitContact
-  {
-    color:lightgrey;
-    background-color:#185472;
-    border:1px solid var(--greyColor);
-    float:right;
-    margin-right:125px;
-    margin-top:-64px;
-    width:221px;
-    height:50px;
-    font-weight:600;
-  }
-
 
   #footer
   {
@@ -8624,6 +13521,103 @@
     margin-left:1%;
     color:white;
     font-size:small;
+  }
+
+  #missionText
+  {
+    width:calc(var(--globalwidth)*1.8);
+    margin:auto;
+  }
+
+  #teamText
+  {
+    position:inherit;
+    width:calc(var(--globalwidth)*1.8);
+    margin:auto;
+    margin-bottom:80px;
+    background-color:#185472;
+    height:660px;
+    margin-top:60px;
+    z-index:2;
+  }
+
+  #teamFiller
+  {
+    position:absolute;
+    width:calc(var(--globalwidth)*1.8);
+    background-color:#185472;
+    height:660px;
+    right:0px;
+    top:363px;
+    z-index:1;
+  }
+
+  #teamText h1
+  {
+    font-size:xx-large;;
+    font-weight:600;
+    color:#cea44a;
+    padding-top:25px;
+    padding-left:20px;
+  }
+
+  #teamContainer
+  {
+    width:calc(var(--globalwidth)*1.8);
+    height:auto;
+    z-index:2;
+
+  }
+
+  #teamContainer ul
+  {
+    list-style: none;
+    padding-left:30px;
+    z-index:2;
+
+  }
+
+  #teamContainer ul li
+  {
+    float:left;
+    z-index:2;
+
+  }
+
+  .teamMemberPhoto
+  {
+    z-index:2;
+    margin-top:10px;
+    width:290px;
+    height:250px;
+    background-color:white;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+  }
+
+  .teamMemberTag
+  {
+    padding-top:5px;
+    border:1px solid lightgrey;
+    border-bottom:none;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    position:absolute;
+    margin-right:30px;
+    margin-top:-20px;
+    width:290px;
+    height:20px;
+    background-color:#185472;
+  }
+
+  .teamMemberTag p
+  {
+    margin-top:-5px;
+    text-align:center;
+    margin-left:1%;
+    color:white;
+    font-size:80%;
   }
 
 

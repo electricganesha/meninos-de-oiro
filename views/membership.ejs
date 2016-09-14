@@ -93,34 +93,34 @@
     </div>
   </nav>
     <div class="container-fluid" id="membershipContainer" ng-controller="MembershipCtrl">
-      <h2 style="text-align:justify;">
+      <h2 id="membershipTitle">
         Gostaria de fazer parte da nossa associação? Preencha esta ficha de inscrição, e entraremos em contacto consigo o mais rapidamente possível.
       </h2>
       <div class="row" id="membershipRow">
       <form id="membershipForm" ng-submit="submitMemberForm()" name="newMemberForm">
-        <div class="col-md-6" style="height:100%; width:50%; margin-top:22px;">
-        <input class="memberFormInput" type="text" name="Nome" ng-model="nomeMembro" placeholder="Nome Completo *" style="width:300px; height:50px;">
+        <div class="col-md-6" id="membershipColumn1">
+        <input id="membershipName" class="memberFormInput" type="text" name="Nome" ng-model="nomeMembro" placeholder="Nome Completo *" style="width:300px; height:50px;">
         <br>
-        <input class="memberFormInput" type="email" name="Email" ng-model="emailMembro" placeholder="E-Mail *" style="width:300px; height:50px;">
+        <input id="membershipEmail" class="memberFormInput" type="email" name="Email" ng-model="emailMembro" placeholder="E-Mail *" style="width:300px; height:50px;">
         <br>
-        <input class="memberFormInput" type="text" name="Telefone" ng-model="telefoneMembro" placeholder="Telefone *" style="width:300px; height:50px;">
+        <input id="membershipPhone" class="memberFormInput" type="text" name="Telefone" ng-model="telefoneMembro" placeholder="Telefone *" style="width:300px; height:50px;">
         <br>
-        <input class="memberFormInput" type="text" name="Morada" ng-model="moradaMembro" placeholder="Morada" style="width:300px; height:50px;">&nbsp;&nbsp;<input class="memberFormInput" type="text" name="CodigoPostal1" ng-model="postalcode1" placeholder="Código-Postal" style="width:200px; height:50px;"><b>&nbsp;-&nbsp;</b><input class="memberFormInput" type="text" name="CodigoPostal2" ng-model="postalcode2" placeholder="XXX" style="width:100px; height:50px;">
+        <input id="membershipAddress" class="memberFormInput" type="text" name="Morada" ng-model="moradaMembro" placeholder="Morada" style="width:300px; height:50px;"><input id="membershipPostcode1" class="memberFormInput" type="text" name="CodigoPostal1" ng-model="postalcode1" placeholder="Código-Postal" style="margin-right:5px; width:200px; height:50px;"><b>&nbsp;-&nbsp;</b><input id="membershipPostcode2" class="memberFormInput" type="text" name="CodigoPostal2" ng-model="postalcode2" placeholder="XXX" style="width:100px; height:50px;">
         <br>
         </div>
-        <div class="col-md-6" style="height:232px; width:50%;">
-          <div flex-gt-xs="" style="position:absolute; bottom:50px;">
+        <div class="col-md-6" id="membershipColumn2">
+          <div flex-gt-xs="" id="membershipBirthdate" style="position:absolute; bottom:50px;">
             <h4>Data de Nascimento</h4>
             <md-datepicker ng-model="dataNascimentoMembro" md-placeholder="Data Nasc."></md-datepicker>
           </div>
-          <div style="position:absolute; bottom:0px;">
+          <div id="membershipCheckbox" style="position:absolute; bottom:0px;">
           <label for="newsLetterCheckbox">Deseja receber informação e notícias da associação Meninos de Oiro?</label>&nbsp;&nbsp;
         <input type="checkbox" id="newsLetterCheckbox" ng-model="checkboxNewsletter" style="float:right; padding:0px; margin:0px;">
         </div>
       </div>
     </div>
-      <div class="row" style=" margin-top:30px;">
-        <div style="padding-top:20px; float:right;" >
+      <div id="membershipRecaptchaContainer" class="row" style=" margin-top:30px;">
+        <div id="membershipRecaptcha" style="padding-top:20px; float:right;" >
           <div>
           <div vc-recaptcha class="g-recaptcha" theme="light" key="model.key" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()" style="float:left; margin-top:-13px; width:300px; transform:scale(0.68);"></div>
           <button id="buttonSubmitMembership" type="submit" value="Submit" style="float:right; margin-right:13px; width:395px; height:50px; font-weight:600;"> Submeter </button>

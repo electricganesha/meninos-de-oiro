@@ -4,6 +4,7 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
 <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
+<link rel="stylesheet" href="stylesheets/rzslider.css">
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 <!-- Angular Material requires Angular.js Libraries -->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -21,7 +22,7 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="javascripts/rzslider.js"></script>
+<script src="/javascripts/rzslider.js"></script>
 <script src="/javascripts/angular.js"></script>
 <script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
 <script src="/javascripts/slick.min.js"></script>
@@ -107,7 +108,7 @@
         <div class="donationPagedonateBoxButtonDivPage" ng-click="changePage(3)" style="border-bottom:0px;" ng-style="currentPage == 3 && {'background-color':'#cea44a'}">
           <div class="donationPagedonateBoxButtonDivInsidePage"><img src="images/icon/bank-transfer-logo.png" width="64" height="64"></img></div><div class="donationPagedonateBoxButtonDivInsideText"><p> Transferência </p></div>
         </div>
-        <div class="donationPagedonateBoxButtonDivPage" ng-click="changePage(4)" ng-style="currentPage == 4 && {'background-color':'#cea44a'}}">
+        <div class="donationPagedonateBoxButtonDivPage" ng-click="changePage(4)" ng-style="currentPage == 4 && {'background-color':'#cea44a'}">
           <div class="donationPagedonateBoxButtonDivInsidePage"><img src="images/icon/donation.png" width="64" height="64"></img></div><div class="donationPagedonateBoxButtonDivInsideText"><p> Doação </p></div>
         </div>
       </div>
@@ -122,10 +123,10 @@
           </div>
           <form id="paypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_donations" /><input type="hidden" name="hosted_button_id" value="KYT7ZDUUJ7URJ"/><input type="hidden" name="amount" value="{{slider_visible_bar.value}}"/>
-          <div id="donationPageBoxPaypalRightContainerDonate" style="cursor:pointer;"><p><a id="linkDonate" href="javascript:{}" onclick="document.getElementById('paypalForm').submit(); return false;"> Doar Agora </a></p></div></form>
+          <div id="donationPageBoxPaypalRightContainerDonate" style="cursor:pointer;"><div id="donationPageBoxPaypalRightContainerDonateInside"><p><a id="linkDonate" href="javascript:{}" onclick="document.getElementById('paypalForm').submit(); return false;"> Doar Agora </a></p></div></div></form>
         </div>
         <div>
-        <rzslider rz-slider-model="slider_visible_bar.value" rz-slider-options="slider_visible_bar.options" rz-slider-on-change="$scope.onSliderChange()"></rzslider>
+        <rzslider id="slider" rz-slider-model="slider_visible_bar.value" rz-slider-options="slider_visible_bar.options" rz-slider-on-change="$scope.onSliderChange()"></rzslider>
         </div>
       </div>
       <div id="donationPageBoxPhone" ng-if="currentPage == 2">

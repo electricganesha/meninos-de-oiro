@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html ng-app="meninos-de-oiro">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick.css">
 <link rel="stylesheet" href="javascripts/slick-carousel/slick/slick-theme.css">
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link rel="stylesheet" href="stylesheets/angular-material.min.css">
 <!-- Angular Material requires Angular.js Libraries -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+<script src="javascripts/angular.min.js"></script>
+<script src="javascripts/angular-animate.min.js"></script>
+<script src="javascripts/angular-aria.min.js"></script>
+<script src="javascripts/angular-messages.min.js"></script>
 
 <!-- Angular Material Library -->
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="javascripts/angular-material.min.js"></script>
 
 <!-- Include the JS ReCaptcha API -->
 <script src="//www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
-<script src="https://cdn.rawgit.com/VividCortex/angular-recaptcha/master/release/angular-recaptcha.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+<script src="/javascripts/angular-recaptcha.js"></script>
+<script src="/javascripts/angular-ui-router.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="javascripts/rzslider.js"></script>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/rzslider.js"></script>
 <script src="/javascripts/angular.js"></script>
-<script src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
 <script src="/javascripts/slick.min.js"></script>
+<script src="/javascripts/angular-slick.min.js"></script>
 <head>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <title><%= title %></title>
@@ -220,7 +220,7 @@
     <div id="partnerBox" ng-controller="PartnerBoxCtrl">
           <h1> Parceiros </h1>
         <div id="slickCarouselPartners">
-          <slick autoplay="true" autoplaySpeed="500" dots="false" variable-width="true" arrows="true" infinite="true" speed="300" slides-to-show="4" touch-move="false" slides-to-scroll="1" >
+          <slick init-onload="false" data="dataLoaded" autoplay="true" autoplaySpeed="500" dots="false" variable-width="true" arrows="true" infinite="true" speed="300" slides-to-show="4" touch-move="false" slides-to-scroll="1" >
             <div ng-repeat="partner in partners">
               <ul>
                 <li>

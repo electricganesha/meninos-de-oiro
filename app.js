@@ -28,6 +28,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var port = process.env.PORT || 3003
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,7 +43,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.use(logger('dev'));
+//app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -83,5 +84,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.listen(port,function()
+{
+    console.log('Listening on port' + port);
+});
 
 module.exports = app;

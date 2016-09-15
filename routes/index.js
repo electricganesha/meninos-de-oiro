@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-mongoose.set('debug',true);
 var passport = require('passport');
 var multer = require('multer');
 

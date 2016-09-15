@@ -1571,7 +1571,8 @@ app.controller('CategoryCtrl', [
           $scope.addTeamMember = function()
           {
 
-            if(team.length <=8)
+            console.log($scope.team.length);
+            if($scope.team.length <= 9)
             {
               var currentDate = Date.now();
               var imagem = '';
@@ -1746,7 +1747,11 @@ app.controller('CategoryCtrl', [
                   partners.getAll().success(function(data){
                     $scope.partners=data;
                     $scope.rowCollectionPartners=data;
+
+                    $scope.dataLoaded=true;
+
                   });
+
                 }]);
 
                 app.controller('ContactsCtrl', [
